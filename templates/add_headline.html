@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>ADD NEW HEADLINE - TICKER REACTION TRAINER</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      height: 100vh;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      text-transform: uppercase;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      z-index: 100;
+      text-transform: none;
+    }
+
+    .logo {
+      width: 180px;
+      user-select: none;
+    }
+
+    .home-button {
+      background-color: #000;
+      color: #fff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #222;
+    }
+
+    main {
+      margin-top: 160px;
+      width: 98%;
+      max-width: 900px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.25rem;
+      user-select: none;
+    }
+
+    h1 {
+      font-size: 3.6rem;
+      font-weight: 700;
+      margin: 0;
+      color: #111;
+      user-select: none;
+      white-space: nowrap;
+    }
+
+    form {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 2.75rem; /* slightly more vertical spacing */
+      align-items: center;
+    }
+
+    .form-group {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #111;
+      user-select: none;
+      margin-bottom: 0.5rem;
+    }
+
+    input[type="text"], select {
+      font-size: 1.2rem;
+      padding: 1.1rem 1.25rem; /* increased vertical padding */
+      border-radius: 999px;
+      border: 2px solid #000;
+      width: 100%;
+      outline: none;
+      box-sizing: border-box;
+      text-transform: uppercase;
+      user-select: text;
+      color: #000;
+    }
+
+    input[type="text"]::placeholder {
+      color: #999999;
+      text-transform: none;
+    }
+
+    select {
+      color: #000;
+    }
+
+    select:invalid {
+      color: #999999;
+    }
+
+    input[type="text"]:focus, select:focus {
+      border-color: #00E1A2;
+      box-shadow: 0 0 8px #00E1A2;
+    }
+
+    button {
+      background-color: #000;
+      color: #fff;
+      border: none;
+      border-radius: 999px;
+      padding: 0.85rem 2rem;
+      font-size: 1.4rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      margin-top: 1.5rem;
+      width: 100%;
+      max-width: 300px;
+      align-self: center;
+    }
+
+    button:hover {
+      background-color: #222;
+    }
+
+    .message {
+      margin-top: 1rem;
+      font-size: 1.15rem;
+      min-height: 1.5rem;
+      color: #00E1A2;
+      user-select: none;
+      text-transform: none;
+      max-width: 600px;
+      text-align: center;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #666;
+      margin-top: auto;
+      user-select: none;
+      text-transform: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
+  <a href="/" class="home-button">HOME</a>
+</header>
+
+<main>
+  <h1>ADD NEW HEADLINE</h1>
+
+  <form id="headlineForm">
+    <div class="form-group">
+      <label for="headline">HEADLINE TEXT</label>
+      <input
+        type="text"
+        id="headline"
+        name="headline"
+        autocomplete="off"
+        placeholder="Enter the headline text here"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="tickers">TICKERS (COMMA SEPARATED)</label>
+      <input
+        type="text"
+        id="tickers"
+        name="tickers"
+        autocomplete="off"
+        placeholder="E.g. AAPL, MSFT"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="category">CATEGORY</label>
+      <select id="category" name="category" required>
+        <option value="" disabled selected>SELECT CATEGORY</option>
+        <option value="A">A = STRONG MOVE UP (BULLISH)</option>
+        <option value="B">B = WEAK MOVE UP (BULLISH)</option>
+        <option value="C">C = WEAK MOVE DOWN (BEARISH)</option>
+        <option value="D">D = STRONG MOVE DOWN (BEARISH)</option>
+      </select>
+    </div>
+
+    <button type="submit">ADD HEADLINE</button>
+  </form>
+
+  <div class="message" id="message"></div>
+</main>
+
+<footer>&copy; 2025 Trillium Trading</footer>
+
+<script>
+  const form = document.getElementById('headlineForm');
+  const message = document.getElementById('message');
+
+  form.addEventListener('submit', async e => {
+    e.preventDefault();
+    message.textContent = '';
+
+    const headline = form.headline.value.trim();
+    const tickers = form.tickers.value.trim()
+      .toUpperCase()
+      .split(',')
+      .map(t => t.trim())
+      .filter(t => t.length > 0);
+    const category = form.category.value;
+
+    if (!headline || tickers.length === 0 || !category) {
+      message.textContent = 'PLEASE FILL IN ALL FIELDS CORRECTLY.';
+      message.style.color = '#ef4444';
+      return;
+    }
+
+    try {
+      const res = await fetch('/add_headline', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ headline, tickers, category }),
+      });
+      const data = await res.json();
+
+      if (data.status === 'success') {
+        message.textContent = 'HEADLINE ADDED SUCCESSFULLY!';
+        message.style.color = '#00E1A2';
+        form.reset();
+      } else {
+        message.textContent = data.message || 'ERROR ADDING HEADLINE.';
+        message.style.color = '#ef4444';
+      }
+    } catch (err) {
+      message.textContent = 'NETWORK ERROR. PLEASE TRY AGAIN.';
+      message.style.color = '#ef4444';
+    }
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,52 @@
+[
+  {
+    "headline": "Apple acquires Microsoft in a landmark deal",
+    "tickers": [
+      "AAPL",
+      "MSFT"
+    ],
+    "category": "A"
+  },
+  {
+    "headline": "Tesla announces new battery technology",
+    "tickers": [
+      "TSLA"
+    ],
+    "category": "B"
+  },
+  {
+    "headline": "Amazon faces regulatory scrutiny in Europe",
+    "tickers": [
+      "AMZN"
+    ],
+    "category": "C"
+  },
+  {
+    "headline": "Meta reports quarterly earnings miss",
+    "tickers": [
+      "META"
+    ],
+    "category": "D"
+  },
+  {
+    "headline": "matt melohis is the new ceo of google",
+    "tickers": [
+      "GOOGL"
+    ],
+    "category": "D"
+  },
+  {
+    "headline": "Palantir beats earnings",
+    "tickers": [
+      "PLTR"
+    ],
+    "category": "A"
+  },
+  {
+    "headline": "roaring kitty tweeted about gamestop",
+    "tickers": [
+      "GME"
+    ],
+    "category": "A"
+  }
+]

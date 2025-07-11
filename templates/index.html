@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Ticker Reaction Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0; padding: 0;
+      height: 100vh;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .logo {
+      width: 180px;
+      user-select: none;
+    }
+
+    .home-button {
+      background-color: #000;
+      color: #fff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #222;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 2.5rem;
+      width: 100vw;
+      max-width: 100vw;
+      margin: 0 auto 3rem;
+      padding-top: 10rem; /* space below header */
+      height: calc(100vh - 90px); /* fill viewport below header */
+      justify-content: center; /* center vertically */
+    }
+
+    /* Title closer to headline, smaller margin */
+    .title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem 0;
+      color: #111;
+      user-select: none;
+    }
+
+    /* Headline moved down more and full width */
+    #headline {
+      font-size: 3.2rem; /* decreased from 4.2rem */
+      font-weight: 900;
+      margin: 0;
+      color: #111;
+      text-transform: uppercase;
+      user-select: none;
+      width: 100vw;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      line-height: 1.1;
+      white-space: normal;
+      word-wrap: break-word;
+    }
+
+    /* Input bubble wider and bigger padding */
+    input#answerInput, input#gradeInput {
+      font-size: 1.35rem;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      border: 2px solid #000;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color 0.3s ease;
+      user-select: text;
+      box-sizing: border-box;
+    }
+    input#answerInput:focus, input#gradeInput:focus {
+      border-color: #00E1A2;
+      box-shadow: 0 0 8px #00E1A2;
+    }
+
+    /* Larger timer font */
+    .timer {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #666666;
+      min-height: 1.8rem;
+      margin-bottom: 0;
+      user-select: none;
+    }
+
+    .feedback {
+      font-size: 1.6rem;
+      font-weight: 700;
+      min-height: 3.5rem;
+      line-height: 1.3;
+      margin-top: 0.5rem;
+      user-select: none;
+    }
+    .green {
+      color: #00E1A2;
+    }
+    .red {
+      color: #ef4444;
+    }
+
+    /* Category key bigger and centered with color changes */
+    .category-key {
+      font-size: 1.15rem;
+      color: #333;
+      text-align: center;
+      user-select: none;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      line-height: 1.3;
+    }
+    .category-key b {
+      font-weight: 700;
+    }
+    .category-key b.A,
+    .category-key b.B {
+      color: #00E1A2; /* green for A and B */
+    }
+    .category-key b.C,
+    .category-key b.D {
+      color: #ef4444; /* red for C and D */
+    }
+
+    /* Progress bar container - ALWAYS visible */
+    #progressContainer {
+      width: 100%;
+      max-width: 400px;
+      height: 8px;
+      background-color: #ddd;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 1rem;
+      display: block; /* always visible */
+    }
+    #progressBar {
+      height: 100%;
+      background-color: #000;
+      width: 100%; /* full by default */
+      transition: width 0.1s linear;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #666;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
+    <a href="/" class="home-button">Home</a>
+  </header>
+
+  <main>
+    <h1 class="title">Ticker Reaction Trainer</h1>
+    <div id="headline">Loading headline...</div>
+
+    <input type="text" id="answerInput" placeholder="Enter Ticker(s)" autofocus autocomplete="off" />
+
+    <input type="text" id="gradeInput" placeholder="Enter Grade (A, B, C, D)" autocomplete="off" style="display:none;" maxlength="1" />
+
+    <div id="progressContainer">
+      <div id="progressBar"></div>
+    </div>
+
+    <div class="timer" id="timer">0.00s</div>
+
+    <div id="feedback" class="feedback"></div>
+
+    <div class="category-key">
+      <p><b class="A">A</b> = Strong Bullish</p>
+      <p><b class="B">B</b> = Weak Bullish</p>
+      <p><b class="C">C</b> = Weak Bearish</p>
+      <p><b class="D">D</b> = Strong Bearish</p>
+    </div>
+  </main>
+
+  <footer>&copy; 2025 Trillium Trading</footer>
+
+  <script>
+    let currentHeadline = null;
+    let startTime = null;
+    let timerInterval = null;
+    let gradeTimer = null;
+    const gradeTimeLimit = 5000; // 5 seconds
+
+    const answerInput = document.getElementById("answerInput");
+    const gradeInput = document.getElementById("gradeInput");
+    const timerElem = document.getElementById("timer");
+    const feedback = document.getElementById("feedback");
+    const progressBar = document.getElementById("progressBar");
+
+    let enteredTickers = [];
+    let waitingForGrade = false;
+
+    function startTimer() {
+      startTime = performance.now();
+      timerInterval = setInterval(() => {
+        const elapsed = (performance.now() - startTime) / 1000;
+        timerElem.textContent = `${elapsed.toFixed(2)}s`;
+      }, 100);
+    }
+
+    function stopTimer() {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+
+    function startGradeTimer() {
+      let start = performance.now();
+      progressBar.style.width = "100%";
+
+      gradeTimer = setInterval(() => {
+        const elapsed = performance.now() - start;
+        const percent = Math.max(0, 100 - (elapsed / gradeTimeLimit) * 100);
+        progressBar.style.width = percent + "%";
+
+        if (elapsed >= gradeTimeLimit) {
+          clearInterval(gradeTimer);
+          gradeTimer = null;
+          showFeedback(false, null, `Time's up! Correct grade: ${currentHeadline.category}`);
+          setTimeout(loadHeadline, 2500);
+        }
+      }, 50);
+    }
+
+    function stopGradeTimer() {
+      if (gradeTimer) {
+        clearInterval(gradeTimer);
+        gradeTimer = null;
+      }
+      progressBar.style.width = "100%"; // keep full when not grading
+    }
+
+    async function loadHeadline() {
+      stopTimer();
+      stopGradeTimer();
+      enteredTickers = [];
+      waitingForGrade = false;
+      gradeInput.style.display = "none";
+      answerInput.style.display = "inline-block";
+      answerInput.value = "";
+      gradeInput.value = "";
+      feedback.textContent = "";
+      timerElem.textContent = "0.00s";
+      progressBar.style.width = "100%";
+
+      const res = await fetch("/get_headline");
+      const data = await res.json();
+      currentHeadline = data;
+      document.getElementById("headline").textContent = (data.headline || "No headline found.").toUpperCase();
+
+      answerInput.focus();
+      startTimer();
+    }
+
+    function allTickersEntered() {
+      const required = [...currentHeadline.tickers].sort();
+      const entered = [...enteredTickers].sort();
+      if (required.length !== entered.length) return false;
+      return required.every((val, idx) => val === entered[idx]);
+    }
+
+    async function submitTicker(ticker) {
+      ticker = ticker.trim().toUpperCase();
+      if (!ticker) return;
+
+      if (!currentHeadline.tickers.includes(ticker)) {
+        showFeedback(false, null, `Ticker ${ticker} is not in the headline. Try again.`);
+        return;
+      }
+
+      if (enteredTickers.includes(ticker)) {
+        showFeedback(false, null, `Ticker ${ticker} already entered.`);
+        return;
+      }
+
+      enteredTickers.push(ticker);
+      feedback.textContent = `Ticker accepted: ${ticker}`;
+      feedback.className = "feedback green";
+
+      answerInput.value = "";
+
+      if (allTickersEntered()) {
+        stopTimer();
+        waitingForGrade = true;
+        answerInput.style.display = "none";
+        gradeInput.style.display = "inline-block";
+        gradeInput.focus();
+        feedback.textContent = `Enter grade for tickers: ${enteredTickers.join(", ")}`;
+        startGradeTimer();
+      } else {
+        feedback.textContent = `Ticker accepted: ${ticker}. Enter next ticker.`;
+      }
+    }
+
+    async function submitGrade(grade) {
+      grade = grade.trim().toUpperCase();
+      if (!["A", "B", "C", "D"].includes(grade)) {
+        showFeedback(false, null, "Invalid grade. Enter A, B, C, or D.");
+        return;
+      }
+
+      stopGradeTimer();
+
+      let correct = grade === currentHeadline.category.toUpperCase();
+
+      if (correct) {
+        showFeedback(true, null, "Correct!");
+      } else {
+        showFeedback(false, null, `Incorrect. Correct grade: ${currentHeadline.category.toUpperCase()}`);
+      }
+
+      await fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tickers: enteredTickers,
+          grade,
+          correct,
+          headline: currentHeadline.headline,
+        }),
+      });
+
+      setTimeout(loadHeadline, 2500);
+    }
+
+    function showFeedback(correct, timeTaken, customMsg) {
+      if (correct) {
+        feedback.textContent = customMsg || "Correct!";
+        feedback.className = "feedback green";
+      } else {
+        feedback.textContent = customMsg || "Incorrect.";
+        feedback.className = "feedback red";
+      }
+    }
+
+    answerInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (!waitingForGrade) {
+          const ticker = answerInput.value;
+          if (ticker.trim() === "") {
+            showFeedback(false, null, "Please enter a ticker.");
+            return;
+          }
+          submitTicker(ticker);
+        }
+      }
+    });
+
+    gradeInput.addEventListener("keydown", e => {
+      if (e.key === "Enter") {
+        e.preventDefault();
+        if (waitingForGrade) {
+          const grade = gradeInput.value;
+          if (grade.trim() === "") {
+            showFeedback(false, null, "Please enter a grade.");
+            return;
+          }
+          submitGrade(grade);
+        }
+      }
+    });
+
+    loadHeadline();
+  </script>
+</body>
+</html>

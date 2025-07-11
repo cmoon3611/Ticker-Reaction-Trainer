@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Trillium Ticker Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+    }
+
+    .logo {
+      width: 500px;
+      max-width: 90vw;
+      margin-bottom: 2rem;
+    }
+
+    h1 {
+      font-size: 1.1rem;
+      font-weight: 500;
+      letter-spacing: 0.05em;
+      margin-bottom: 3rem;
+      text-transform: uppercase;
+    }
+
+    .button {
+      display: inline-block;
+      background-color: #000000;
+      color: #ffffff;
+      padding: 1.25rem 2.5rem;
+      border: none;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.25rem;
+      text-transform: uppercase;
+      letter-spacing: 0.05em;
+      margin: 1rem;
+      text-decoration: none;
+      transition: background-color 0.3s ease;
+    }
+
+    .button:hover {
+      background-color: #222222;
+    }
+
+    footer {
+      position: absolute;
+      bottom: 1.5rem;
+      font-size: 0.9rem;
+      color: #666;
+    }
+  </style>
+</head>
+<body>
+
+  <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
+
+  <h1>Ticker Reaction Trainer</h1>
+
+  <a class="button" href="/trainer">Start Trainer</a>
+  <a class="button" href="/add_headline">Add Headline</a>
+
+  <footer>&copy; 2025 Trillium Trading</footer>
+
+</body>
+</html>
