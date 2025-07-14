@@ -2,31 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>ADD NEW HEADLINE - TICKER REACTION TRAINER</title>
+  <title>Edit Headlines - Ticker Reaction Trainer</title>
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
+    /* Base styling */
     html, body {
       margin: 0; padding: 0;
       height: 100vh;
-      background-color: #ffffff;
-      color: #000000;
+      background: #fff;
+      color: #111;
       font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: flex-start;
+      user-select: none;
       text-transform: uppercase;
     }
 
     header {
       position: fixed;
       top: 0; left: 0; right: 0;
+      background: #fff;
+      border-bottom: 1px solid #ddd;
+      padding: 1.25rem 2.5rem;
       display: flex;
       justify-content: space-between;
       align-items: center;
-      padding: 1.25rem 2.5rem;
-      border-bottom: 1px solid #ddd;
-      background: #fff;
       z-index: 100;
       text-transform: none;
     }
@@ -43,12 +44,11 @@
       border-radius: 999px;
       font-weight: 600;
       font-size: 1.1rem;
-      text-transform: uppercase;
-      text-decoration: none;
       letter-spacing: 0.05em;
+      cursor: pointer;
       transition: background-color 0.3s ease;
       user-select: none;
-      cursor: pointer;
+      text-decoration: none;
     }
     .home-button:hover {
       background-color: #222;
@@ -57,121 +57,208 @@
     main {
       margin-top: 160px;
       width: 98%;
-      max-width: 900px;
+      max-width: 1200px;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      text-align: center;
-      gap: 2.25rem;
+      gap: 1rem;
       user-select: none;
+      text-transform: uppercase;
     }
 
     h1 {
-      font-size: 3.6rem;
       font-weight: 700;
-      margin: 0;
+      font-size: 3.2rem;
+      margin: 0 0 1rem 0;
       color: #111;
       user-select: none;
-      white-space: nowrap;
     }
 
-    form {
-      width: 100%;
-      display: flex;
-      flex-direction: column;
-      gap: 2.75rem; /* slightly more vertical spacing */
-      align-items: center;
-    }
-
-    .form-group {
-      width: 100%;
-      max-width: 600px;
-      display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-    }
-
-    label {
-      font-weight: 700;
-      font-size: 1.1rem;
-      color: #111;
-      user-select: none;
-      margin-bottom: 0.5rem;
-    }
-
-    input[type="text"], select {
-      font-size: 1.2rem;
-      padding: 1.1rem 1.25rem; /* increased vertical padding */
-      border-radius: 999px;
-      border: 2px solid #000;
-      width: 100%;
-      outline: none;
-      box-sizing: border-box;
-      text-transform: uppercase;
-      user-select: text;
-      color: #000;
-    }
-
-    input[type="text"]::placeholder {
-      color: #999999;
-      text-transform: none;
-    }
-
-    select {
-      color: #000;
-    }
-
-    select:invalid {
-      color: #999999;
-    }
-
-    input[type="text"]:focus, select:focus {
-      border-color: #00E1A2;
-      box-shadow: 0 0 8px #00E1A2;
-    }
-
-    button {
+    /* Add Headline Button */
+    #openAddModalBtn {
       background-color: #000;
       color: #fff;
-      border: none;
       border-radius: 999px;
-      padding: 0.85rem 2rem;
-      font-size: 1.4rem;
       font-weight: 700;
-      text-transform: uppercase;
+      font-size: 1.2rem;
+      padding: 0.85rem 2rem;
+      border: none;
       cursor: pointer;
-      user-select: none;
+      width: fit-content;
+      align-self: flex-start;
       transition: background-color 0.3s ease;
-      margin-top: 1.5rem;
-      width: 100%;
-      max-width: 300px;
-      align-self: center;
+      user-select: none;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
     }
-
-    button:hover {
+    #openAddModalBtn:hover {
       background-color: #222;
     }
 
-    .message {
-      margin-top: 1rem;
-      font-size: 1.15rem;
-      min-height: 1.5rem;
-      color: #00E1A2;
-      user-select: none;
-      text-transform: none;
-      max-width: 600px;
-      text-align: center;
+    /* Table styling - exactly as you had it */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 1.25rem;
+      user-select: text;
     }
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 1rem;
-      color: #666;
-      margin-top: auto;
-      user-select: none;
-      text-transform: none;
+    thead th {
+      border-bottom: 3px solid #000;
+      padding: 0.85rem 1rem;
+      text-align: left;
+      color: #111;
     }
+
+    tbody td {
+      border-bottom: 1.5px solid #ddd;
+      padding: 0.75rem 1rem;
+      vertical-align: middle;
+      color: #111;
+    }
+
+    tbody tr:hover {
+      background-color: #f5f5f5;
+    }
+
+    .category-cell {
+      text-align: center;
+      font-weight: 700;
+      width: 8%;
+    }
+
+    .tickers-cell {
+      color: #555;
+      font-weight: 400;
+      text-transform: none;
+      width: 25%;
+    }
+
+    .remove-btn {
+      background-color: #ef4444;
+      border: none;
+      color: #fff;
+      font-weight: 700;
+      border-radius: 999px;
+      padding: 0.3rem 0.8rem;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      text-transform: uppercase;
+      width: 72px;
+    }
+    .remove-btn:hover {
+      background-color: #b91c1c;
+    }
+
+    /* Modal Overlay */
+    #modalOverlay {
+      position: fixed;
+      top: 0; left: 0; right: 0; bottom: 0;
+      background: rgba(0,0,0,0.5);
+      display: none;
+      justify-content: center;
+      align-items: center;
+      z-index: 200;
+    }
+
+    /* Modal container */
+    /* Modal container - increased width */
+#addHeadlineModal {
+  background: #fff;
+  border-radius: 12px;
+  padding: 2.5rem 3.5rem;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  width: 480px;      /* wider */
+  max-width: 95vw;
+  display: flex;
+  flex-direction: column;
+  gap: 2.5rem;      /* more vertical space */
+  user-select: none;
+  text-transform: uppercase;
+  position: relative;
+}
+
+/* Label and input grouping */
+#modalForm label {
+  font-weight: 700;
+  font-size: 1.15rem;
+  color: #111;
+  margin-bottom: 0.3rem;   /* close to input */
+  user-select: none;
+  display: block;
+}
+
+/* Inputs: capitalized text and same color, plus margin bottom for spacing */
+#modalForm input[type="text"],
+#modalForm select {
+  padding: 1.15rem 1.5rem;
+  font-size: 1.3rem;
+  border: 2px solid #000;
+  border-radius: 999px;
+  outline: none;
+  text-transform: uppercase;
+  user-select: text;
+  color: #666666;
+  width: 100%;
+  box-sizing: border-box;
+  margin-bottom: 1.2rem; /* increased vertical spacing */
+}
+
+/* Placeholder text normal case and lighter color */
+#modalForm input[type="text"]::placeholder {
+  text-transform: none;
+  color: #999;
+}
+
+/* Close button */
+#closeModalBtn {
+  position: absolute;
+  top: 12px;
+  right: 16px;
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #555;
+  background: none;
+  border: none;
+  cursor: pointer;
+  user-select: none;
+  line-height: 1;
+  transition: color 0.3s ease;
+}
+#closeModalBtn:hover {
+  color: #000;
+}
+
+/* Modal form */
+#modalForm button {
+  background-color: #000;
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.3rem;
+  border: none;
+  border-radius: 999px;
+  padding: 1rem 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  user-select: none;
+  margin-top: 0.75rem;
+  width: 100%;
+  text-transform: uppercase;
+}
+#modalForm button:hover {
+  background-color: #222;
+}
+
+#modalMessage {
+  font-weight: 700;
+  font-size: 1.2rem;
+  height: 1.8rem;
+  color: #00E1A2;
+  text-align: center;
+  user-select: none;
+  text-transform: none;
+  margin-top: 0.3rem;
+}
   </style>
 </head>
 <body>
@@ -182,95 +269,192 @@
 </header>
 
 <main>
-  <h1>ADD NEW HEADLINE</h1>
+  <h1>Edit Headlines</h1>
 
-  <form id="headlineForm">
-    <div class="form-group">
-      <label for="headline">HEADLINE TEXT</label>
+  <button id="openAddModalBtn" aria-haspopup="dialog" aria-controls="addHeadlineModal">Add Headline</button>
+
+  <table aria-label="Current headlines">
+    <thead>
+      <tr>
+        <th>Headline</th>
+        <th>Tickers</th>
+        <th class="category-cell">Category</th>
+        <th>Remove</th>
+      </tr>
+    </thead>
+    <tbody id="headlineTableBody">
+      <!-- Headlines loaded by JS -->
+    </tbody>
+  </table>
+</main>
+
+<!-- Modal -->
+<div id="modalOverlay" role="dialog" aria-modal="true" aria-labelledby="modalTitle" tabindex="-1">
+  <div id="addHeadlineModal">
+    <button id="closeModalBtn" aria-label="Close">&times;</button>
+    <h2 id="modalTitle" style="font-weight:700; font-size:2rem; margin-bottom:1rem; user-select:none;">Add New Headline</h2>
+    <form id="modalForm" autocomplete="off">
+      <label for="modalHeadlineInput">Headline Text</label>
       <input
+        id="modalHeadlineInput"
         type="text"
-        id="headline"
-        name="headline"
-        autocomplete="off"
-        placeholder="Enter the headline text here"
+        placeholder="Enter headline text"
         required
       />
-    </div>
 
-    <div class="form-group">
-      <label for="tickers">TICKERS (COMMA SEPARATED)</label>
+      <label for="modalTickersInput">Tickers (comma separated)</label>
       <input
+        id="modalTickersInput"
         type="text"
-        id="tickers"
-        name="tickers"
-        autocomplete="off"
         placeholder="E.g. AAPL, MSFT"
         required
       />
-    </div>
 
-    <div class="form-group">
-      <label for="category">CATEGORY</label>
-      <select id="category" name="category" required>
+      <label for="modalCategorySelect">Category</label>
+      <select id="modalCategorySelect" required>
         <option value="" disabled selected>SELECT CATEGORY</option>
-        <option value="A">A = STRONG MOVE UP (BULLISH)</option>
-        <option value="B">B = WEAK MOVE UP (BULLISH)</option>
-        <option value="C">C = WEAK MOVE DOWN (BEARISH)</option>
-        <option value="D">D = STRONG MOVE DOWN (BEARISH)</option>
+        <option value="A">LARGE LONG</option>
+        <option value="B">SMALL LONG</option>
+        <option value="C">SMALL SHORT</option>
+        <option value="D">LARGE SHORT</option>
       </select>
-    </div>
 
-    <button type="submit">ADD HEADLINE</button>
-  </form>
-
-  <div class="message" id="message"></div>
-</main>
-
-<footer>&copy; 2025 Trillium Trading</footer>
+      <button type="submit">Add Headline</button>
+      <div id="modalMessage"></div>
+    </form>
+  </div>
+</div>
 
 <script>
-  const form = document.getElementById('headlineForm');
-  const message = document.getElementById('message');
+  const tableBody = document.getElementById("headlineTableBody");
+  const openModalBtn = document.getElementById("openAddModalBtn");
+  const modalOverlay = document.getElementById("modalOverlay");
+  const closeModalBtn = document.getElementById("closeModalBtn");
+  const modalForm = document.getElementById("modalForm");
+  const modalMessage = document.getElementById("modalMessage");
+  const modalHeadlineInput = document.getElementById("modalHeadlineInput");
+  const modalTickersInput = document.getElementById("modalTickersInput");
+  const modalCategorySelect = document.getElementById("modalCategorySelect");
 
-  form.addEventListener('submit', async e => {
+  async function loadHeadlines() {
+    try {
+      const res = await fetch("/headlines");
+      if (!res.ok) throw new Error("Failed to load headlines");
+      const headlines = await res.json();
+      renderHeadlineTable(headlines);
+    } catch (err) {
+      tableBody.innerHTML = `<tr><td colspan="4" style="color:#ef4444; font-weight:700; text-align:center;">Failed to load headlines</td></tr>`;
+    }
+  }
+
+  function renderHeadlineTable(headlines) {
+    if (headlines.length === 0) {
+      tableBody.innerHTML = `<tr><td colspan="4" style="color:#666; font-style: italic; text-align:center;">No headlines available.</td></tr>`;
+      return;
+    }
+
+    tableBody.innerHTML = headlines.map(h => `
+      <tr data-headline="${h.headline}">
+        <td title="${h.headline}">${h.headline}</td>
+        <td class="tickers-cell" title="${h.tickers.join(", ")}">${h.tickers.join(", ")}</td>
+        <td class="category-cell">${h.category}</td>
+        <td><button class="remove-btn" title="Remove headline">&times;</button></td>
+      </tr>
+    `).join("");
+
+    // Attach event listeners to remove buttons
+    document.querySelectorAll(".remove-btn").forEach(btn => {
+      btn.onclick = async (e) => {
+        const tr = e.target.closest("tr");
+        const headlineText = tr.getAttribute("data-headline");
+        if (!confirm(`Remove headline?\n\n${headlineText}`)) return;
+
+        try {
+          const res = await fetch("/remove_headline", {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify({ headline: headlineText }),
+          });
+          const data = await res.json();
+          if (data.status === "success") {
+            modalMessage.style.color = "#00E1A2";
+            modalMessage.textContent = "Headline removed!";
+            loadHeadlines();
+          } else {
+            modalMessage.style.color = "#ef4444";
+            modalMessage.textContent = data.message || "Failed to remove headline.";
+          }
+        } catch {
+          modalMessage.style.color = "#ef4444";
+          modalMessage.textContent = "Network error removing headline.";
+        }
+      };
+    });
+  }
+
+  // Open modal
+  openModalBtn.onclick = () => {
+    modalOverlay.style.display = "flex";
+    modalMessage.textContent = "";
+    modalForm.reset();
+    modalHeadlineInput.focus();
+  };
+
+  // Close modal function
+  function closeModal() {
+    modalOverlay.style.display = "none";
+    modalMessage.textContent = "";
+  }
+
+  closeModalBtn.onclick = closeModal;
+
+  // Also close modal if user clicks outside modal box
+  modalOverlay.onclick = (e) => {
+    if (e.target === modalOverlay) closeModal();
+  };
+
+  modalForm.addEventListener("submit", async (e) => {
     e.preventDefault();
-    message.textContent = '';
+    modalMessage.style.color = "#00E1A2";
+    modalMessage.textContent = "";
 
-    const headline = form.headline.value.trim();
-    const tickers = form.tickers.value.trim()
-      .toUpperCase()
-      .split(',')
-      .map(t => t.trim())
-      .filter(t => t.length > 0);
-    const category = form.category.value;
+    const headline = modalHeadlineInput.value.trim();
+    const tickers = modalTickersInput.value.toUpperCase().split(",").map(t => t.trim()).filter(Boolean);
+    const category = modalCategorySelect.value;
 
     if (!headline || tickers.length === 0 || !category) {
-      message.textContent = 'PLEASE FILL IN ALL FIELDS CORRECTLY.';
-      message.style.color = '#ef4444';
+      modalMessage.style.color = "#ef4444";
+      modalMessage.textContent = "Please fill all fields correctly.";
       return;
     }
 
     try {
-      const res = await fetch('/add_headline', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+      const res = await fetch("/add_headline", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ headline, tickers, category }),
       });
       const data = await res.json();
 
-      if (data.status === 'success') {
-        message.textContent = 'HEADLINE ADDED SUCCESSFULLY!';
-        message.style.color = '#00E1A2';
-        form.reset();
+      if (data.status === "success") {
+        modalMessage.style.color = "#00E1A2";
+        modalMessage.textContent = "Headline added successfully!";
+        loadHeadlines();
+        // Close modal after short delay
+        setTimeout(() => {
+          closeModal();
+        }, 1000);
       } else {
-        message.textContent = data.message || 'ERROR ADDING HEADLINE.';
-        message.style.color = '#ef4444';
+        modalMessage.style.color = "#ef4444";
+        modalMessage.textContent = data.message || "Error adding headline.";
       }
-    } catch (err) {
-      message.textContent = 'NETWORK ERROR. PLEASE TRY AGAIN.';
-      message.style.color = '#ef4444';
+    } catch {
+      modalMessage.style.color = "#ef4444";
+      modalMessage.textContent = "Network error adding headline.";
     }
   });
+
+  loadHeadlines();
 </script>
 
 </body>

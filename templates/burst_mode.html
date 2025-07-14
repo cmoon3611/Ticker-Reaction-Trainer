@@ -1,0 +1,729 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Burst Mode - Ticker Reaction Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      z-index: 100;
+    }
+
+    .logo {
+      width: 180px;
+      user-select: none;
+    }
+
+    .home-button {
+      background-color: #000;
+      color: #fff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #222;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+      width: 100vw;
+      max-width: 100vw;
+      margin: 0 auto 3rem;
+      padding-top: 12rem;
+      height: calc(100vh - 90px);
+      justify-content: center;
+      box-sizing: border-box;
+    }
+
+    .title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0 0 0.5rem 0;
+      color: #111;
+      user-select: none;
+    }
+
+    #headline {
+      font-size: 3.2rem;
+      font-weight: 900;
+      margin: 0 0 0.75rem 0; /* margin bottom to prevent overlap */
+      color: #111;
+      text-transform: uppercase;
+      user-select: none;
+      width: 100vw;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      line-height: 1.1;
+      white-space: normal;
+      word-wrap: break-word;
+      min-height: 4.2rem;
+    }
+
+    #remainingCount {
+      font-size: 1.15rem;
+      font-weight: 600;
+      color: #444;
+      user-select: none;
+      margin-top: 0;
+      margin-bottom: 2rem; /* spacing below */
+      max-width: 800px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    input#answerInput, input#gradeInput {
+      font-size: 1.35rem;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      border: 2px solid #000;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color 0.3s ease;
+      user-select: text;
+      box-sizing: border-box;
+      display: block;
+      margin: 0.5rem auto;
+    }
+    input#answerInput:focus, input#gradeInput:focus {
+      border-color: #00E1A2;
+      box-shadow: 0 0 8px #00E1A2;
+    }
+
+    .timer {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #666666;
+      min-height: 1.8rem;
+      margin-bottom: 0;
+      user-select: none;
+    }
+
+    .feedback {
+      font-size: 1.6rem;
+      font-weight: 700;
+      min-height: 3.5rem;
+      line-height: 1.3;
+      margin-top: 0.5rem;
+      user-select: none;
+    }
+    .green {
+      color: #00E1A2;
+    }
+    .red {
+      color: #ef4444;
+    }
+
+    .category-key {
+      font-size: 1.15rem;
+      color: #333;
+      text-align: center;
+      user-select: none;
+      font-weight: 600;
+      margin-top: 0.5rem;
+      line-height: 1.3;
+    }
+    .category-key b.A,
+    .category-key b.B {
+      color: #00E1A2;
+    }
+    .category-key b.C,
+    .category-key b.D {
+      color: #ef4444;
+    }
+
+    #progressContainer {
+      width: 100%;
+      max-width: 400px;
+      height: 8px;
+      background-color: #ddd;
+      border-radius: 999px;
+      overflow: hidden;
+      margin-top: 1rem;
+      display: block;
+    }
+    #progressBar {
+      height: 100%;
+      background-color: #000;
+      width: 100%;
+      transition: width 0.1s linear;
+    }
+
+    /* Burst Mode stats box styling */
+    #burstStats {
+  max-width: 1000px;      /* wider */
+  width: 90vw;            /* responsive width */
+  margin-top: 0;
+  font-size: 1.15rem;
+  color: #000;
+  text-align: left;
+  user-select: none;
+  display: none;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 20px;
+  padding: 2rem 3rem 3rem 3rem; /* more bottom padding for button */
+  box-shadow: none;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  max-height: 85vh;       /* a bit taller */
+  overflow: auto;         /* allow scroll if needed */
+  box-sizing: border-box;
+}
+
+
+    #burstStats h2 {
+      margin-top: 0;
+      font-weight: 900;
+      color: #000;
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      user-select: none;
+      text-align: center;
+    }
+    #burstStats .results-container {
+      display: flex;
+      gap: 2rem;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    #burstStats .summary, #burstStats .details {
+      flex: 1 1 350px;
+      max-width: 450px;
+    }
+    #burstStats .summary p,
+    #burstStats .details p {
+      margin: 0.5rem 0;
+      font-weight: 600;
+      font-size: 1.1rem;
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid #000;
+      padding-bottom: 0.3rem;
+    }
+    #burstStats .details table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    #burstStats .details th, #burstStats .details td {
+      border: 1px solid #000;
+      padding: 6px 8px;
+      text-align: left;
+      text-transform: uppercase;
+    }
+    #burstStats .details th {
+      background: #000;
+      color: #fff;
+    }
+    #burstStats .details td.correct {
+      color: #00a000;
+      font-weight: 700;
+    }
+    #burstStats .details td.incorrect {
+      color: #d00000;
+      font-weight: 700;
+    }
+
+    #burstStats button {
+      display: block;
+      margin: 2rem auto 0;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+    }
+    #burstStats button:hover {
+      background-color: #444;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #666;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
+  <a href="/" class="home-button">Home</a>
+</header>
+
+<main>
+  <h1 class="title">Burst Mode - 10 Headline Test</h1>
+  <div id="headline">Loading headline...</div>
+  <div id="remainingCount"></div>
+
+  <input type="text" id="answerInput" placeholder="Enter ticker" autofocus autocomplete="off" />
+  <input type="text" id="gradeInput" placeholder="Enter trade key (D/F/K/J)" autocomplete="off" maxlength="1" style="display:none;" />
+
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
+
+  <div class="timer" id="timer">0.00s</div>
+
+  <div id="feedback" class="feedback"></div>
+
+  <div class="category-key">
+    <p><b class="A">Shift + F</b> = Large Long</p>
+    <p><b class="B">Shift + D</b> = Small Long</p>
+    <p><b class="C">Shift + K</b> = Small Short</p>
+    <p><b class="D">Shift + J</b> = Large Short</p>
+  </div>
+
+  <div id="burstStats"></div>
+</main>
+
+<footer>&copy; 2025 Trillium Trading</footer>
+
+<script>
+  let currentHeadline = null;
+  let startTime = null;
+  let timerInterval = null;
+  let gradeTimer = null;
+  const gradeTimeLimit = 5000;
+
+  const answerInput = document.getElementById("answerInput");
+  const gradeInput = document.getElementById("gradeInput");
+  const timerElem = document.getElementById("timer");
+  const feedback = document.getElementById("feedback");
+  const progressBar = document.getElementById("progressBar");
+  const burstStats = document.getElementById("burstStats");
+  const remainingCount = document.getElementById("remainingCount");
+
+  let tickersToGrade = [];
+  let currentTickerIndex = 0;
+  let waitingForGrade = false;
+
+  // Stats arrays to store each answer for summary table:
+  // We'll store objects {headline, ticker, userTicker, userTrade, correctTicker, correctTrade, time}
+  let answerLog = [];
+
+  const totalBurstHeadlines = 10;
+
+  function startTimer() {
+    startTime = performance.now();
+    if (timerInterval !== null) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      const elapsed = (performance.now() - startTime) / 1000;
+      timerElem.textContent = `${elapsed.toFixed(2)}s`;
+    }, 100);
+  }
+
+  function stopTimer() {
+    if (timerInterval !== null) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+  }
+
+  function startGradeTimer() {
+    let start = performance.now();
+    progressBar.style.width = "100%";
+
+    gradeTimer = setInterval(() => {
+      const elapsed = performance.now() - start;
+      const percent = Math.max(0, 100 - (elapsed / gradeTimeLimit) * 100);
+      progressBar.style.width = percent + "%";
+
+      if (elapsed >= gradeTimeLimit) {
+        clearInterval(gradeTimer);
+        gradeTimer = null;
+        showFeedback(false, null, `Time's up! Correct trade: ${getCurrentCategory()}`);
+        recordAnswer(false, gradeTimeLimit, null, null, false);
+        moveToNextTickerOrReload();
+      }
+    }, 50);
+  }
+
+  function stopGradeTimer() {
+    if (gradeTimer) {
+      clearInterval(gradeTimer);
+      gradeTimer = null;
+    }
+    progressBar.style.width = "100%";
+  }
+
+  function getCurrentTicker() {
+    return tickersToGrade[currentTickerIndex];
+  }
+
+  function getCurrentCategory() {
+    return currentHeadline.category.toUpperCase();
+  }
+
+  async function loadHeadlinesBatch() {
+    stopTimer();
+    stopGradeTimer();
+    tickersToGrade = [];
+    currentTickerIndex = 0;
+    waitingForGrade = false;
+    answerLog = [];
+    burstStats.style.display = "none";
+    gradeInput.style.display = "none";
+    answerInput.style.display = "inline-block";
+    answerInput.value = "";
+    gradeInput.value = "";
+    feedback.textContent = "";
+    timerElem.textContent = "0.00s";
+    progressBar.style.width = "100%";
+    remainingCount.textContent = "";
+
+    let fetched = new Set();
+    while (tickersToGrade.length < totalBurstHeadlines) {
+      try {
+        const res = await fetch("/get_headline");
+        const data = await res.json();
+        if (!data.headline || fetched.has(data.headline)) continue;
+        fetched.add(data.headline);
+
+        // Push tickers individually so user must answer for each ticker
+        for (const ticker of data.tickers) {
+          tickersToGrade.push({
+            headline: data.headline,
+            tickers: [ticker],
+            category: data.category
+          });
+          if (tickersToGrade.length >= totalBurstHeadlines) break;
+        }
+      } catch {
+        break;
+      }
+    }
+
+    if (tickersToGrade.length === 0) {
+      document.getElementById("headline").textContent = "No headlines available.";
+      answerInput.style.display = "none";
+      return;
+    }
+
+    currentHeadline = tickersToGrade[0];
+    displayHeadline(currentHeadline);
+    updateRemainingCount();
+    answerInput.focus();
+    startTimer();
+  }
+
+  function displayHeadline(headlineData) {
+    document.getElementById("headline").textContent = (headlineData.headline || "No headline found.").toUpperCase();
+  }
+
+  function updateRemainingCount() {
+    remainingCount.textContent = `Remaining: ${totalBurstHeadlines - currentTickerIndex}`;
+  }
+
+  function showFeedback(correct, timeTaken, customMsg) {
+    if (correct) {
+      feedback.textContent = customMsg || "Correct!";
+      feedback.className = "feedback green";
+    } else {
+      feedback.textContent = customMsg || "Incorrect.";
+      feedback.className = "feedback red";
+    }
+  }
+
+  // recordAnswer stores detailed info for final results
+  // correctTicker and correctTrade booleans are for detailed table display
+  function recordAnswer(correctTrade, timeTaken, userTicker, userTrade, correctTicker) {
+    answerLog.push({
+      headline: currentHeadline.headline,
+      ticker: getCurrentTicker().tickers[0],
+      userTicker: userTicker,
+      userTrade: userTrade,
+      correctTicker: correctTicker,
+      correctTrade: correctTrade,
+      time: (timeTaken/1000).toFixed(2)
+    });
+  }
+
+  async function submitTicker(ticker) {
+    ticker = ticker.trim().toUpperCase();
+    if (!ticker) {
+      showFeedback(false, null, "Please enter a ticker.");
+      return false;
+    }
+
+    const correctTicker = getCurrentTicker().tickers.includes(ticker);
+
+    if (!correctTicker) {
+      showFeedback(false, null, `Incorrect ticker. Try again.`);
+      answerInput.value = "";
+      return false;
+    }
+
+    showFeedback(true, null, `Ticker accepted: ${ticker}`);
+
+    waitingForGrade = true;
+    answerInput.style.display = "none";
+    gradeInput.style.display = "inline-block";
+    gradeInput.value = "";
+    gradeInput.placeholder = `Enter trade key (D/F/K/J)`;
+    gradeInput.focus();
+
+    stopTimer();
+    startGradeTimer();
+
+    // Store userTicker now with correctTicker status, wait for trade submission
+    currentUserTicker = ticker;
+    currentCorrectTicker = correctTicker;
+    return true;
+  }
+
+  // Map shift keys to category letter
+  const keyToCategory = {
+    "D": "B", // Shift + D = Small Long
+    "F": "A", // Shift + F = Large Long
+    "K": "C", // Shift + K = Small Short
+    "J": "D"  // Shift + J = Large Short
+  };
+
+  async function submitGrade(gradeKey) {
+    gradeKey = gradeKey.trim().toUpperCase();
+
+    if (!Object.keys(keyToCategory).includes(gradeKey)) {
+      showFeedback(false, null, "Invalid trade. Use Shift+D/F/K/J.");
+      return;
+    }
+
+    stopGradeTimer();
+
+    const mappedGrade = keyToCategory[gradeKey];
+    const correctCategory = getCurrentCategory();
+    const correctTrade = mappedGrade === correctCategory;
+
+    if (correctTrade) {
+      showFeedback(true, null, `Correct trade for ${getCurrentTicker().tickers[0]}!`);
+    } else {
+      showFeedback(false, null, `Incorrect trade for ${getCurrentTicker().tickers[0]}. You chose: ${mappedGrade}. Correct: ${correctCategory}`);
+    }
+
+    recordAnswer(correctTrade, performance.now() - startTime, currentUserTicker, mappedGrade, currentCorrectTicker);
+
+    try {
+      await fetch("/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          tickers: getCurrentTicker().tickers,
+          grade: mappedGrade,
+          correct: correctTrade,
+          headline: currentHeadline.headline,
+        }),
+      });
+    } catch {}
+
+    moveToNextTickerOrReload();
+  }
+
+  function moveToNextTickerOrReload() {
+    waitingForGrade = false;
+    currentTickerIndex++;
+
+    if (currentTickerIndex >= totalBurstHeadlines) {
+      // Show summary popup with results
+      showBurstStats();
+      return;
+    }
+
+    currentHeadline = tickersToGrade[currentTickerIndex];
+    displayHeadline(currentHeadline);
+    updateRemainingCount();
+    feedback.textContent = "";
+    answerInput.value = "";
+    answerInput.style.display = "inline-block";
+    gradeInput.style.display = "none";
+    answerInput.focus();
+    timerElem.textContent = "0.00s";
+    progressBar.style.width = "100%";
+    startTimer();
+  }
+
+  function calculateStats() {
+    let correctCount = answerLog.filter(a => a.correctTrade && a.correctTicker).length;
+    let timesArr = answerLog.map(a => parseFloat(a.time));
+    let maxTime = Math.max(...timesArr);
+    let minTime = Math.min(...timesArr);
+
+    // Calculate mode time
+    let freq = {};
+    timesArr.forEach(t => freq[t] = (freq[t] || 0) + 1);
+    let modeTime = timesArr[0];
+    let maxFreq = 1;
+    for (const t in freq) {
+      if (freq[t] > maxFreq) {
+        maxFreq = freq[t];
+        modeTime = t;
+      }
+    }
+
+    let avgTime = timesArr.reduce((a,b) => a+b,0)/timesArr.length;
+
+    // Calculate median
+    let sorted = [...timesArr].sort((a,b) => a-b);
+    let medianTime = (sorted.length % 2 === 1) ? sorted[Math.floor(sorted.length/2)] : (sorted[sorted.length/2 - 1] + sorted[sorted.length/2]) / 2;
+
+    // Calculate standard deviation
+    let variance = timesArr.reduce((a,b) => a + Math.pow(b - avgTime, 2), 0) / timesArr.length;
+    let stdDev = Math.sqrt(variance);
+
+    return {
+      correctCount,
+      total: answerLog.length,
+      maxTime: maxTime.toFixed(2),
+      minTime: minTime.toFixed(2),
+      modeTime: parseFloat(modeTime).toFixed(2),
+      avgTime: avgTime.toFixed(2),
+      medianTime: medianTime.toFixed(2),
+      stdDev: stdDev.toFixed(2),
+      accuracyPercent: ((correctCount / answerLog.length) * 100).toFixed(1)
+    };
+  }
+
+  function showBurstStats() {
+    answerInput.style.display = "none";
+    gradeInput.style.display = "none";
+    progressBar.style.width = "100%";
+    timerElem.textContent = "";
+
+    const stats = calculateStats();
+
+    // Build HTML for results popup (black & white, no scroll)
+    let html = `
+      <h2>Burst Mode Results</h2>
+      <div class="results-container">
+        <div class="summary">
+          <p><strong>Accuracy:</strong> <span>${stats.accuracyPercent}% (${stats.correctCount} / ${stats.total})</span></p>
+          <p><strong>Max Time:</strong> <span>${stats.maxTime}s</span></p>
+          <p><strong>Mode Time:</strong> <span>${stats.modeTime}s</span></p>
+          <p><strong>Median Time:</strong> <span>${stats.medianTime}s</span></p>
+          <p><strong>Average Time:</strong> <span>${stats.avgTime}s</span></p>
+          <p><strong>Std Dev Time:</strong> <span>${stats.stdDev}s</span></p>
+        </div>
+        <div class="details">
+          <table>
+            <thead>
+              <tr>
+                <th>#</th>
+                <th>Ticker</th>
+                <th>Your Ticker</th>
+                <th>Your Trade</th>
+                <th>Correct Ticker</th>
+                <th>Correct Trade</th>
+                <th>Time (s)</th>
+              </tr>
+            </thead>
+            <tbody>
+              ${answerLog.map((a,i) => `
+                <tr>
+                  <td>${i+1}</td>
+                  <td>${a.ticker}</td>
+                  <td class="${a.ticker === a.userTicker ? "correct" : "incorrect"}">${a.userTicker || ""}</td>
+                  <td class="${a.correctTrade ? "correct" : "incorrect"}">${a.userTrade || ""}</td>
+                  <td>${a.correctTicker ? "✓" : "✗"}</td>
+                  <td>${a.correctTrade ? "✓" : "✗"}</td>
+                  <td>${a.time}</td>
+                </tr>
+              `).join('')}
+            </tbody>
+          </table>
+        </div>
+      </div>
+      <button id="restartBurst">Restart Burst Mode</button>
+    `;
+
+    burstStats.innerHTML = html;
+    burstStats.style.display = "block";
+
+    document.getElementById("restartBurst").onclick = () => {
+      burstStats.style.display = "none";
+      loadHeadlinesBatch();
+      answerInput.focus();
+    };
+  }
+
+  // Event listener: submit ticker on Enter or lose focus
+  answerInput.addEventListener("keydown", async (e) => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (waitingForGrade) return; // ignore if waiting for grade input
+      await submitTicker(answerInput.value);
+    }
+  });
+
+  // Also allow clicking out or pressing tab to try submit ticker
+  answerInput.addEventListener("blur", async (e) => {
+    if (!waitingForGrade && answerInput.value.trim() !== "") {
+      await submitTicker(answerInput.value);
+    }
+  });
+
+  // gradeInput listens for Shift+D/F/K/J without Enter
+  gradeInput.addEventListener("keydown", async (e) => {
+    if (!e.shiftKey) return; // require Shift pressed
+    const validKeys = ["D", "F", "K", "J"];
+    if (validKeys.includes(e.key.toUpperCase())) {
+      e.preventDefault();
+      if (!waitingForGrade) return;
+      await submitGrade(e.key.toUpperCase());
+    }
+  });
+
+  // Start burst mode on page load
+  loadHeadlinesBatch();
+</script>
+</body>
+</html>

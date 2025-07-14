@@ -34,10 +34,12 @@
     }
 
     .button {
-      display: inline-block;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
       background-color: #000000;
       color: #ffffff;
-      padding: 1.25rem 2.5rem;
+      padding: 0 2.5rem;
       border: none;
       border-radius: 999px;
       font-weight: 600;
@@ -47,6 +49,11 @@
       margin: 1rem;
       text-decoration: none;
       transition: background-color 0.3s ease;
+      width: 260px;
+      height: 55px;
+      box-sizing: border-box;
+      user-select: none;
+      text-align: center;
     }
 
     .button:hover {
@@ -68,7 +75,8 @@
   <h1>Ticker Reaction Trainer</h1>
 
   <a class="button" href="/trainer">Start Trainer</a>
-  <a class="button" href="/add_headline">Add Headline</a>
+  <a class="button" href="/burst_mode">Burst Mode</a>
+  <a class="button" href="/add_headline">Edit Headlines</a>
 
   <footer>&copy; 2025 Trillium Trading</footer>
 

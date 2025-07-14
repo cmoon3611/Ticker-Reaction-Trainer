@@ -28,21 +28,30 @@ def intro():
 def trainer():
     return render_template("index.html")
 
+@app.route("/burst_mode")
+def burst_mode():
+    return render_template("burst_mode.html")
+
 @app.route("/get_headline")
 def get_headline():
     if not HEADLINES:
         return jsonify({"headline": "No headlines yet!", "tickers": [], "category": ""})
 
-    last_headline = session.get("last_headline")
-    # Filter headlines excluding the last one sent
-    choices = [h for h in HEADLINES if h != last_headline]
-    if not choices:
-        # If only one headline exists or all headlines are same, return it
-        headline = HEADLINES[0]
-    else:
-        headline = random.choice(choices)
+    mode = request.args.get("mode", "").lower()
 
-    session["last_headline"] = headline
+    if mode == "burst":
+        # For burst mode, pick any random headline (no exclusion)
+        headline = random.choice(HEADLINES)
+    else:
+        # Normal mode: exclude last headline shown (to avoid repetition)
+        last_headline_text = session.get("last_headline_text")
+        choices = [h for h in HEADLINES if h["headline"] != last_headline_text]
+        if not choices:
+            headline = HEADLINES[0]
+        else:
+            headline = random.choice(choices)
+        session["last_headline_text"] = headline["headline"]
+
     return jsonify(headline)
 
 @app.route("/submit", methods=["POST"])
@@ -80,6 +89,29 @@ def add_headline_submit():
     HEADLINES.append(new_entry)
     save_headlines(HEADLINES)
 
+    return jsonify({"status": "success"})
+
+# NEW: Endpoint to get all headlines
+@app.route("/headlines", methods=["GET"])
+def get_all_headlines():
+    return jsonify(HEADLINES)
+
+# NEW: Endpoint to remove a headline by exact headline text
+@app.route("/remove_headline", methods=["POST"])
+def remove_headline():
+    data = request.get_json()
+    headline_to_remove = data.get("headline", "").strip()
+    if not headline_to_remove:
+        return jsonify({"status": "error", "message": "No headline specified"}), 400
+
+    global HEADLINES
+    original_len = len(HEADLINES)
+    HEADLINES = [h for h in HEADLINES if h["headline"] != headline_to_remove]
+
+    if len(HEADLINES) == original_len:
+        return jsonify({"status": "error", "message": "Headline not found"}), 404
+
+    save_headlines(HEADLINES)
     return jsonify({"status": "success"})
 
 if __name__ == "__main__":

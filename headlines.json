@@ -48,5 +48,26 @@
       "GME"
     ],
     "category": "A"
+  },
+  {
+    "headline": "the zuck is stuck on the moon",
+    "tickers": [
+      "META"
+    ],
+    "category": "D"
+  },
+  {
+    "headline": "michael jordan comes out of retirement",
+    "tickers": [
+      "NKE"
+    ],
+    "category": "A"
+  },
+  {
+    "headline": "ROBLOX buys fortnite",
+    "tickers": [
+      "RBLX"
+    ],
+    "category": "A"
   }
 ]

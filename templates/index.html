@@ -6,8 +6,10 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
   <style>
     html, body {
-      margin: 0; padding: 0;
+      margin: 0;
+      padding: 0;
       height: 100vh;
+      overflow: hidden;
       background-color: #ffffff;
       color: #000000;
       font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
@@ -61,12 +63,11 @@
       width: 100vw;
       max-width: 100vw;
       margin: 0 auto 3rem;
-      padding-top: 10rem; /* space below header */
-      height: calc(100vh - 90px); /* fill viewport below header */
-      justify-content: center; /* center vertically */
+      padding-top: 12rem;
+      height: calc(100vh - 90px);
+      justify-content: center;
     }
 
-    /* Title closer to headline, smaller margin */
     .title {
       font-size: 1.6rem;
       font-weight: 400;
@@ -77,9 +78,8 @@
       user-select: none;
     }
 
-    /* Headline moved down more and full width */
     #headline {
-      font-size: 3.2rem; /* decreased from 4.2rem */
+      font-size: 3.2rem;
       font-weight: 900;
       margin: 0;
       color: #111;
@@ -93,7 +93,6 @@
       word-wrap: break-word;
     }
 
-    /* Input bubble wider and bigger padding */
     input#answerInput, input#gradeInput {
       font-size: 1.35rem;
       padding: 1rem 2rem;
@@ -113,7 +112,6 @@
       box-shadow: 0 0 8px #00E1A2;
     }
 
-    /* Larger timer font */
     .timer {
       font-size: 2rem;
       font-weight: 600;
@@ -138,7 +136,6 @@
       color: #ef4444;
     }
 
-    /* Category key bigger and centered with color changes */
     .category-key {
       font-size: 1.15rem;
       color: #333;
@@ -153,14 +150,13 @@
     }
     .category-key b.A,
     .category-key b.B {
-      color: #00E1A2; /* green for A and B */
+      color: #00E1A2;
     }
     .category-key b.C,
     .category-key b.D {
-      color: #ef4444; /* red for C and D */
+      color: #ef4444;
     }
 
-    /* Progress bar container - ALWAYS visible */
     #progressContainer {
       width: 100%;
       max-width: 400px;
@@ -169,12 +165,12 @@
       border-radius: 999px;
       overflow: hidden;
       margin-top: 1rem;
-      display: block; /* always visible */
+      display: block;
     }
     #progressBar {
       height: 100%;
       background-color: #000;
-      width: 100%; /* full by default */
+      width: 100%;
       transition: width 0.1s linear;
     }
 
@@ -189,224 +185,267 @@
 </head>
 <body>
 
-  <header>
-    <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
-    <a href="/" class="home-button">Home</a>
-  </header>
+<header>
+  <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
+  <a href="/" class="home-button">Home</a>
+</header>
 
-  <main>
-    <h1 class="title">Ticker Reaction Trainer</h1>
-    <div id="headline">Loading headline...</div>
+<main>
+  <h1 class="title">Ticker Reaction Trainer</h1>
+  <div id="headline">Loading headline...</div>
 
-    <input type="text" id="answerInput" placeholder="Enter Ticker(s)" autofocus autocomplete="off" />
+  <input type="text" id="answerInput" placeholder="Enter ticker" autofocus autocomplete="off" />
+  <input type="text" id="gradeInput" placeholder="ENTER TRADE" autocomplete="off" style="display:none;" maxlength="1" />
 
-    <input type="text" id="gradeInput" placeholder="Enter Grade (A, B, C, D)" autocomplete="off" style="display:none;" maxlength="1" />
+  <div id="progressContainer">
+    <div id="progressBar"></div>
+  </div>
 
-    <div id="progressContainer">
-      <div id="progressBar"></div>
-    </div>
+  <div class="timer" id="timer">0.00s</div>
 
-    <div class="timer" id="timer">0.00s</div>
+  <div id="feedback" class="feedback"></div>
 
-    <div id="feedback" class="feedback"></div>
+  <div class="category-key">
+    <p style="color:#00E1A2"><b class="B">Shift + D</b> = Small Long</p>
+    <p style="color:#00E1A2"><b class="B">Shift + F</b> = Large Long</p>
+    <p style="color:#ef4444"><b class="K">Shift + K</b> = Small Short</p>
+    <p style="color:#ef4444"><b class="J">Shift + J</b> = Large Short</p>
+  </div>
+</main>
 
-    <div class="category-key">
-      <p><b class="A">A</b> = Strong Bullish</p>
-      <p><b class="B">B</b> = Weak Bullish</p>
-      <p><b class="C">C</b> = Weak Bearish</p>
-      <p><b class="D">D</b> = Strong Bearish</p>
-    </div>
-  </main>
+<footer>&copy; 2025 Trillium Trading</footer>
 
-  <footer>&copy; 2025 Trillium Trading</footer>
+<script>
+  function categoryToTradeName(cat) {
+    const map = {
+      "A": "Large Long",
+      "B": "Small Long",
+      "C": "Small Short",
+      "D": "Large Short"
+    };
+    return map[cat] || cat;
+  }
 
-  <script>
-    let currentHeadline = null;
-    let startTime = null;
-    let timerInterval = null;
-    let gradeTimer = null;
-    const gradeTimeLimit = 5000; // 5 seconds
+  let currentHeadline = null;
+  let startTime = null;
+  let timerInterval = null;
+  let gradeTimer = null;
+  const gradeTimeLimit = 5000;
 
-    const answerInput = document.getElementById("answerInput");
-    const gradeInput = document.getElementById("gradeInput");
-    const timerElem = document.getElementById("timer");
-    const feedback = document.getElementById("feedback");
-    const progressBar = document.getElementById("progressBar");
+  const answerInput = document.getElementById("answerInput");
+  const gradeInput = document.getElementById("gradeInput");
+  const timerElem = document.getElementById("timer");
+  const feedback = document.getElementById("feedback");
+  const progressBar = document.getElementById("progressBar");
 
-    let enteredTickers = [];
-    let waitingForGrade = false;
+  let tickersToGrade = [];
+  let currentTickerIndex = 0;
+  let waitingForGrade = false;
 
-    function startTimer() {
-      startTime = performance.now();
-      timerInterval = setInterval(() => {
-        const elapsed = (performance.now() - startTime) / 1000;
-        timerElem.textContent = `${elapsed.toFixed(2)}s`;
-      }, 100);
-    }
+  function startTimer() {
+    startTime = performance.now();
+    if (timerInterval !== null) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      const elapsed = (performance.now() - startTime) / 1000;
+      timerElem.textContent = `${elapsed.toFixed(2)}s`;
+    }, 100);
+  }
 
-    function stopTimer() {
+  function stopTimer() {
+    if (timerInterval !== null) {
       clearInterval(timerInterval);
       timerInterval = null;
     }
+  }
 
-    function startGradeTimer() {
-      let start = performance.now();
-      progressBar.style.width = "100%";
+  function startGradeTimer() {
+    let start = performance.now();
+    progressBar.style.width = "100%";
 
-      gradeTimer = setInterval(() => {
-        const elapsed = performance.now() - start;
-        const percent = Math.max(0, 100 - (elapsed / gradeTimeLimit) * 100);
-        progressBar.style.width = percent + "%";
+    gradeTimer = setInterval(() => {
+      const elapsed = performance.now() - start;
+      const percent = Math.max(0, 100 - (elapsed / gradeTimeLimit) * 100);
+      progressBar.style.width = percent + "%";
 
-        if (elapsed >= gradeTimeLimit) {
-          clearInterval(gradeTimer);
-          gradeTimer = null;
-          showFeedback(false, null, `Time's up! Correct grade: ${currentHeadline.category}`);
-          setTimeout(loadHeadline, 2500);
-        }
-      }, 50);
-    }
-
-    function stopGradeTimer() {
-      if (gradeTimer) {
+      if (elapsed >= gradeTimeLimit) {
         clearInterval(gradeTimer);
         gradeTimer = null;
+        showFeedback(false, null, `Time's up! Correct trade: ${categoryToTradeName(getCurrentCategory())}`);
+        moveToNextTickerOrReload();
       }
-      progressBar.style.width = "100%"; // keep full when not grading
+    }, 50);
+  }
+
+  function stopGradeTimer() {
+    if (gradeTimer) {
+      clearInterval(gradeTimer);
+      gradeTimer = null;
+    }
+    progressBar.style.width = "100%";
+  }
+
+  function getCurrentTicker() {
+    return tickersToGrade[currentTickerIndex];
+  }
+
+  function getCurrentCategory() {
+    return currentHeadline.category.toUpperCase();
+  }
+
+  async function loadHeadline() {
+    stopTimer();
+    stopGradeTimer();
+    tickersToGrade = [];
+    currentTickerIndex = 0;
+    waitingForGrade = false;
+    gradeInput.style.display = "none";
+    answerInput.style.display = "inline-block";
+    answerInput.value = "";
+    gradeInput.value = "";
+    feedback.textContent = "";
+    timerElem.textContent = "0.00s";
+    progressBar.style.width = "100%";
+
+    const res = await fetch("/get_headline");
+    const data = await res.json();
+    currentHeadline = data;
+    tickersToGrade = [...currentHeadline.tickers];
+
+    document.getElementById("headline").textContent = (data.headline || "No headline found.").toUpperCase();
+    answerInput.focus();
+    startTimer();
+  }
+
+  function showFeedback(correct, timeTaken, customMsg) {
+    if (correct) {
+      feedback.textContent = customMsg || "Correct!";
+      feedback.className = "feedback green";
+    } else {
+      feedback.textContent = customMsg || "Incorrect.";
+      feedback.className = "feedback red";
+    }
+  }
+
+  async function submitTicker(ticker) {
+    ticker = ticker.trim().toUpperCase();
+    if (!ticker) return;
+
+    if (!tickersToGrade.includes(ticker)) {
+      showFeedback(false, null, `Incorrect ticker. Try again.`);
+      answerInput.value = "";
+      return;
     }
 
-    async function loadHeadline() {
-      stopTimer();
-      stopGradeTimer();
-      enteredTickers = [];
+    showFeedback(true, null, `Ticker accepted: ${ticker}`);
+
+    waitingForGrade = true;
+    answerInput.style.display = "none";
+    gradeInput.style.display = "inline-block";
+    gradeInput.value = "";
+    gradeInput.placeholder = `ENTER TRADE`;
+    gradeInput.focus();
+
+    startGradeTimer();
+  }
+
+  async function submitGrade(grade) {
+    grade = grade.trim().toUpperCase();
+    const keyToCategory = {
+      "D": "B",
+      "F": "A",
+      "K": "C",
+      "J": "D"
+    };
+
+    if (!Object.keys(keyToCategory).includes(grade)) {
+      showFeedback(false, null, "Invalid trade. Use Shift+D/F/K/J.");
+      return;
+    }
+
+    const mappedGrade = keyToCategory[grade];
+    stopTimer();
+    stopGradeTimer();
+
+    const correctCategory = getCurrentCategory();
+    const correct = mappedGrade === correctCategory;
+
+    if (correct) {
+      showFeedback(true, null, `Correct trade for ${getCurrentTicker()}!`);
+    } else {
+      showFeedback(false, null, `Incorrect trade for ${getCurrentTicker()}. You chose: ${categoryToTradeName(mappedGrade)}. Correct: ${categoryToTradeName(correctCategory)}`);
+    }
+
+    await fetch("/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tickers: [getCurrentTicker()],
+        grade: mappedGrade,
+        correct,
+        headline: currentHeadline.headline,
+      }),
+    });
+
+    moveToNextTickerOrReload();
+  }
+
+  function moveToNextTickerOrReload() {
+    currentTickerIndex++;
+    if (currentTickerIndex >= tickersToGrade.length) {
+      setTimeout(loadHeadline, 2500);
+    } else {
       waitingForGrade = false;
       gradeInput.style.display = "none";
       answerInput.style.display = "inline-block";
       answerInput.value = "";
-      gradeInput.value = "";
       feedback.textContent = "";
       timerElem.textContent = "0.00s";
       progressBar.style.width = "100%";
-
-      const res = await fetch("/get_headline");
-      const data = await res.json();
-      currentHeadline = data;
-      document.getElementById("headline").textContent = (data.headline || "No headline found.").toUpperCase();
-
       answerInput.focus();
       startTimer();
     }
+  }
 
-    function allTickersEntered() {
-      const required = [...currentHeadline.tickers].sort();
-      const entered = [...enteredTickers].sort();
-      if (required.length !== entered.length) return false;
-      return required.every((val, idx) => val === entered[idx]);
-    }
-
-    async function submitTicker(ticker) {
-      ticker = ticker.trim().toUpperCase();
-      if (!ticker) return;
-
-      if (!currentHeadline.tickers.includes(ticker)) {
-        showFeedback(false, null, `Ticker ${ticker} is not in the headline. Try again.`);
-        return;
-      }
-
-      if (enteredTickers.includes(ticker)) {
-        showFeedback(false, null, `Ticker ${ticker} already entered.`);
-        return;
-      }
-
-      enteredTickers.push(ticker);
-      feedback.textContent = `Ticker accepted: ${ticker}`;
-      feedback.className = "feedback green";
-
-      answerInput.value = "";
-
-      if (allTickersEntered()) {
-        stopTimer();
-        waitingForGrade = true;
-        answerInput.style.display = "none";
-        gradeInput.style.display = "inline-block";
-        gradeInput.focus();
-        feedback.textContent = `Enter grade for tickers: ${enteredTickers.join(", ")}`;
-        startGradeTimer();
-      } else {
-        feedback.textContent = `Ticker accepted: ${ticker}. Enter next ticker.`;
-      }
-    }
-
-    async function submitGrade(grade) {
-      grade = grade.trim().toUpperCase();
-      if (!["A", "B", "C", "D"].includes(grade)) {
-        showFeedback(false, null, "Invalid grade. Enter A, B, C, or D.");
-        return;
-      }
-
-      stopGradeTimer();
-
-      let correct = grade === currentHeadline.category.toUpperCase();
-
-      if (correct) {
-        showFeedback(true, null, "Correct!");
-      } else {
-        showFeedback(false, null, `Incorrect. Correct grade: ${currentHeadline.category.toUpperCase()}`);
-      }
-
-      await fetch("/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tickers: enteredTickers,
-          grade,
-          correct,
-          headline: currentHeadline.headline,
-        }),
-      });
-
-      setTimeout(loadHeadline, 2500);
-    }
-
-    function showFeedback(correct, timeTaken, customMsg) {
-      if (correct) {
-        feedback.textContent = customMsg || "Correct!";
-        feedback.className = "feedback green";
-      } else {
-        feedback.textContent = customMsg || "Incorrect.";
-        feedback.className = "feedback red";
-      }
-    }
-
-    answerInput.addEventListener("keydown", e => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        if (!waitingForGrade) {
-          const ticker = answerInput.value;
-          if (ticker.trim() === "") {
-            showFeedback(false, null, "Please enter a ticker.");
-            return;
-          }
-          submitTicker(ticker);
+  answerInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (!waitingForGrade) {
+        const ticker = answerInput.value;
+        if (ticker.trim() === "") {
+          showFeedback(false, null, "Please enter a ticker.");
+          return;
         }
+        submitTicker(ticker);
       }
-    });
+    }
+  });
 
-    gradeInput.addEventListener("keydown", e => {
-      if (e.key === "Enter") {
-        e.preventDefault();
-        if (waitingForGrade) {
-          const grade = gradeInput.value;
-          if (grade.trim() === "") {
-            showFeedback(false, null, "Please enter a grade.");
-            return;
-          }
-          submitGrade(grade);
+  gradeInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
+      e.preventDefault();
+      if (waitingForGrade) {
+        const grade = gradeInput.value;
+        if (grade.trim() === "") {
+          showFeedback(false, null, "Please enter a trade.");
+          return;
         }
+        submitGrade(grade);
       }
-    });
+    }
+  });
 
-    loadHeadline();
-  </script>
+  document.addEventListener("keydown", e => {
+    if (waitingForGrade && e.shiftKey) {
+      const key = e.key.toUpperCase();
+      if (["D", "F", "K", "J"].includes(key)) {
+        e.preventDefault();
+        submitGrade(key);
+      }
+    }
+  });
+
+  loadHeadline();
+</script>
+
 </body>
 </html>
