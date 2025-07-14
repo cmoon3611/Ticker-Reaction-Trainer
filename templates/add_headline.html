@@ -94,7 +94,7 @@
       background-color: #222;
     }
 
-    /* Table styling - exactly as you had it */
+    /* Table styling */
     table {
       width: 100%;
       border-collapse: collapse;
@@ -159,106 +159,122 @@
       justify-content: center;
       align-items: center;
       z-index: 200;
+      padding: 1rem;
     }
 
     /* Modal container */
-    /* Modal container - increased width */
-#addHeadlineModal {
-  background: #fff;
-  border-radius: 12px;
-  padding: 2.5rem 3.5rem;
-  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
-  width: 480px;      /* wider */
-  max-width: 95vw;
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;      /* more vertical space */
-  user-select: none;
-  text-transform: uppercase;
-  position: relative;
-}
+    #addHeadlineModal {
+      background: #fff;
+      border-radius: 12px;
+      padding: 2rem 3rem;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+      width: 500px;
+      max-width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+      user-select: none;
+      text-transform: uppercase;
+      position: relative;
+      box-sizing: border-box;
+    }
 
-/* Label and input grouping */
-#modalForm label {
-  font-weight: 700;
-  font-size: 1.15rem;
-  color: #111;
-  margin-bottom: 0.3rem;   /* close to input */
-  user-select: none;
-  display: block;
-}
+    /* Label and input grouping */
+    #modalForm label {
+      font-weight: 700;
+      font-size: 1.1rem;
+      color: #111;
+      margin-bottom: 0.3rem;
+      user-select: none;
+      display: block;
+    }
 
-/* Inputs: capitalized text and same color, plus margin bottom for spacing */
-#modalForm input[type="text"],
-#modalForm select {
-  padding: 1.15rem 1.5rem;
-  font-size: 1.3rem;
-  border: 2px solid #000;
-  border-radius: 999px;
-  outline: none;
-  text-transform: uppercase;
-  user-select: text;
-  color: #666666;
-  width: 100%;
-  box-sizing: border-box;
-  margin-bottom: 1.2rem; /* increased vertical spacing */
-}
+    /* Inputs */
+    #modalForm input[type="text"],
+    #modalForm select {
+      padding: 0.9rem 1.25rem;
+      font-size: 1.15rem;
+      border: 2px solid #000;
+      border-radius: 999px;
+      outline: none;
+      user-select: text;
+      color: #222;
+      width: 100%;
+      box-sizing: border-box;
+      margin-bottom: 0.9rem;
+    }
+    #modalHeadlineInput {
+      text-transform: uppercase;
+    }
 
-/* Placeholder text normal case and lighter color */
-#modalForm input[type="text"]::placeholder {
-  text-transform: none;
-  color: #999;
-}
+    /* Placeholder text */
+    #modalForm input[type="text"]::placeholder {
+      text-transform: none;
+      color: #888;
+      font-style: italic;
+    }
 
-/* Close button */
-#closeModalBtn {
-  position: absolute;
-  top: 12px;
-  right: 16px;
-  font-size: 1.8rem;
-  font-weight: 700;
-  color: #555;
-  background: none;
-  border: none;
-  cursor: pointer;
-  user-select: none;
-  line-height: 1;
-  transition: color 0.3s ease;
-}
-#closeModalBtn:hover {
-  color: #000;
-}
+    /* Grade legend */
+    #gradeLegend {
+      font-size: 1rem;
+      color: #444;
+      font-weight: 600;
+      line-height: 1.4;
+      user-select: none;
+      margin-top: -0.3rem;
+      margin-bottom: 1rem;
+      text-transform: none;
+    }
 
-/* Modal form */
-#modalForm button {
-  background-color: #000;
-  color: #fff;
-  font-weight: 700;
-  font-size: 1.3rem;
-  border: none;
-  border-radius: 999px;
-  padding: 1rem 0;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  user-select: none;
-  margin-top: 0.75rem;
-  width: 100%;
-  text-transform: uppercase;
-}
-#modalForm button:hover {
-  background-color: #222;
-}
+    /* Close button */
+    #closeModalBtn {
+      position: absolute;
+      top: 10px;
+      right: 14px;
+      font-size: 1.9rem;
+      font-weight: 700;
+      color: #555;
+      background: none;
+      border: none;
+      cursor: pointer;
+      user-select: none;
+      line-height: 1;
+      transition: color 0.3s ease;
+    }
+    #closeModalBtn:hover {
+      color: #000;
+    }
 
-#modalMessage {
-  font-weight: 700;
-  font-size: 1.2rem;
-  height: 1.8rem;
-  color: #00E1A2;
-  text-align: center;
-  user-select: none;
-  text-transform: none;
-  margin-top: 0.3rem;
-}
+    /* Modal submit button */
+    #modalForm button {
+      background-color: #000;
+      color: #fff;
+      font-weight: 700;
+      font-size: 1.25rem;
+      border: none;
+      border-radius: 999px;
+      padding: 1rem 0;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      margin-top: 0.5rem;
+      width: 100%;
+      text-transform: uppercase;
+    }
+    #modalForm button:hover {
+      background-color: #222;
+    }
+
+    #modalMessage {
+      font-weight: 700;
+      font-size: 1.15rem;
+      height: 1.6rem;
+      color: #00E1A2;
+      text-align: center;
+      user-select: none;
+      text-transform: none;
+      margin-top: 0.25rem;
+    }
   </style>
 </head>
 <body>
@@ -302,22 +318,19 @@
         required
       />
 
-      <label for="modalTickersInput">Tickers (comma separated)</label>
+      <label for="modalTickersInput">Tickers</label>
       <input
         id="modalTickersInput"
         type="text"
-        placeholder="E.g. AAPL, MSFT"
+        placeholder="E.g. AAPL:A, MSFT:C"
         required
       />
-
-      <label for="modalCategorySelect">Category</label>
-      <select id="modalCategorySelect" required>
-        <option value="" disabled selected>SELECT CATEGORY</option>
-        <option value="A">LARGE LONG</option>
-        <option value="B">SMALL LONG</option>
-        <option value="C">SMALL SHORT</option>
-        <option value="D">LARGE SHORT</option>
-      </select>
+      <div id="gradeLegend">
+        A: Large Long<br />
+        B: Small Long<br />
+        C: Small Short<br />
+        D: Large Short
+      </div>
 
       <button type="submit">Add Headline</button>
       <div id="modalMessage"></div>
@@ -334,7 +347,6 @@
   const modalMessage = document.getElementById("modalMessage");
   const modalHeadlineInput = document.getElementById("modalHeadlineInput");
   const modalTickersInput = document.getElementById("modalTickersInput");
-  const modalCategorySelect = document.getElementById("modalCategorySelect");
 
   async function loadHeadlines() {
     try {
@@ -353,16 +365,29 @@
       return;
     }
 
-    tableBody.innerHTML = headlines.map(h => `
+    tableBody.innerHTML = headlines.map(h => {
+      const tickerText = (h.tickers || []).map(t => {
+        if (typeof t === "string") {
+          return t;
+        } else if (typeof t === "object" && t !== null) {
+          const sym = t.symbol ?? t.ticker ?? "UNKNOWN";
+          const cat = t.category ?? t.grade ?? "?";
+          return `${sym}(${cat})`;
+        } else {
+          return "UNKNOWN(?)";
+        }
+      }).join(", ");
+
+      return `
       <tr data-headline="${h.headline}">
         <td title="${h.headline}">${h.headline}</td>
-        <td class="tickers-cell" title="${h.tickers.join(", ")}">${h.tickers.join(", ")}</td>
-        <td class="category-cell">${h.category}</td>
+        <td class="tickers-cell" title="${tickerText}">${tickerText}</td>
+        <td class="category-cell"></td>
         <td><button class="remove-btn" title="Remove headline">&times;</button></td>
       </tr>
-    `).join("");
+      `;
+    }).join("");
 
-    // Attach event listeners to remove buttons
     document.querySelectorAll(".remove-btn").forEach(btn => {
       btn.onclick = async (e) => {
         const tr = e.target.closest("tr");
@@ -392,7 +417,6 @@
     });
   }
 
-  // Open modal
   openModalBtn.onclick = () => {
     modalOverlay.style.display = "flex";
     modalMessage.textContent = "";
@@ -400,7 +424,6 @@
     modalHeadlineInput.focus();
   };
 
-  // Close modal function
   function closeModal() {
     modalOverlay.style.display = "none";
     modalMessage.textContent = "";
@@ -408,7 +431,6 @@
 
   closeModalBtn.onclick = closeModal;
 
-  // Also close modal if user clicks outside modal box
   modalOverlay.onclick = (e) => {
     if (e.target === modalOverlay) closeModal();
   };
@@ -419,20 +441,46 @@
     modalMessage.textContent = "";
 
     const headline = modalHeadlineInput.value.trim();
-    const tickers = modalTickersInput.value.toUpperCase().split(",").map(t => t.trim()).filter(Boolean);
-    const category = modalCategorySelect.value;
+    const rawTickerInput = modalTickersInput.value.trim();
 
-    if (!headline || tickers.length === 0 || !category) {
+    if (!headline || !rawTickerInput) {
       modalMessage.style.color = "#ef4444";
       modalMessage.textContent = "Please fill all fields correctly.";
       return;
     }
 
+    const tickerPairs = rawTickerInput.split(",").map(s => s.trim()).filter(Boolean);
+
+    const tickers = [];
+    let invalidFormat = false;
+
+    tickerPairs.forEach(pair => {
+      const parts = pair.split(":").map(x => x.trim().toUpperCase());
+      if (parts.length !== 2) {
+        invalidFormat = true;
+        return;
+      }
+      const [symbol, grade] = parts;
+      if (!symbol || !grade || !["A","B","C","D"].includes(grade)) {
+        invalidFormat = true;
+        return;
+      }
+      tickers.push({ symbol, category: grade });
+    });
+
+    if (invalidFormat || tickers.length === 0) {
+      modalMessage.style.color = "#ef4444";
+      modalMessage.textContent = "Tickers must be in format TICKER:GRADE e.g. AAPL:A";
+      return;
+    }
+
+    const id = Date.now().toString();
+
     try {
       const res = await fetch("/add_headline", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ headline, tickers, category }),
+        body: JSON.stringify({ id, headline, tickers }),
       });
       const data = await res.json();
 
@@ -440,7 +488,6 @@
         modalMessage.style.color = "#00E1A2";
         modalMessage.textContent = "Headline added successfully!";
         loadHeadlines();
-        // Close modal after short delay
         setTimeout(() => {
           closeModal();
         }, 1000);

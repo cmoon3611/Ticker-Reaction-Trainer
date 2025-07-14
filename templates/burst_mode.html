@@ -82,7 +82,7 @@
     #headline {
       font-size: 3.2rem;
       font-weight: 900;
-      margin: 0 0 0.75rem 0; /* margin bottom to prevent overlap */
+      margin: 0 0 0.75rem 0;
       color: #111;
       text-transform: uppercase;
       user-select: none;
@@ -101,7 +101,7 @@
       color: #444;
       user-select: none;
       margin-top: 0;
-      margin-bottom: 2rem; /* spacing below */
+      margin-bottom: 2rem;
       max-width: 800px;
       margin-left: auto;
       margin-right: auto;
@@ -189,29 +189,28 @@
 
     /* Burst Mode stats box styling */
     #burstStats {
-  max-width: 1000px;      /* wider */
-  width: 90vw;            /* responsive width */
-  margin-top: 0;
-  font-size: 1.15rem;
-  color: #000;
-  text-align: left;
-  user-select: none;
-  display: none;
-  background: #fff;
-  border: 3px solid #000;
-  border-radius: 20px;
-  padding: 2rem 3rem 3rem 3rem; /* more bottom padding for button */
-  box-shadow: none;
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  z-index: 200;
-  max-height: 85vh;       /* a bit taller */
-  overflow: auto;         /* allow scroll if needed */
-  box-sizing: border-box;
-}
-
+      max-width: 1000px;
+      width: 90vw;
+      margin-top: 0;
+      font-size: 1.15rem;
+      color: #000;
+      text-align: left;
+      user-select: none;
+      display: none;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 20px;
+      padding: 2rem 3rem 3rem 3rem;
+      box-shadow: none;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 200;
+      max-height: 85vh;
+      overflow: auto;
+      box-sizing: border-box;
+    }
 
     #burstStats h2 {
       margin-top: 0;
@@ -598,7 +597,6 @@
     let maxTime = Math.max(...timesArr);
     let minTime = Math.min(...timesArr);
 
-    // Calculate mode time
     let freq = {};
     timesArr.forEach(t => freq[t] = (freq[t] || 0) + 1);
     let modeTime = timesArr[0];
@@ -612,11 +610,9 @@
 
     let avgTime = timesArr.reduce((a,b) => a+b,0)/timesArr.length;
 
-    // Calculate median
     let sorted = [...timesArr].sort((a,b) => a-b);
     let medianTime = (sorted.length % 2 === 1) ? sorted[Math.floor(sorted.length/2)] : (sorted[sorted.length/2 - 1] + sorted[sorted.length/2]) / 2;
 
-    // Calculate standard deviation
     let variance = timesArr.reduce((a,b) => a + Math.pow(b - avgTime, 2), 0) / timesArr.length;
     let stdDev = Math.sqrt(variance);
 
@@ -641,7 +637,6 @@
 
     const stats = calculateStats();
 
-    // Build HTML for results popup (black & white, no scroll)
     let html = `
       <h2>Burst Mode Results</h2>
       <div class="results-container">
@@ -695,25 +690,24 @@
     };
   }
 
-  // Event listener: submit ticker on Enter or lose focus
+  // Submit ticker on Enter or blur
   answerInput.addEventListener("keydown", async (e) => {
     if (e.key === "Enter") {
       e.preventDefault();
-      if (waitingForGrade) return; // ignore if waiting for grade input
+      if (waitingForGrade) return;
       await submitTicker(answerInput.value);
     }
   });
 
-  // Also allow clicking out or pressing tab to try submit ticker
-  answerInput.addEventListener("blur", async (e) => {
+  answerInput.addEventListener("blur", async () => {
     if (!waitingForGrade && answerInput.value.trim() !== "") {
       await submitTicker(answerInput.value);
     }
   });
 
-  // gradeInput listens for Shift+D/F/K/J without Enter
+  // Grade input listens for Shift+D/F/K/J without Enter
   gradeInput.addEventListener("keydown", async (e) => {
-    if (!e.shiftKey) return; // require Shift pressed
+    if (!e.shiftKey) return;
     const validKeys = ["D", "F", "K", "J"];
     if (validKeys.includes(e.key.toUpperCase())) {
       e.preventDefault();
@@ -725,5 +719,6 @@
   // Start burst mode on page load
   loadHeadlinesBatch();
 </script>
+
 </body>
 </html>

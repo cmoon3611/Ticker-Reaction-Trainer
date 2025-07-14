@@ -2,176 +2,135 @@
   {
     "headline": "FAA probing claims about flaws in boeing 787 dreamliner",
     "tickers": [
-      {
-        "ticker": "BA",
-        "category": "D"
-      }
-    ]
+      "BA"
+    ],
+    "category": "D"
   },
   {
     "headline": "intel says new gaudi 3 product outperforms nvidia's h100 chip",
     "tickers": [
-      {
-        "ticker": "INTC",
-        "category": "A"
-      }
-    ]
+      "INTC"
+    ],
+    "category": "A"
   },
   {
     "headline": "drugmaker janux therapeutics said to weigh possible sale",
     "tickers": [
-      {
-        "ticker": "JANX",
-        "category": "A"
-      }
-    ]
+      "JANX"
+    ],
+    "category": "A"
   },
   {
     "headline": "super micro says ey resigned while conducting audit for 2024",
     "tickers": [
-      {
-        "ticker": "SMCI",
-        "category": "D"
-      }
-    ]
+      "SMCI"
+    ],
+    "category": "D"
   },
   {
     "headline": "tesla plans to delay robotaxi unveiling to october from august",
     "tickers": [
-      {
-        "ticker": "TSLA",
-        "category": "D"
-      }
-    ]
+      "TSLA"
+    ],
+    "category": "D"
   },
   {
     "headline": "tesla scraps low-cost car plans: reuters",
     "tickers": [
-      {
-        "ticker": "TSLA",
-        "category": "D"
-      }
-    ]
+      "TSLA"
+    ],
+    "category": "D"
   },
   {
     "headline": "musk says 'reuters is lying' in reply to report on low-cost evs",
     "tickers": [
-      {
-        "ticker": "TSLA",
-        "category": "A"
-      }
-    ]
+      "TSLA"
+    ],
+    "category": "A"
   },
   {
     "headline": "google parent alphabet is said to shelve interest in hubspot",
     "tickers": [
-      {
-        "ticker": "HUBS",
-        "category": "D"
-      }
-    ]
+      "HUBS"
+    ],
+    "category": "D"
   },
   {
     "headline": "gamestop may sell up to 75m shares of class a stock",
     "tickers": [
-      {
-        "ticker": "GME",
-        "category": "D"
-      }
-    ]
+      "GME"
+    ],
+    "category": "D"
   },
   {
     "headline": "walgreens in talks to sell itself to sycamore partners: wsj",
     "tickers": [
-      {
-        "ticker": "WBA",
-        "category": "A"
-      }
-    ]
+      "WBA"
+    ],
+    "category": "A"
   },
   {
     "headline": "supermicro committee finds no evidence of misconduct",
     "tickers": [
-      {
-        "ticker": "SMCI",
-        "category": "A"
-      }
-    ]
+      "SMCI"
+    ],
+    "category": "A"
   },
   {
     "headline": "us is reining in ai chip sales to middle east by nvidia, amd",
     "tickers": [
-      {
-        "ticker": "NVDA",
-        "category": "D"
-      },
-      {
-        "ticker": "AMD",
-        "category": "D"
-      }
-    ]
+      "NVDA",
+      "AMD"
+    ],
+    "category": "D"
   },
   {
     "headline": "asml 3q bookings eu2.63b, est. eu5.39b",
     "tickers": [
-      {
-        "ticker": "ASML",
-        "category": "D"
-      }
-    ]
+      "ASML"
+    ],
+    "category": "D"
   },
   {
     "headline": "pacs group: how to become a billionaire in the skilled nursing industry by systematically scamming taxpayers - hindenburg research",
     "tickers": [
-      {
-        "ticker": "PACS",
-        "category": "D"
-      }
-    ]
+      "PACS"
+    ],
+    "category": "D"
   },
   {
     "headline": "alphabet declared cash div of $0.20/shr",
     "tickers": [
-      {
-        "ticker": "GOOGL",
-        "category": "B"
-      }
-    ]
+      "GOOGL"
+    ],
+    "category": "B"
   },
   {
     "headline": "nvda q4 rev 37.5b vs 39b estimates",
     "tickers": [
-      {
-        "ticker": "NVDA",
-        "category": "C"
-      }
-    ]
+      "NVDA"
+    ],
+    "category": "C"
   },
   {
     "headline": "acb: dea to reclassify marijuana as less dangerous drug, ap reports",
     "tickers": [
-      {
-        "ticker": "MSOS",
-        "category": "A"
-      }
-    ]
+      "MSOS"
+    ],
+    "category": "A"
   },
   {
     "headline": "broadcom sees fy rev. $51.08b, est. $50.58B",
     "tickers": [
-      {
-        "ticker": "AVGO",
-        "category": "B"
-      }
-    ]
+      "AVGO"
+    ],
+    "category": "B"
   },
   {
     "headline": "Globe Life: Executives disregarded wide-ranging \"insurance fraud\" while they received millions in undisclosed kick-back scheme",
     "tickers": [
-      {
-        "ticker": "GL",
-        "category": "C"
-      }
-    ]
+      "GL"
+    ],
+    "category": "C"
   }
 ]

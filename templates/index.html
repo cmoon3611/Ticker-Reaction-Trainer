@@ -232,6 +232,10 @@
   let gradeTimer = null;
   const gradeTimeLimit = 5000;
 
+  // Added these two globals to store current user ticker and correctness
+  let currentUserTicker = null;
+  let currentCorrectTicker = false;
+
   const answerInput = document.getElementById("answerInput");
   const gradeInput = document.getElementById("gradeInput");
   const timerElem = document.getElementById("timer");
@@ -346,6 +350,10 @@
     gradeInput.focus();
 
     startGradeTimer();
+
+    // Store user ticker and correctness for submit
+    currentUserTicker = ticker;
+    currentCorrectTicker = true;
   }
 
   async function submitGrade(grade) {
