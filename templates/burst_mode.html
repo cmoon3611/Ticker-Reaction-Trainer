@@ -80,7 +80,7 @@
     }
 
     #headline {
-      font-size: 3.2rem;
+      font-size: 2.75rem;
       font-weight: 900;
       margin: 0 0 0.75rem 0;
       color: #111;
@@ -95,16 +95,22 @@
       min-height: 4.2rem;
     }
 
+    input#answerInput, input#gradeInput {
+      height: 3.5rem;
+      line-height: 3.5rem;
+      margin-top: 1rem;
+      margin-bottom: 1rem;
+      box-sizing: border-box;
+    }
+
     #remainingCount {
-      font-size: 1.15rem;
+      margin-top: 0.75rem;
+      margin-bottom: 0.75rem;
+      font-size: 1rem;
       font-weight: 600;
-      color: #444;
+      color: #666666;
       user-select: none;
-      margin-top: 0;
-      margin-bottom: 2rem;
-      max-width: 800px;
-      margin-left: auto;
-      margin-right: auto;
+      text-align: center;
     }
 
     input#answerInput, input#gradeInput {
@@ -188,102 +194,100 @@
     }
 
     /* Burst Mode stats box styling */
-    #burstStats {
-      max-width: 1000px;
-      width: 90vw;
-      margin-top: 0;
-      font-size: 1.15rem;
-      color: #000;
-      text-align: left;
-      user-select: none;
-      display: none;
-      background: #fff;
-      border: 3px solid #000;
-      border-radius: 20px;
-      padding: 2rem 3rem 3rem 3rem;
-      box-shadow: none;
-      position: fixed;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 200;
-      max-height: 85vh;
-      overflow: auto;
-      box-sizing: border-box;
-    }
+    /* Burst Mode stats box styling */
+#burstStats {
+  width: 95vw;
+  max-width: 1400px;
+  background: #fff;
+  border: 3px solid #000;
+  border-radius: 20px;
+  padding: 2rem;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 200;
+  display: none;
+  box-sizing: border-box;
+  user-select: none;
+  overflow: hidden;
+}
 
-    #burstStats h2 {
-      margin-top: 0;
-      font-weight: 900;
-      color: #000;
-      font-size: 2.5rem;
-      margin-bottom: 1.5rem;
-      user-select: none;
-      text-align: center;
-    }
-    #burstStats .results-container {
-      display: flex;
-      gap: 2rem;
-      flex-wrap: wrap;
-      justify-content: center;
-    }
-    #burstStats .summary, #burstStats .details {
-      flex: 1 1 350px;
-      max-width: 450px;
-    }
-    #burstStats .summary p,
-    #burstStats .details p {
-      margin: 0.5rem 0;
-      font-weight: 600;
-      font-size: 1.1rem;
-      display: flex;
-      justify-content: space-between;
-      border-bottom: 1px solid #000;
-      padding-bottom: 0.3rem;
-    }
-    #burstStats .details table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 0.95rem;
-    }
-    #burstStats .details th, #burstStats .details td {
-      border: 1px solid #000;
-      padding: 6px 8px;
-      text-align: left;
-      text-transform: uppercase;
-    }
-    #burstStats .details th {
-      background: #000;
-      color: #fff;
-    }
-    #burstStats .details td.correct {
-      color: #00a000;
-      font-weight: 700;
-    }
-    #burstStats .details td.incorrect {
-      color: #d00000;
-      font-weight: 700;
-    }
+#burstStats h2 {
+  font-size: 2.4rem;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 1.5rem;
+}
 
-    #burstStats button {
-      display: block;
-      margin: 2rem auto 0;
-      background-color: #000;
-      color: #fff;
-      border: none;
-      padding: 1rem 3rem;
-      border-radius: 999px;
-      font-weight: 700;
-      font-size: 1.3rem;
-      cursor: pointer;
-      user-select: none;
-      transition: background-color 0.3s ease;
-      text-transform: uppercase;
-      letter-spacing: 0.1em;
-    }
-    #burstStats button:hover {
-      background-color: #444;
-    }
+#burstStats .summary-row {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+}
+
+#burstStats .summary-row div {
+  flex: 1 1 auto;
+  min-width: 140px;
+  background: #f5f5f5;
+  border: 1px solid #000;
+  padding: 0.75rem 1rem;
+  border-radius: 10px;
+  text-align: center;
+}
+
+#burstStats table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+#burstStats th, #burstStats td {
+  border: 1px solid #000;
+  padding: 6px 10px;
+  text-align: left;
+  text-transform: uppercase;
+}
+
+#burstStats th {
+  background: #000;
+  color: #fff;
+}
+
+#burstStats td.correct {
+  color: #00a000;
+  font-weight: 700;
+}
+#burstStats td.incorrect {
+  color: #d00000;
+  font-weight: 700;
+}
+
+#burstStats button {
+  display: block;
+  margin: 2rem auto 0;
+  background-color: #000;
+  color: #fff;
+  border: none;
+  padding: 1rem 3rem;
+  border-radius: 999px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  cursor: pointer;
+  user-select: none;
+  transition: background-color 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+#burstStats button:hover {
+  background-color: #444;
+}
+
 
     footer {
       text-align: center;
@@ -304,10 +308,9 @@
 <main>
   <h1 class="title">Burst Mode - 10 Headline Test</h1>
   <div id="headline">Loading headline...</div>
-  <div id="remainingCount"></div>
 
   <input type="text" id="answerInput" placeholder="Enter ticker" autofocus autocomplete="off" />
-  <input type="text" id="gradeInput" placeholder="Enter trade key (D/F/K/J)" autocomplete="off" maxlength="1" style="display:none;" />
+  <input type="text" id="gradeInput" placeholder="ENTER TRADE" autocomplete="off" maxlength="1" style="display:none;" />
 
   <div id="progressContainer">
     <div id="progressBar"></div>
@@ -317,6 +320,7 @@
 
   <div id="feedback" class="feedback"></div>
 
+  <div id="remainingCount"></div>
   <div class="category-key">
     <p><b class="A">Shift + F</b> = Large Long</p>
     <p><b class="B">Shift + D</b> = Small Long</p>
@@ -330,8 +334,10 @@
 <footer>&copy; 2025 Trillium Trading</footer>
 
 <script>
+  const totalBurstHeadlines = 10;
+
   let currentHeadline = null;
-  let startTime = null;
+  let headlineStartTime = null;       // Timer start for current headline
   let timerInterval = null;
   let gradeTimer = null;
   const gradeTimeLimit = 5000;
@@ -344,25 +350,28 @@
   const burstStats = document.getElementById("burstStats");
   const remainingCount = document.getElementById("remainingCount");
 
+  let loadedHeadlines = [];
+
   let tickersToGrade = [];
-  let currentTickerIndex = 0;
+  let currentTickerInHeadlineIndex = 0;
+  let currentHeadlineIndex = 0;
+
   let waitingForGrade = false;
 
-  // Stats arrays to store each answer for summary table:
-  // We'll store objects {headline, ticker, userTicker, userTrade, correctTicker, correctTrade, time}
-  let answerLog = [];
+  let currentTickerCategoryMap = {};
+  let currentUserTicker = null;
 
-  const totalBurstHeadlines = 10;
-
+  // Start timer for headline (updates every 100ms)
   function startTimer() {
-    startTime = performance.now();
+    headlineStartTime = performance.now();
     if (timerInterval !== null) clearInterval(timerInterval);
     timerInterval = setInterval(() => {
-      const elapsed = (performance.now() - startTime) / 1000;
+      const elapsed = (performance.now() - headlineStartTime) / 1000;
       timerElem.textContent = `${elapsed.toFixed(2)}s`;
     }, 100);
   }
 
+  // Stop timer for headline
   function stopTimer() {
     if (timerInterval !== null) {
       clearInterval(timerInterval);
@@ -370,6 +379,7 @@
     }
   }
 
+  // Start countdown bar for grade input
   function startGradeTimer() {
     let start = performance.now();
     progressBar.style.width = "100%";
@@ -382,13 +392,14 @@
       if (elapsed >= gradeTimeLimit) {
         clearInterval(gradeTimer);
         gradeTimer = null;
-        showFeedback(false, null, `Time's up! Correct trade: ${getCurrentCategory()}`);
-        recordAnswer(false, gradeTimeLimit, null, null, false);
-        moveToNextTickerOrReload();
+        showFeedback(false, null, `Time's up! Correct trade: ${categoryToTradeName(getCurrentCategory())}`);
+        recordAnswer(false, gradeTimeLimit, currentUserTicker, null, false);
+        moveToNextTickerOrHeadline();
       }
     }, 50);
   }
 
+  // Stop countdown bar timer
   function stopGradeTimer() {
     if (gradeTimer) {
       clearInterval(gradeTimer);
@@ -397,72 +408,14 @@
     progressBar.style.width = "100%";
   }
 
-  function getCurrentTicker() {
-    return tickersToGrade[currentTickerIndex];
-  }
-
-  function getCurrentCategory() {
-    return currentHeadline.category.toUpperCase();
-  }
-
-  async function loadHeadlinesBatch() {
-    stopTimer();
-    stopGradeTimer();
-    tickersToGrade = [];
-    currentTickerIndex = 0;
-    waitingForGrade = false;
-    answerLog = [];
-    burstStats.style.display = "none";
-    gradeInput.style.display = "none";
-    answerInput.style.display = "inline-block";
-    answerInput.value = "";
-    gradeInput.value = "";
-    feedback.textContent = "";
-    timerElem.textContent = "0.00s";
-    progressBar.style.width = "100%";
-    remainingCount.textContent = "";
-
-    let fetched = new Set();
-    while (tickersToGrade.length < totalBurstHeadlines) {
-      try {
-        const res = await fetch("/get_headline");
-        const data = await res.json();
-        if (!data.headline || fetched.has(data.headline)) continue;
-        fetched.add(data.headline);
-
-        // Push tickers individually so user must answer for each ticker
-        for (const ticker of data.tickers) {
-          tickersToGrade.push({
-            headline: data.headline,
-            tickers: [ticker],
-            category: data.category
-          });
-          if (tickersToGrade.length >= totalBurstHeadlines) break;
-        }
-      } catch {
-        break;
-      }
-    }
-
-    if (tickersToGrade.length === 0) {
-      document.getElementById("headline").textContent = "No headlines available.";
-      answerInput.style.display = "none";
-      return;
-    }
-
-    currentHeadline = tickersToGrade[0];
-    displayHeadline(currentHeadline);
-    updateRemainingCount();
-    answerInput.focus();
-    startTimer();
-  }
-
-  function displayHeadline(headlineData) {
-    document.getElementById("headline").textContent = (headlineData.headline || "No headline found.").toUpperCase();
-  }
-
-  function updateRemainingCount() {
-    remainingCount.textContent = `Remaining: ${totalBurstHeadlines - currentTickerIndex}`;
+  function categoryToTradeName(cat) {
+    const map = {
+      "A": "Large Long",
+      "B": "Small Long",
+      "C": "Small Short",
+      "D": "Large Short"
+    };
+    return map[cat] || cat;
   }
 
   function showFeedback(correct, timeTaken, customMsg) {
@@ -475,249 +428,304 @@
     }
   }
 
-  // recordAnswer stores detailed info for final results
-  // correctTicker and correctTrade booleans are for detailed table display
-  function recordAnswer(correctTrade, timeTaken, userTicker, userTrade, correctTicker) {
+  let answerLog = [];
+
+  // Records time per ticker grading but time is headline timer elapsed, NOT individual timer
+  function recordAnswer(correct, timeTaken, ticker, grade, answered) {
+    // timeTaken is passed in ms, convert to elapsed headline time instead
+    let elapsedHeadlineTime = (performance.now() - headlineStartTime);
     answerLog.push({
       headline: currentHeadline.headline,
-      ticker: getCurrentTicker().tickers[0],
-      userTicker: userTicker,
-      userTrade: userTrade,
-      correctTicker: correctTicker,
-      correctTrade: correctTrade,
-      time: (timeTaken/1000).toFixed(2)
+      ticker,
+      correct,
+      time: elapsedHeadlineTime,
+      userGrade: grade,
+      answered
     });
+  }
+
+  function getCurrentCategory() {
+    if (!currentUserTicker) return null;
+    return currentTickerCategoryMap[currentUserTicker] || null;
+  }
+
+  function moveToNextTickerOrHeadline() {
+    currentTickerInHeadlineIndex++;
+
+    if (currentTickerInHeadlineIndex >= tickersToGrade.length) {
+      // Finished all tickers for this headline
+      stopTimer();        // Now stop timer here, after all tickers and grades done
+      stopGradeTimer();
+
+      currentHeadlineIndex++;
+      if (currentHeadlineIndex >= totalBurstHeadlines || currentHeadlineIndex >= loadedHeadlines.length) {
+        // Finished all headlines
+        answerInput.style.display = "none";
+        gradeInput.style.display = "none";
+        timerElem.textContent = "";
+        remainingCount.textContent = "";
+        document.getElementById("headline").textContent = "";
+        showSummaryStats();
+        return;
+      }
+
+      // Load next headline tickers
+      loadCurrentHeadline();
+    } else {
+      // More tickers on current headline - continue with next ticker
+      displayTickerPrompt();
+    }
+  }
+
+  function loadCurrentHeadline() {
+    currentHeadline = loadedHeadlines[currentHeadlineIndex];
+    tickersToGrade = currentHeadline.tickers.map(t => t.ticker.toUpperCase());
+    currentTickerCategoryMap = {};
+    currentHeadline.tickers.forEach(t => {
+      currentTickerCategoryMap[t.ticker.toUpperCase()] = t.category.toUpperCase();
+    });
+    currentTickerInHeadlineIndex = 0;
+
+    displayCurrentHeadline();
+    displayTickerPrompt();
+    remainingCount.textContent = `Remaining: ${totalBurstHeadlines - currentHeadlineIndex}`;
+    feedback.textContent = "";
+    timerElem.textContent = "0.00s";
+    progressBar.style.width = "100%";
+
+    startTimer();  // START timer only once per headline here
+  }
+
+  function displayCurrentHeadline() {
+    const text = currentHeadline && currentHeadline.headline ? currentHeadline.headline.toUpperCase() : "No headline found.";
+    document.getElementById("headline").textContent = text;
+  }
+
+  function displayTickerPrompt() {
+    waitingForGrade = false;
+    currentUserTicker = null;
+
+    answerInput.style.display = "inline-block";
+    gradeInput.style.display = "none";
+    answerInput.value = "";
+    gradeInput.value = "";
+    answerInput.focus();
+  }
+
+  function displayGradePrompt(ticker) {
+    waitingForGrade = true;
+    currentUserTicker = ticker;
+
+    answerInput.style.display = "none";
+    gradeInput.style.display = "inline-block";
+    gradeInput.value = "";
+    gradeInput.placeholder = `ENTER TRADE for ${ticker}`;
+    gradeInput.focus();
+
+    startGradeTimer();
   }
 
   async function submitTicker(ticker) {
     ticker = ticker.trim().toUpperCase();
-    if (!ticker) {
-      showFeedback(false, null, "Please enter a ticker.");
-      return false;
-    }
+    if (!ticker) return;
 
-    const correctTicker = getCurrentTicker().tickers.includes(ticker);
-
-    if (!correctTicker) {
+    if (!tickersToGrade.includes(ticker)) {
       showFeedback(false, null, `Incorrect ticker. Try again.`);
       answerInput.value = "";
-      return false;
+      return;
     }
 
     showFeedback(true, null, `Ticker accepted: ${ticker}`);
 
-    waitingForGrade = true;
-    answerInput.style.display = "none";
-    gradeInput.style.display = "inline-block";
-    gradeInput.value = "";
-    gradeInput.placeholder = `Enter trade key (D/F/K/J)`;
-    gradeInput.focus();
-
-    stopTimer();
-    startGradeTimer();
-
-    // Store userTicker now with correctTicker status, wait for trade submission
-    currentUserTicker = ticker;
-    currentCorrectTicker = correctTicker;
-    return true;
+    displayGradePrompt(ticker);
   }
 
-  // Map shift keys to category letter
-  const keyToCategory = {
-    "D": "B", // Shift + D = Small Long
-    "F": "A", // Shift + F = Large Long
-    "K": "C", // Shift + K = Small Short
-    "J": "D"  // Shift + J = Large Short
-  };
+  async function submitGrade(grade) {
+    grade = grade.trim().toUpperCase();
 
-  async function submitGrade(gradeKey) {
-    gradeKey = gradeKey.trim().toUpperCase();
+    const keyToCategory = {
+      "D": "B",
+      "F": "A",
+      "K": "C",
+      "J": "D"
+    };
 
-    if (!Object.keys(keyToCategory).includes(gradeKey)) {
+    if (!Object.keys(keyToCategory).includes(grade)) {
       showFeedback(false, null, "Invalid trade. Use Shift+D/F/K/J.");
       return;
     }
 
+    const mappedGrade = keyToCategory[grade];
     stopGradeTimer();
 
-    const mappedGrade = keyToCategory[gradeKey];
     const correctCategory = getCurrentCategory();
-    const correctTrade = mappedGrade === correctCategory;
+    const correct = mappedGrade === correctCategory;
 
-    if (correctTrade) {
-      showFeedback(true, null, `Correct trade for ${getCurrentTicker().tickers[0]}!`);
+    if (correct) {
+      showFeedback(true, null, `Correct trade for ${currentUserTicker}!`);
     } else {
-      showFeedback(false, null, `Incorrect trade for ${getCurrentTicker().tickers[0]}. You chose: ${mappedGrade}. Correct: ${correctCategory}`);
+      showFeedback(false, null, `Incorrect trade for ${currentUserTicker}. You chose: ${categoryToTradeName(mappedGrade)}. Correct: ${categoryToTradeName(correctCategory)}`);
     }
 
-    recordAnswer(correctTrade, performance.now() - startTime, currentUserTicker, mappedGrade, currentCorrectTicker);
+    // NOTE: DO NOT stop headline timer here! We stop it only after all tickers are graded.
 
-    try {
-      await fetch("/submit", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          tickers: getCurrentTicker().tickers,
-          grade: mappedGrade,
-          correct: correctTrade,
-          headline: currentHeadline.headline,
-        }),
-      });
-    } catch {}
+    recordAnswer(correct, null, currentUserTicker, mappedGrade, true);
 
-    moveToNextTickerOrReload();
+    // Submit to backend
+    await fetch("/submit", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({
+        tickers: [currentUserTicker],
+        grade: mappedGrade,
+        correct,
+        headline: currentHeadline.headline,
+      }),
+    });
+
+    moveToNextTickerOrHeadline();
   }
 
-  function moveToNextTickerOrReload() {
-    waitingForGrade = false;
-    currentTickerIndex++;
+  async function initBurstMode() {
+    const res = await fetch("/get_headlines_batch");
+    const data = await res.json();
 
-    if (currentTickerIndex >= totalBurstHeadlines) {
-      // Show summary popup with results
-      showBurstStats();
+    if (!data || !Array.isArray(data) || data.length === 0) {
+      document.getElementById("headline").textContent = "No headlines available.";
       return;
     }
 
-    currentHeadline = tickersToGrade[currentTickerIndex];
-    displayHeadline(currentHeadline);
-    updateRemainingCount();
-    feedback.textContent = "";
-    answerInput.value = "";
-    answerInput.style.display = "inline-block";
-    gradeInput.style.display = "none";
-    answerInput.focus();
-    timerElem.textContent = "0.00s";
-    progressBar.style.width = "100%";
-    startTimer();
+    loadedHeadlines = data.slice(0, totalBurstHeadlines);
+
+    currentHeadlineIndex = 0;
+    loadCurrentHeadline();
   }
 
-  function calculateStats() {
-    let correctCount = answerLog.filter(a => a.correctTrade && a.correctTicker).length;
-    let timesArr = answerLog.map(a => parseFloat(a.time));
-    let maxTime = Math.max(...timesArr);
-    let minTime = Math.min(...timesArr);
-
-    let freq = {};
-    timesArr.forEach(t => freq[t] = (freq[t] || 0) + 1);
-    let modeTime = timesArr[0];
-    let maxFreq = 1;
-    for (const t in freq) {
-      if (freq[t] > maxFreq) {
-        maxFreq = freq[t];
-        modeTime = t;
-      }
-    }
-
-    let avgTime = timesArr.reduce((a,b) => a+b,0)/timesArr.length;
-
-    let sorted = [...timesArr].sort((a,b) => a-b);
-    let medianTime = (sorted.length % 2 === 1) ? sorted[Math.floor(sorted.length/2)] : (sorted[sorted.length/2 - 1] + sorted[sorted.length/2]) / 2;
-
-    let variance = timesArr.reduce((a,b) => a + Math.pow(b - avgTime, 2), 0) / timesArr.length;
-    let stdDev = Math.sqrt(variance);
-
-    return {
-      correctCount,
-      total: answerLog.length,
-      maxTime: maxTime.toFixed(2),
-      minTime: minTime.toFixed(2),
-      modeTime: parseFloat(modeTime).toFixed(2),
-      avgTime: avgTime.toFixed(2),
-      medianTime: medianTime.toFixed(2),
-      stdDev: stdDev.toFixed(2),
-      accuracyPercent: ((correctCount / answerLog.length) * 100).toFixed(1)
-    };
-  }
-
-  function showBurstStats() {
-    answerInput.style.display = "none";
-    gradeInput.style.display = "none";
-    progressBar.style.width = "100%";
-    timerElem.textContent = "";
-
-    const stats = calculateStats();
-
-    let html = `
-      <h2>Burst Mode Results</h2>
-      <div class="results-container">
-        <div class="summary">
-          <p><strong>Accuracy:</strong> <span>${stats.accuracyPercent}% (${stats.correctCount} / ${stats.total})</span></p>
-          <p><strong>Max Time:</strong> <span>${stats.maxTime}s</span></p>
-          <p><strong>Mode Time:</strong> <span>${stats.modeTime}s</span></p>
-          <p><strong>Median Time:</strong> <span>${stats.medianTime}s</span></p>
-          <p><strong>Average Time:</strong> <span>${stats.avgTime}s</span></p>
-          <p><strong>Std Dev Time:</strong> <span>${stats.stdDev}s</span></p>
-        </div>
-        <div class="details">
-          <table>
-            <thead>
-              <tr>
-                <th>#</th>
-                <th>Ticker</th>
-                <th>Your Ticker</th>
-                <th>Your Trade</th>
-                <th>Correct Ticker</th>
-                <th>Correct Trade</th>
-                <th>Time (s)</th>
-              </tr>
-            </thead>
-            <tbody>
-              ${answerLog.map((a,i) => `
-                <tr>
-                  <td>${i+1}</td>
-                  <td>${a.ticker}</td>
-                  <td class="${a.ticker === a.userTicker ? "correct" : "incorrect"}">${a.userTicker || ""}</td>
-                  <td class="${a.correctTrade ? "correct" : "incorrect"}">${a.userTrade || ""}</td>
-                  <td>${a.correctTicker ? "✓" : "✗"}</td>
-                  <td>${a.correctTrade ? "✓" : "✗"}</td>
-                  <td>${a.time}</td>
-                </tr>
-              `).join('')}
-            </tbody>
-          </table>
-        </div>
-      </div>
-      <button id="restartBurst">Restart Burst Mode</button>
-    `;
-
-    burstStats.innerHTML = html;
-    burstStats.style.display = "block";
-
-    document.getElementById("restartBurst").onclick = () => {
-      burstStats.style.display = "none";
-      loadHeadlinesBatch();
-      answerInput.focus();
-    };
-  }
-
-  // Submit ticker on Enter or blur
-  answerInput.addEventListener("keydown", async (e) => {
+  answerInput.addEventListener("keydown", e => {
     if (e.key === "Enter") {
       e.preventDefault();
-      if (waitingForGrade) return;
-      await submitTicker(answerInput.value);
+      if (!waitingForGrade) {
+        const ticker = answerInput.value;
+        if (ticker.trim() === "") {
+          showFeedback(false, null, "Please enter a ticker.");
+          return;
+        }
+        submitTicker(ticker);
+      }
     }
   });
 
-  answerInput.addEventListener("blur", async () => {
-    if (!waitingForGrade && answerInput.value.trim() !== "") {
-      await submitTicker(answerInput.value);
-    }
-  });
-
-  // Grade input listens for Shift+D/F/K/J without Enter
-  gradeInput.addEventListener("keydown", async (e) => {
-    if (!e.shiftKey) return;
-    const validKeys = ["D", "F", "K", "J"];
-    if (validKeys.includes(e.key.toUpperCase())) {
+  gradeInput.addEventListener("keydown", e => {
+    if (e.key === "Enter") {
       e.preventDefault();
-      if (!waitingForGrade) return;
-      await submitGrade(e.key.toUpperCase());
+      if (waitingForGrade) {
+        const grade = gradeInput.value;
+        if (grade.trim() === "") {
+          showFeedback(false, null, "Please enter a trade.");
+          return;
+        }
+        submitGrade(grade);
+      }
     }
   });
 
-  // Start burst mode on page load
-  loadHeadlinesBatch();
+  document.addEventListener("keydown", e => {
+    if (waitingForGrade && e.shiftKey) {
+      const key = e.key.toUpperCase();
+      if (["D", "F", "K", "J"].includes(key)) {
+        e.preventDefault();
+        submitGrade(key);
+      }
+    }
+  });
+
+function showSummaryStats() {
+  burstStats.style.display = "block";
+
+  const times = answerLog.map(a => a.time / 1000);
+  const corrects = answerLog.filter(a => a.correct).length;
+  const total = answerLog.length;
+
+  function mode(arr) {
+    const freq = {};
+    arr.forEach(x => freq[x] = (freq[x] || 0) + 1);
+    let maxFreq = 0, modeVal = null;
+    for (const k in freq) {
+      if (freq[k] > maxFreq) {
+        maxFreq = freq[k];
+        modeVal = Number(k);
+      }
+    }
+    return modeVal;
+  }
+  function median(arr) {
+    const sorted = [...arr].sort((a,b) => a-b);
+    const mid = Math.floor(sorted.length/2);
+    return sorted.length % 2 === 0 ? (sorted[mid-1] + sorted[mid])/2 : sorted[mid];
+  }
+  function average(arr) {
+    if (arr.length === 0) return 0;
+    return arr.reduce((a,b) => a+b,0)/arr.length;
+  }
+  function stddev(arr) {
+    const avg = average(arr);
+    const variance = average(arr.map(x => (x-avg)**2));
+    return Math.sqrt(variance);
+  }
+
+  const maxTime = Math.max(...times).toFixed(2);
+  const modeTime = mode(times).toFixed(2);
+  const medianTime = median(times).toFixed(2);
+  const avgTime = average(times).toFixed(2);
+  const stddevTime = stddev(times).toFixed(2);
+  const accuracyPercent = ((corrects/total)*100).toFixed(1);
+
+  burstStats.innerHTML = `
+    <h2>Burst Mode Results</h2>
+    <div class="summary-row">
+      <div><strong>Max Time</strong><br>${maxTime}s</div>
+      <div><strong>Mode Time</strong><br>${modeTime}s</div>
+      <div><strong>Median Time</strong><br>${medianTime}s</div>
+      <div><strong>Avg Time</strong><br>${avgTime}s</div>
+      <div><strong>Std Dev</strong><br>${stddevTime}s</div>
+      <div><strong>Accuracy</strong><br>${accuracyPercent}%</div>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Headline</th>
+          <th>Ticker</th>
+          <th>Correct</th>
+          <th>Time (s)</th>
+          <th>Your Grade</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${answerLog.map(a => `
+          <tr>
+            <td>${a.headline}</td>
+            <td>${a.ticker}</td>
+            <td class="${a.correct ? "correct" : "incorrect"}">${a.correct ? "Yes" : "No"}</td>
+            <td>${(a.time/1000).toFixed(2)}</td>
+            <td>${a.userGrade || "N/A"}</td>
+          </tr>
+        `).join("")}
+      </tbody>
+    </table>
+    <button id="burstRestartBtn">Play Again</button>
+  `;
+
+  document.getElementById("burstRestartBtn").addEventListener("click", () => {
+    burstStats.style.display = "none";
+    answerLog = [];
+    initBurstMode();
+  });
+}
+
+
+  window.addEventListener("load", () => {
+    initBurstMode();
+  });
 </script>
 
 </body>

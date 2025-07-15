@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Instructions - Ticker Reaction Trainer</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      z-index: 100;
+    }
+    .logo {
+      width: 180px;
+      user-select: none;
+    }
+    .home-button {
+      background-color: #000;
+      color: #fff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background-color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+    }
+    .home-button:hover {
+      background-color: #222;
+    }
+    main {
+      margin: 100px auto 2rem;
+      max-width: 900px;
+      padding: 0 2rem;
+      box-sizing: border-box;
+      color: #111;
+      line-height: 1.5;
+      user-select: text;
+    }
+    h1 {
+      font-weight: 900;
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      text-transform: uppercase;
+      user-select: none;
+      color: #000;
+    }
+    h2 {
+      font-weight: 700;
+      margin-top: 2rem;
+      margin-bottom: 0.5rem;
+      user-select: none;
+      color: #000;
+      text-transform: uppercase;
+    }
+    p {
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    ul {
+      margin-left: 1.2rem;
+      margin-bottom: 1rem;
+      font-size: 1.05rem;
+    }
+    li {
+      margin-bottom: 0.5rem;
+    }
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 0.9rem;
+      color: #666;
+      user-select: none;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
+  <a href="/" class="home-button">Home</a>
+</header>
+
+<main>
+  <h1>Instructions</h1>
+
+  <h2>Ticker Reaction Trainer</h2>
+  <p>The Trainer mode helps you practice quickly identifying stock tickers mentioned in headlines and reacting with the correct trade classification.</p>
+  <ul>
+    <li><strong>Headline Display:</strong> Each headline is shown at the top in uppercase letters.</li>
+    <li><strong>Ticker Input:</strong> Enter the ticker symbol you think is relevant to the headline, then press Enter.</li>
+    <li><strong>Trade Input:</strong> After a correct ticker input, enter the trade classification by pressing one of the keys with Shift:</li>
+    <ul>
+      <li><b>Shift + F</b> = Large Long (A)</li>
+      <li><b>Shift + D</b> = Small Long (B)</li>
+      <li><b>Shift + K</b> = Small Short (C)</li>
+      <li><b>Shift + J</b> = Large Short (D)</li>
+    </ul>
+    <li><strong>Feedback:</strong> You'll see immediate feedback indicating if your ticker or trade input was correct or incorrect.</li>
+    <li><strong>Timer:</strong> The timer counts how long you take per headline, helping you improve your speed.</li>
+  </ul>
+
+  <h2>Burst Mode - 10 Headline Test</h2>
+  <p>Burst Mode is a timed challenge where you respond to 10 headlines in a row as fast and accurately as possible.</p>
+  <ul>
+    <li>For each headline, enter the tickers and corresponding trades as you would in Trainer mode.</li>
+    <li>The timer runs continuously per headline and only stops after all tickers in that headline are graded.</li>
+    <li>After 10 headlines, you will see detailed statistics including max, mode, median, average, and standard deviation of your reaction times, plus accuracy.</li>
+    <li>You can review your answers in a table and restart the test anytime with the provided button.</li>
+  </ul>
+
+  <h2>Adding and Editing Headlines</h2>
+  <p>You can add or edit headlines through the "Edit Headlines" page:</p>
+  <ul>
+    <li>Add new headlines along with their relevant tickers and categories.</li>
+    <li>Edit existing headlines or remove outdated ones.</li>
+    <li>This helps keep your training material fresh and customized to your needs.</li>
+  </ul>
+
+  <h2>Controls Summary</h2>
+  <ul>
+    <li><strong>Ticker Input:</strong> Type ticker and press Enter.</li>
+    <li><strong>Trade Input:</strong> Use Shift + F/D/K/J keys to grade trades quickly.</li>
+    <li><strong>Restart Burst Mode:</strong> Click the button on the results popup to retry the test.</li>
+    <li><strong>Navigation:</strong> Use the Home button in the header to return to the main page at any time.</li>
+  </ul>
+
+  <p>Practice regularly to improve your speed and accuracy in recognizing market-moving headlines and making quick trading decisions!</p>
+</main>
+
+<footer>&copy; 2025 Trillium Trading</footer>
+
+</body>
+</html>

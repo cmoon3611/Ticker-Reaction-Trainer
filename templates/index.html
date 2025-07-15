@@ -79,7 +79,7 @@
     }
 
     #headline {
-      font-size: 3.2rem;
+      font-size: 2.75rem;
       font-weight: 900;
       margin: 0;
       color: #111;
@@ -232,9 +232,8 @@
   let gradeTimer = null;
   const gradeTimeLimit = 5000;
 
-  // Added these two globals to store current user ticker and correctness
   let currentUserTicker = null;
-  let currentCorrectTicker = false;
+  let currentCorrectCategory = null;
 
   const answerInput = document.getElementById("answerInput");
   const gradeInput = document.getElementById("gradeInput");
@@ -245,6 +244,7 @@
   let tickersToGrade = [];
   let currentTickerIndex = 0;
   let waitingForGrade = false;
+  let currentTickerCategoryMap = {};
 
   function startTimer() {
     startTime = performance.now();
@@ -274,7 +274,7 @@
       if (elapsed >= gradeTimeLimit) {
         clearInterval(gradeTimer);
         gradeTimer = null;
-        showFeedback(false, null, `Time's up! Correct trade: ${categoryToTradeName(getCurrentCategory())}`);
+        showFeedback(false, null, `Time's up! Correct trade: ${categoryToTradeName(currentCorrectCategory)}`);
         moveToNextTickerOrReload();
       }
     }, 50);
@@ -286,14 +286,6 @@
       gradeTimer = null;
     }
     progressBar.style.width = "100%";
-  }
-
-  function getCurrentTicker() {
-    return tickersToGrade[currentTickerIndex];
-  }
-
-  function getCurrentCategory() {
-    return currentHeadline.category.toUpperCase();
   }
 
   async function loadHeadline() {
@@ -313,7 +305,12 @@
     const res = await fetch("/get_headline");
     const data = await res.json();
     currentHeadline = data;
-    tickersToGrade = [...currentHeadline.tickers];
+
+    tickersToGrade = data.tickers.map(t => t.ticker.toUpperCase());
+    currentTickerCategoryMap = {};
+    data.tickers.forEach(t => {
+      currentTickerCategoryMap[t.ticker.toUpperCase()] = t.category.toUpperCase();
+    });
 
     document.getElementById("headline").textContent = (data.headline || "No headline found.").toUpperCase();
     answerInput.focus();
@@ -351,9 +348,8 @@
 
     startGradeTimer();
 
-    // Store user ticker and correctness for submit
     currentUserTicker = ticker;
-    currentCorrectTicker = true;
+    currentCorrectCategory = currentTickerCategoryMap[ticker];
   }
 
   async function submitGrade(grade) {
@@ -374,20 +370,20 @@
     stopTimer();
     stopGradeTimer();
 
-    const correctCategory = getCurrentCategory();
+    const correctCategory = currentCorrectCategory;
     const correct = mappedGrade === correctCategory;
 
     if (correct) {
-      showFeedback(true, null, `Correct trade for ${getCurrentTicker()}!`);
+      showFeedback(true, null, `Correct trade for ${currentUserTicker}!`);
     } else {
-      showFeedback(false, null, `Incorrect trade for ${getCurrentTicker()}. You chose: ${categoryToTradeName(mappedGrade)}. Correct: ${categoryToTradeName(correctCategory)}`);
+      showFeedback(false, null, `Incorrect trade for ${currentUserTicker}. You chose: ${categoryToTradeName(mappedGrade)}. Correct: ${categoryToTradeName(correctCategory)}`);
     }
 
     await fetch("/submit", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
-        tickers: [getCurrentTicker()],
+        tickers: [currentUserTicker],
         grade: mappedGrade,
         correct,
         headline: currentHeadline.headline,

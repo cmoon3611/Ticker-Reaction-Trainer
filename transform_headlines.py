@@ -1,7 +1,7 @@
 import json
 
 # Load your existing headlines JSON (replace with your actual filename)
-with open("headlines_old.json", "r") as f:
+with open("headlines.json", "r") as f:
     old_headlines = json.load(f)
 
 new_headlines = []

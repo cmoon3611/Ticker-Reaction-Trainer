@@ -6,7 +6,7 @@ import os
 app = Flask(__name__)
 app.secret_key = "your_secret_key_here"  # Needed for session management
 
-HEADLINES_FILE = "headlines_old.json"
+HEADLINES_FILE = "headlines.json"
 
 def load_headlines():
     if os.path.exists(HEADLINES_FILE):
@@ -32,6 +32,10 @@ def trainer():
 def burst_mode():
     return render_template("burst_mode.html")
 
+@app.route("/instructions")
+def instructions():
+    return render_template("instructions.html")
+
 @app.route("/get_headline")
 def get_headline():
     if not HEADLINES:
@@ -54,6 +58,33 @@ def get_headline():
 
     return jsonify(headline)
 
+@app.route("/get_headlines_batch")
+def get_headlines_batch():
+    if not HEADLINES:
+        return jsonify([])  # Return empty list if no headlines
+
+    # Shuffle and pick up to 10 headlines randomly
+    batch = random.sample(HEADLINES, min(10, len(HEADLINES)))
+
+    # Normalize tickers: convert 'symbol' to 'ticker' for frontend compatibility
+    def normalize_entry(entry):
+        normalized_tickers = []
+        for t in entry.get("tickers", []):
+            ticker_symbol = t.get("symbol") or t.get("ticker")
+            category = t.get("category", "")
+            if ticker_symbol and category:
+                normalized_tickers.append({
+                    "ticker": ticker_symbol.upper(),
+                    "category": category.upper()
+                })
+        return {
+            "headline": entry.get("headline", ""),
+            "tickers": normalized_tickers
+        }
+
+    batch_normalized = [normalize_entry(h) for h in batch]
+    return jsonify(batch_normalized)
+
 @app.route("/submit", methods=["POST"])
 def submit():
     data = request.json
@@ -72,18 +103,25 @@ def add_headline_submit():
 
     headline = data.get("headline", "").strip()
     tickers = data.get("tickers", [])
-    category = data.get("category", "").strip().upper()
 
-    if not headline or not tickers or category not in ("A", "B", "C", "D"):
+    if not headline or not tickers:
         return jsonify({"status": "error", "message": "Invalid input"}), 400
 
-    if any(not isinstance(t, str) or not t.isalpha() or not t.isupper() for t in tickers):
-        return jsonify({"status": "error", "message": "Invalid tickers format"}), 400
+    # Validate tickers: list of dicts with 'symbol' and 'category' keys
+    for t in tickers:
+        if not isinstance(t, dict):
+            return jsonify({"status": "error", "message": "Each ticker must be an object"}), 400
+        symbol = t.get("symbol", "")
+        category = t.get("category", "")
+        if (
+            not isinstance(symbol, str) or not symbol.isalpha() or not symbol.isupper() or
+            category not in ("A", "B", "C", "D")
+        ):
+            return jsonify({"status": "error", "message": "Invalid ticker symbol or category"}), 400
 
     new_entry = {
         "headline": headline,
-        "tickers": tickers,
-        "category": category
+        "tickers": tickers
     }
 
     HEADLINES.append(new_entry)
@@ -91,12 +129,10 @@ def add_headline_submit():
 
     return jsonify({"status": "success"})
 
-# NEW: Endpoint to get all headlines
 @app.route("/headlines", methods=["GET"])
 def get_all_headlines():
     return jsonify(HEADLINES)
 
-# NEW: Endpoint to remove a headline by exact headline text
 @app.route("/remove_headline", methods=["POST"])
 def remove_headline():
     data = request.get_json()
