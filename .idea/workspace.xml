@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="98bdda94-4232-46d1-9eda-68502454759b" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/static/trillium-logo-white.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/static/trillium-logo.svg" beforeDir="false" afterPath="$PROJECT_DIR$/static/trillium-logo.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/add_headline.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/add_headline.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/burst_mode.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/burst_mode.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/instructions.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/instructions.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/intro.html" afterDir="false" />
-    </list>
+    <list default="true" id="98bdda94-4232-46d1-9eda-68502454759b" name="Changes" comment="dark mode" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -87,12 +77,25 @@
       <updated>1752245540846</updated>
       <workItem from="1752245541908" duration="19949000" />
       <workItem from="1752269998557" duration="579000" />
-      <workItem from="1752666150440" duration="4754000" />
+      <workItem from="1752666150440" duration="5067000" />
     </task>
+    <task id="LOCAL-00001" summary="dark mode">
+      <option name="closed" value="true" />
+      <created>1752671054029</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1752671054029</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="dark mode" />
+    <option name="LAST_COMMIT_MESSAGE" value="dark mode" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Trading_Flashcards$transform_headlines.coverage" NAME="transform_headlines Coverage Results" MODIFIED="1752520762562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
