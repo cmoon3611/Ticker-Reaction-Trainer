@@ -17,6 +17,13 @@
       align-items: center;
       user-select: none;
       text-transform: uppercase;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark mode styles */
+    html.dark-mode, body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
     }
 
     header {
@@ -30,11 +37,21 @@
       align-items: center;
       z-index: 100;
       text-transform: none;
+      transition: background-color 0.3s ease, border-color 0.3s ease, color 0.3s ease;
+    }
+    html.dark-mode header {
+      background-color: #121212;
+      border-color: #333;
+      color: #e0e0e0;
     }
 
     .logo {
       width: 180px;
       user-select: none;
+      transition: filter 0.3s ease;
+    }
+    html.dark-mode .logo {
+      filter: brightness(0) invert(1);
     }
 
     .home-button {
@@ -46,12 +63,19 @@
       font-size: 1.1rem;
       letter-spacing: 0.05em;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
       user-select: none;
       text-decoration: none;
     }
     .home-button:hover {
       background-color: #222;
+    }
+    html.dark-mode .home-button {
+      background-color: #fff;
+      color: #000;
+    }
+    html.dark-mode .home-button:hover {
+      background-color: #ddd;
     }
 
     main {
@@ -63,6 +87,7 @@
       gap: 1rem;
       user-select: none;
       text-transform: uppercase;
+      transition: color 0.3s ease;
     }
 
     h1 {
@@ -71,6 +96,10 @@
       margin: 0 0 1rem 0;
       color: #111;
       user-select: none;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode h1 {
+      color: #e0e0e0;
     }
 
     #openAddModalBtn {
@@ -84,7 +113,7 @@
       cursor: pointer;
       width: fit-content;
       align-self: flex-start;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
       user-select: none;
       margin-bottom: 1rem;
       text-transform: uppercase;
@@ -92,12 +121,23 @@
     #openAddModalBtn:hover {
       background-color: #222;
     }
+    html.dark-mode #openAddModalBtn {
+      background-color: #fff;
+      color: #000;
+    }
+    html.dark-mode #openAddModalBtn:hover {
+      background-color: #ddd;
+    }
 
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 1.25rem;
       user-select: text;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode table {
+      color: #e0e0e0;
     }
 
     thead th {
@@ -105,6 +145,11 @@
       padding: 0.85rem 1rem;
       text-align: left;
       color: #111;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    html.dark-mode thead th {
+      border-bottom-color: #e0e0e0;
+      color: #e0e0e0;
     }
 
     tbody td {
@@ -112,10 +157,19 @@
       padding: 0.75rem 1rem;
       vertical-align: middle;
       color: #111;
+      transition: border-color 0.3s ease, color 0.3s ease;
+    }
+    html.dark-mode tbody td {
+      border-bottom-color: #444;
+      color: #e0e0e0;
     }
 
     tbody tr:hover {
       background-color: #f5f5f5;
+      transition: background-color 0.3s ease;
+    }
+    html.dark-mode tbody tr:hover {
+      background-color: #222;
     }
 
     .category-cell {
@@ -129,6 +183,10 @@
       font-weight: 400;
       text-transform: none;
       width: 25%;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode .tickers-cell {
+      color: #bbb;
     }
 
     .remove-btn {
@@ -157,6 +215,10 @@
       align-items: center;
       z-index: 200;
       padding: 1rem;
+      transition: background-color 0.3s ease;
+    }
+    html.dark-mode #modalOverlay {
+      background: rgba(0,0,0,0.75);
     }
 
     #addHeadlineModal {
@@ -173,6 +235,13 @@
       text-transform: uppercase;
       position: relative;
       box-sizing: border-box;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      color: #111;
+    }
+    html.dark-mode #addHeadlineModal {
+      background: #222;
+      color: #e0e0e0;
+      box-shadow: 0 8px 24px rgba(0,0,0,0.7);
     }
 
     #modalForm label {
@@ -182,6 +251,10 @@
       margin-bottom: 0.3rem;
       user-select: none;
       display: block;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode #modalForm label {
+      color: #e0e0e0;
     }
 
     #modalForm input[type="text"],
@@ -196,7 +269,16 @@
       width: 100%;
       box-sizing: border-box;
       margin-bottom: 0.9rem;
+      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      background-color: #fff;
     }
+    html.dark-mode #modalForm input[type="text"],
+    html.dark-mode #modalForm select {
+      border-color: #555;
+      background-color: #444;
+      color: #e0e0e0;
+    }
+
     #modalHeadlineInput {
       text-transform: uppercase;
     }
@@ -205,6 +287,9 @@
       text-transform: none;
       color: #888;
       font-style: italic;
+    }
+    html.dark-mode #modalForm input[type="text"]::placeholder {
+      color: #bbb;
     }
 
     #gradeLegend {
@@ -216,6 +301,10 @@
       margin-top: -0.3rem;
       margin-bottom: 1rem;
       text-transform: none;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode #gradeLegend {
+      color: #bbb;
     }
 
     #closeModalBtn {
@@ -235,6 +324,12 @@
     #closeModalBtn:hover {
       color: #000;
     }
+    html.dark-mode #closeModalBtn {
+      color: #ddd;
+    }
+    html.dark-mode #closeModalBtn:hover {
+      color: #fff;
+    }
 
     #modalForm button {
       background-color: #000;
@@ -245,7 +340,7 @@
       border-radius: 999px;
       padding: 1rem 0;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      transition: background-color 0.3s ease, color 0.3s ease;
       user-select: none;
       margin-top: 0.5rem;
       width: 100%;
@@ -253,6 +348,13 @@
     }
     #modalForm button:hover {
       background-color: #222;
+    }
+    html.dark-mode #modalForm button {
+      background-color: #fff;
+      color: #000;
+    }
+    html.dark-mode #modalForm button:hover {
+      background-color: #ddd;
     }
 
     #modalMessage {
@@ -264,6 +366,53 @@
       user-select: none;
       text-transform: none;
       margin-top: 0.25rem;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode #modalMessage {
+      color: #00E1A2;
+    }
+
+    /* Dark mode toggle switch styling */
+    #darkModeToggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      width: 60px;
+      height: 34px;
+      background-color: #000;  /* black background */
+      border-radius: 34px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1000;
+      border: none;
+      padding: 0;
+      outline: none;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      box-sizing: content-box;
+    }
+
+    #darkModeToggle::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      width: 26px;
+      height: 26px;
+      background-color: white; /* white knob */
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    }
+
+    html.dark-mode #darkModeToggle {
+      background-color: #fff; /* white background in dark mode */
+    }
+
+    html.dark-mode #darkModeToggle::before {
+      transform: translateX(26px);
+      background-color: black; /* black knob in dark mode */
     }
   </style>
 </head>
@@ -309,6 +458,8 @@
     </form>
   </div>
 </div>
+
+<button id="darkModeToggle" aria-label="Toggle dark mode"></button>
 
 <script>
   const tableBody = document.getElementById("headlineTableBody");
@@ -471,6 +622,30 @@
   });
 
   loadHeadlines();
+
+  // DARK MODE TOGGLE LOGIC
+  const toggleBtn = document.getElementById('darkModeToggle');
+  function applyDarkMode(dark) {
+    if (dark) {
+      document.documentElement.classList.add('dark-mode');
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = "";
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.body.classList.remove('dark-mode');
+      toggleBtn.textContent = "";
+    }
+  }
+
+  // Initialize dark mode based on saved preference or default to light
+  const savedMode = localStorage.getItem('darkMode') === 'true';
+  applyDarkMode(savedMode);
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    applyDarkMode(!isDark);
+    localStorage.setItem('darkMode', !isDark);
+  });
 </script>
 
 </body>

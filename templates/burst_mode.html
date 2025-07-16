@@ -17,6 +17,7 @@
       flex-direction: column;
       align-items: center;
       justify-content: flex-start;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
 
     header {
@@ -29,11 +30,13 @@
       border-bottom: 1px solid #ddd;
       background: #fff;
       z-index: 100;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
     }
 
     .logo {
       width: 180px;
       user-select: none;
+      transition: filter 0.3s ease;
     }
 
     .home-button {
@@ -46,9 +49,9 @@
       text-transform: uppercase;
       text-decoration: none;
       letter-spacing: 0.05em;
-      transition: background-color 0.3s ease;
       user-select: none;
       cursor: pointer;
+      transition: background-color 0.3s ease, color 0.3s ease;
     }
     .home-button:hover {
       background-color: #222;
@@ -67,6 +70,7 @@
       height: calc(100vh - 90px);
       justify-content: center;
       box-sizing: border-box;
+      transition: color 0.3s ease;
     }
 
     .title {
@@ -77,6 +81,7 @@
       margin: 0 0 0.5rem 0;
       color: #111;
       user-select: none;
+      transition: color 0.3s ease;
     }
 
     #headline {
@@ -93,6 +98,7 @@
       white-space: normal;
       word-wrap: break-word;
       min-height: 4.2rem;
+      transition: color 0.3s ease;
     }
 
     input#answerInput, input#gradeInput {
@@ -101,6 +107,7 @@
       margin-top: 1rem;
       margin-bottom: 1rem;
       box-sizing: border-box;
+      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
     }
 
     #remainingCount {
@@ -111,6 +118,7 @@
       color: #666666;
       user-select: none;
       text-align: center;
+      transition: color 0.3s ease;
     }
 
     input#answerInput, input#gradeInput {
@@ -141,6 +149,7 @@
       min-height: 1.8rem;
       margin-bottom: 0;
       user-select: none;
+      transition: color 0.3s ease;
     }
 
     .feedback {
@@ -150,6 +159,7 @@
       line-height: 1.3;
       margin-top: 0.5rem;
       user-select: none;
+      transition: color 0.3s ease;
     }
     .green {
       color: #00E1A2;
@@ -166,6 +176,7 @@
       font-weight: 600;
       margin-top: 0.5rem;
       line-height: 1.3;
+      transition: color 0.3s ease;
     }
     .category-key b.A,
     .category-key b.B {
@@ -185,15 +196,16 @@
       overflow: hidden;
       margin-top: 1rem;
       display: block;
+      transition: color 0.3s ease;
     }
     #progressBar {
       height: 100%;
       background-color: #000;
       width: 100%;
       transition: width 0.1s linear;
+      transition: color 0.3s ease;
     }
 
-    /* Burst Mode stats box styling */
     /* Burst Mode stats box styling */
 #burstStats {
   width: 95vw;
@@ -288,14 +300,181 @@
   background-color: #444;
 }
 
+/* Dark mode toggle styles */
+#darkModeToggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  width: 60px;
+  height: 34px;
+  background-color: #000;  /* black background */
+  border-radius: 34px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1000;
+  border: none;
+  padding: 0;
+  outline: none;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+}
 
-    footer {
-      text-align: center;
-      padding: 1rem;
-      font-size: 1rem;
-      color: #666;
-      user-select: none;
-    }
+#darkModeToggle::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: white; /* white knob */
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+html.dark-mode #darkModeToggle {
+  background-color: #fff; /* white background in dark mode */
+}
+
+html.dark-mode #darkModeToggle::before {
+  transform: translateX(26px);
+  background-color: black; /* black knob in dark mode */
+}
+
+  footer {
+    text-align: center;
+    padding: 1rem;
+    font-size: 1rem;
+    color: #666;
+    user-select: none;
+    transition: color 0.3s ease;
+  }
+/* Replace the existing dark mode styles in your burst mode CSS with these: */
+
+html.dark-mode {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+html.dark-mode body,
+html.dark-mode main {
+  background-color: #121212;
+  color: #e0e0e0;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+html.dark-mode header {
+  background-color: #121212;
+  border-bottom-color: #444;
+}
+
+html.dark-mode .logo {
+  filter: brightness(0) invert(1);
+}
+
+html.dark-mode .home-button {
+  background-color: #fff;
+  color: #000;
+}
+
+html.dark-mode .home-button:hover {
+  background-color: #ddd;
+}
+
+html.dark-mode .title {
+  color: #ddd;
+}
+
+html.dark-mode #headline {
+  color: #ddd;
+}
+
+html.dark-mode input#answerInput,
+html.dark-mode input#gradeInput {
+  background-color: #222;
+  color: #eee;
+  border-color: #ccc;
+}
+
+html.dark-mode input#answerInput:focus,
+html.dark-mode input#gradeInput:focus {
+  border-color: #00E1A2;
+  box-shadow: 0 0 8px #00E1A2;
+}
+
+html.dark-mode .timer {
+  color: #aaa;
+}
+
+html.dark-mode .category-key {
+  color: #ccc;
+}
+
+html.dark-mode #progressContainer {
+  background-color: #444;
+}
+
+html.dark-mode #progressBar {
+  background-color: #00E1A2;
+}
+
+html.dark-mode #burstStats {
+  background-color: #222;
+  border-color: #00E1A2;
+  color: #e0e0e0;
+}
+
+html.dark-mode #burstStats .summary-row div {
+  background: #333;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+html.dark-mode #burstStats table th {
+  background-color: #333;
+  color: #00E1A2;
+}
+
+html.dark-mode #burstStats table td {
+  background-color: #2a2a2a;
+  border-color: #555;
+  color: #e0e0e0;
+}
+
+html.dark-mode #burstStats table td.correct {
+  color: #00E1A2;
+}
+
+html.dark-mode #burstStats table td.incorrect {
+  color: #f44336;
+}
+
+html.dark-mode #burstStats button {
+  background-color: #00E1A2;
+  color: #000;
+}
+
+html.dark-mode #burstStats button:hover {
+  background-color: #00c48a;
+}
+
+html.dark-mode footer {
+  color: #999;
+}
+
+html.dark-mode .feedback.green {
+  color: #00E1A2;
+}
+
+html.dark-mode .feedback.red {
+  color: #f44336;
+}
+
+html.dark-mode #remainingCount {
+  color: #aaa;
+}
   </style>
 </head>
 <body>
@@ -331,9 +510,36 @@
   <div id="burstStats"></div>
 </main>
 
+<button id="darkModeToggle" aria-label="Toggle dark mode"></button>
+
 <footer>&copy; 2025 Trillium Trading</footer>
 
 <script>
+  // Dark mode toggle logic
+ // Replace the existing dark mode JavaScript with this:
+
+const toggleBtn = document.getElementById('darkModeToggle');
+
+function applyDarkMode(dark) {
+  if (dark) {
+    document.documentElement.classList.add('dark-mode');
+    document.body.classList.add('dark-mode');
+  } else {
+    document.documentElement.classList.remove('dark-mode');
+    document.body.classList.remove('dark-mode');
+  }
+}
+
+// Initialize based on saved preference or default to light
+const savedMode = localStorage.getItem('darkMode') === 'true';
+applyDarkMode(savedMode);
+
+toggleBtn.addEventListener('click', () => {
+  const isDark = document.documentElement.classList.contains('dark-mode');
+  applyDarkMode(!isDark);
+  localStorage.setItem('darkMode', !isDark);
+});
+
   const totalBurstHeadlines = 10;
 
   let currentHeadline = null;
@@ -639,89 +845,88 @@
     }
   });
 
-function showSummaryStats() {
-  burstStats.style.display = "block";
+  function showSummaryStats() {
+    burstStats.style.display = "block";
 
-  const times = answerLog.map(a => a.time / 1000);
-  const corrects = answerLog.filter(a => a.correct).length;
-  const total = answerLog.length;
+    const times = answerLog.map(a => a.time / 1000);
+    const corrects = answerLog.filter(a => a.correct).length;
+    const total = answerLog.length;
 
-  function mode(arr) {
-    const freq = {};
-    arr.forEach(x => freq[x] = (freq[x] || 0) + 1);
-    let maxFreq = 0, modeVal = null;
-    for (const k in freq) {
-      if (freq[k] > maxFreq) {
-        maxFreq = freq[k];
-        modeVal = Number(k);
+    function mode(arr) {
+      const freq = {};
+      arr.forEach(x => freq[x] = (freq[x] || 0) + 1);
+      let maxFreq = 0, modeVal = null;
+      for (const k in freq) {
+        if (freq[k] > maxFreq) {
+          maxFreq = freq[k];
+          modeVal = Number(k);
+        }
       }
+      return modeVal;
     }
-    return modeVal;
-  }
-  function median(arr) {
-    const sorted = [...arr].sort((a,b) => a-b);
-    const mid = Math.floor(sorted.length/2);
-    return sorted.length % 2 === 0 ? (sorted[mid-1] + sorted[mid])/2 : sorted[mid];
-  }
-  function average(arr) {
-    if (arr.length === 0) return 0;
-    return arr.reduce((a,b) => a+b,0)/arr.length;
-  }
-  function stddev(arr) {
-    const avg = average(arr);
-    const variance = average(arr.map(x => (x-avg)**2));
-    return Math.sqrt(variance);
-  }
+    function median(arr) {
+      const sorted = [...arr].sort((a,b) => a-b);
+      const mid = Math.floor(sorted.length/2);
+      return sorted.length % 2 === 0 ? (sorted[mid-1] + sorted[mid])/2 : sorted[mid];
+    }
+    function average(arr) {
+      if (arr.length === 0) return 0;
+      return arr.reduce((a,b) => a+b,0)/arr.length;
+    }
+    function stddev(arr) {
+      const avg = average(arr);
+      const variance = average(arr.map(x => (x-avg)**2));
+      return Math.sqrt(variance);
+    }
 
-  const maxTime = Math.max(...times).toFixed(2);
-  const modeTime = mode(times).toFixed(2);
-  const medianTime = median(times).toFixed(2);
-  const avgTime = average(times).toFixed(2);
-  const stddevTime = stddev(times).toFixed(2);
-  const accuracyPercent = ((corrects/total)*100).toFixed(1);
+    const maxTime = Math.max(...times).toFixed(2);
+    const modeTime = mode(times).toFixed(2);
+    const medianTime = median(times).toFixed(2);
+    const avgTime = average(times).toFixed(2);
+    const stddevTime = stddev(times).toFixed(2);
+    const accuracyPercent = ((corrects/total)*100).toFixed(1);
 
-  burstStats.innerHTML = `
-    <h2>Burst Mode Results</h2>
-    <div class="summary-row">
-      <div><strong>Max Time</strong><br>${maxTime}s</div>
-      <div><strong>Mode Time</strong><br>${modeTime}s</div>
-      <div><strong>Median Time</strong><br>${medianTime}s</div>
-      <div><strong>Avg Time</strong><br>${avgTime}s</div>
-      <div><strong>Std Dev</strong><br>${stddevTime}s</div>
-      <div><strong>Accuracy</strong><br>${accuracyPercent}%</div>
-    </div>
-    <table>
-      <thead>
-        <tr>
-          <th>Headline</th>
-          <th>Ticker</th>
-          <th>Correct</th>
-          <th>Time (s)</th>
-          <th>Your Grade</th>
-        </tr>
-      </thead>
-      <tbody>
-        ${answerLog.map(a => `
+    burstStats.innerHTML = `
+      <h2>Burst Mode Results</h2>
+      <div class="summary-row">
+        <div><strong>Max Time</strong><br>${maxTime}s</div>
+        <div><strong>Mode Time</strong><br>${modeTime}s</div>
+        <div><strong>Median Time</strong><br>${medianTime}s</div>
+        <div><strong>Avg Time</strong><br>${avgTime}s</div>
+        <div><strong>Std Dev</strong><br>${stddevTime}s</div>
+        <div><strong>Accuracy</strong><br>${accuracyPercent}%</div>
+      </div>
+      <table>
+        <thead>
           <tr>
-            <td>${a.headline}</td>
-            <td>${a.ticker}</td>
-            <td class="${a.correct ? "correct" : "incorrect"}">${a.correct ? "Yes" : "No"}</td>
-            <td>${(a.time/1000).toFixed(2)}</td>
-            <td>${a.userGrade || "N/A"}</td>
+            <th>Headline</th>
+            <th>Ticker</th>
+            <th>Correct</th>
+            <th>Time (s)</th>
+            <th>Your Grade</th>
           </tr>
-        `).join("")}
-      </tbody>
-    </table>
-    <button id="burstRestartBtn">Play Again</button>
-  `;
+        </thead>
+        <tbody>
+          ${answerLog.map(a => `
+            <tr>
+              <td>${a.headline}</td>
+              <td>${a.ticker}</td>
+              <td class="${a.correct ? "correct" : "incorrect"}">${a.correct ? "Yes" : "No"}</td>
+              <td>${(a.time/1000).toFixed(2)}</td>
+              <td>${a.userGrade || "N/A"}</td>
+            </tr>
+          `).join("")}
+        </tbody>
+      </table>
+      <button id="burstRestartBtn">Play Again</button>
+    `;
 
-  document.getElementById("burstRestartBtn").addEventListener("click", () => {
-    burstStats.style.display = "none";
-    answerLog = [];
-    initBurstMode();
-  });
-}
-
+    document.getElementById("burstRestartBtn").addEventListener("click", () => {
+      burstStats.style.display = "none";
+      answerLog = [];
+      initBurstMode();
+    });
+  }
 
   window.addEventListener("load", () => {
     initBurstMode();
