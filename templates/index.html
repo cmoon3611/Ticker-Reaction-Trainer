@@ -421,34 +421,59 @@
     progressBar.style.width = "100%";
   }
 
-  async function loadHeadline() {
-    stopTimer();
-    stopGradeTimer();
-    tickersToGrade = [];
-    currentTickerIndex = 0;
-    waitingForGrade = false;
-    gradeInput.style.display = "none";
-    answerInput.style.display = "inline-block";
-    answerInput.value = "";
-    gradeInput.value = "";
-    feedback.textContent = "";
-    timerElem.textContent = "0.00s";
-    progressBar.style.width = "100%";
+async function loadHeadline() {
+  stopTimer();
+  stopGradeTimer();
+  tickersToGrade = [];
+  currentTickerIndex = 0;
+  waitingForGrade = false;
+  gradeInput.style.display = "none";
+  answerInput.style.display = "inline-block";
+  answerInput.value = "";
+  gradeInput.value = "";
+  feedback.textContent = "";
+  timerElem.textContent = "0.00s";
+  progressBar.style.width = "100%";
+  document.getElementById("headline").textContent = "Loading headline...";
 
-    const res = await fetch("/get_headline");
+  try {
+    const controller = new AbortController();
+    const timeoutId = setTimeout(() => controller.abort(), 5000); // 5-second timeout
+
+    const res = await fetch("/get_headline", { signal: controller.signal });
+    clearTimeout(timeoutId);
+
     const data = await res.json();
+    if (!data || !data.headline || !data.tickers || data.tickers.length === 0) {
+      throw new Error("Invalid data format");
+    }
+
     currentHeadline = data;
+    tickersToGrade = data.tickers
+  .filter(t => t && (t.ticker || t.symbol))
+  .map(t => (t.ticker || t.symbol).toUpperCase());
 
-    tickersToGrade = data.tickers.map(t => t.ticker.toUpperCase());
-    currentTickerCategoryMap = {};
-    data.tickers.forEach(t => {
-      currentTickerCategoryMap[t.ticker.toUpperCase()] = t.category.toUpperCase();
-    });
+currentTickerCategoryMap = {};
+data.tickers
+  .filter(t => t && (t.ticker || t.symbol) && t.category)
+  .forEach(t => {
+    const key = (t.ticker || t.symbol).toUpperCase();
+    const category = t.category.toUpperCase();
+    currentTickerCategoryMap[key] = category;
+  });
 
-    document.getElementById("headline").textContent = (data.headline || "No headline found.").toUpperCase();
+
+    document.getElementById("headline").textContent = data.headline.toUpperCase();
     answerInput.focus();
     startTimer();
+  } catch (err) {
+    console.error("Failed to load headline:", err);
+    document.getElementById("headline").textContent = "⚠️ Failed to load headline. Please refresh.";
+    answerInput.disabled = true;
+    gradeInput.disabled = true;
   }
+}
+
 
   function showFeedback(correct, timeTaken, customMsg) {
     if (correct) {

@@ -173,5 +173,171 @@
         "category": "C"
       }
     ]
+  },
+  {
+    "headline": "QUALCOMM APPROACHED INTEL ABOUT A TAKEOVER IN RECENT DAYS: WSJ",
+    "tickers": [
+      {
+        "symbol": "QCOM",
+        "category": "D"
+      },
+      {
+        "symbol": "INTC",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "META Q2 REV 36.5-39B VS 39.7B ESTIMATES",
+    "tickers": [
+      {
+        "symbol": "META",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "NVDA ANNOUNCES STOCK SPLIT",
+    "tickers": [
+      {
+        "symbol": "NVDA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "ROARING KITTY'S FIRST LIVESTREAM IN 3 YEARS",
+    "tickers": [
+      {
+        "symbol": "GME",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "ANALYST CONSENSUS IN NII FROM $91.5b TO $90b...\"A BIT TOO HIGH\", JPM COO",
+    "tickers": [
+      {
+        "symbol": "JPM",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "TESLA EXPECTS SLIGHT GROWTH IN DELIVERIES IN F24",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "ELON FORECASTS 20-30% TESLA VEHICLE GROWTH IN F25",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "ROARING KITTY TWEETS A PICKTURE OF A DOG",
+    "tickers": [
+      {
+        "symbol": "CHWY",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "BROADCOM CEO REPORTS Q1 AI REV 3.8b VS 3.6b EST, 2 NEW HYPERSCALER CUSTOMERS",
+    "tickers": [
+      {
+        "symbol": "AVGO",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "ROBINHOOD FILES 8-K, REPORTS WELLS NOTICE",
+    "tickers": [
+      {
+        "symbol": "HOOD",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "AFFIRM PAYMENT PRODUCTS AVAILABLE FOR APPLE PAY USERS",
+    "tickers": [
+      {
+        "symbol": "AFRM",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "SOLAREDGE TECH REPORTS 300M CONVERTIBLE NOTE, Q2 FCF 150M VS 216 EST",
+    "tickers": [
+      {
+        "symbol": "SEDG",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "SOLIGENIX INC. OFFERING WARRANTS TO EXERCISE AT $6",
+    "tickers": [
+      {
+        "symbol": "SNGX",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "ALLEGIANT TRAVEL CO. NO LONGER OFFERING DIVIDENDS",
+    "tickers": [
+      {
+        "symbol": "ALGT",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "DELTA AIR LINES REPORTS FY24 EPS AT OR ABOVE MID POINT OF GUIDANCE OF $6-$7",
+    "tickers": [
+      {
+        "symbol": "DAL",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "FDA PLACES CLINICAL HOLD ON NOVAVAX COVID-FLU VACCINE",
+    "tickers": [
+      {
+        "symbol": "NVAX",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "LILLIUM N.V. REPORTS POTENTIAL FILING FOR INSOLVENCY",
+    "tickers": [
+      {
+        "symbol": "LILM",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "BROADCOM: TEN-FOR-ONE FORWARD STOCK SPLIT",
+    "tickers": [
+      {
+        "symbol": "AVGO",
+        "category": "B"
+      }
+    ]
   }
 ]

@@ -38,25 +38,26 @@ def instructions():
 
 @app.route("/get_headline")
 def get_headline():
-    if not HEADLINES:
-        return jsonify({"headline": "No headlines yet!", "tickers": [], "category": ""})
+    valid_headlines = [h for h in HEADLINES if h.get("tickers") and len(h["tickers"]) > 0]
+
+    if not valid_headlines:
+        return jsonify({"headline": "No valid headlines yet!", "tickers": []})
 
     mode = request.args.get("mode", "").lower()
 
     if mode == "burst":
-        # For burst mode, pick any random headline (no exclusion)
-        headline = random.choice(HEADLINES)
+        headline = random.choice(valid_headlines)
     else:
-        # Normal mode: exclude last headline shown (to avoid repetition)
         last_headline_text = session.get("last_headline_text")
-        choices = [h for h in HEADLINES if h["headline"] != last_headline_text]
+        choices = [h for h in valid_headlines if h["headline"] != last_headline_text]
         if not choices:
-            headline = HEADLINES[0]
+            headline = valid_headlines[0]
         else:
             headline = random.choice(choices)
         session["last_headline_text"] = headline["headline"]
 
     return jsonify(headline)
+
 
 @app.route("/get_headlines_batch")
 def get_headlines_batch():
