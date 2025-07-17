@@ -463,7 +463,15 @@ data.tickers
   });
 
 
-    document.getElementById("headline").textContent = data.headline.toUpperCase();
+    // Format display as "TICKER | HEADLINE" or "TICKER1, TICKER2 | HEADLINE"
+    const tickers = data.tickers
+      .filter(t => t && (t.ticker || t.symbol))
+      .map(t => (t.ticker || t.symbol).toUpperCase());
+
+    const tickerDisplay = tickers.join(', ');
+    const formattedHeadline = `${tickerDisplay} | ${data.headline}`;
+
+    document.getElementById("headline").textContent = formattedHeadline.toUpperCase();
     answerInput.focus();
     startTimer();
   } catch (err) {

@@ -242,15 +242,6 @@
     ]
   },
   {
-    "headline": "ROARING KITTY TWEETS A PICKTURE OF A DOG",
-    "tickers": [
-      {
-        "symbol": "CHWY",
-        "category": "A"
-      }
-    ]
-  },
-  {
     "headline": "BROADCOM CEO REPORTS Q1 AI REV 3.8b VS 3.6b EST, 2 NEW HYPERSCALER CUSTOMERS",
     "tickers": [
       {
@@ -337,6 +328,73 @@
       {
         "symbol": "AVGO",
         "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "roaring kitty tweets a picture of a dog",
+    "tickers": [
+      {
+        "symbol": "CHWY",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "supermicro names bdo auditor, submits plan for delayed filing",
+    "tickers": [
+      {
+        "symbol": "SMCI",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "b. riley faces widening us probe over its risk disclosures",
+    "tickers": [
+      {
+        "symbol": "RILY",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "iran preps major retaliatory strike on israel from iraq: axios",
+    "tickers": [
+      {
+        "symbol": "USO",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "ftc plans to investigate microsoft's cloud business: ft",
+    "tickers": [
+      {
+        "symbol": "MSFT",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "meta developing ai search engine",
+    "tickers": [
+      {
+        "symbol": "GOOGL",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "mondelez said to explore takeover of us chocolate maker hershey",
+    "tickers": [
+      {
+        "symbol": "MDLZ",
+        "category": "D"
+      },
+      {
+        "symbol": "HSY",
+        "category": "A"
       }
     ]
   }

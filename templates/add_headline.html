@@ -175,7 +175,7 @@
     .category-cell {
       text-align: center;
       font-weight: 700;
-      width: 8%;
+      width: 15%;
     }
 
     .tickers-cell {
@@ -482,67 +482,76 @@
     }
   }
 
-  function renderHeadlineTable(headlines) {
-    if (headlines.length === 0) {
-      tableBody.innerHTML = `<tr><td colspan="4" style="color:#666; font-style: italic; text-align:center;">No headlines available.</td></tr>`;
-      return;
-    }
-
-    tableBody.innerHTML = headlines.map(h => {
-      // Extract tickers (symbol or ticker) comma separated
-      const tickerList = (h.tickers || []).map(t => {
-        if (typeof t === "object" && t !== null) {
-          return t.symbol ?? t.ticker ?? "UNKNOWN";
-        }
-        return typeof t === "string" ? t : "UNKNOWN";
-      }).join(", ");
-
-      // Extract categories (category or grade) comma separated
-      const categoryList = (h.tickers || []).map(t => {
-        if (typeof t === "object" && t !== null) {
-          return t.category ?? t.grade ?? "?";
-        }
-        return "?";
-      }).join(", ");
-
-      return `
-        <tr data-headline="${h.headline}">
-          <td title="${h.headline}">${h.headline}</td>
-          <td class="tickers-cell" title="${tickerList}">${tickerList}</td>
-          <td class="category-cell" title="${categoryList}">${categoryList}</td>
-          <td><button class="remove-btn">&times;</button></td>
-        </tr>
-      `;
-    }).join("");
-
-    document.querySelectorAll(".remove-btn").forEach(btn => {
-      btn.onclick = async (e) => {
-        const tr = e.target.closest("tr");
-        const headlineText = tr.getAttribute("data-headline");
-        if (!confirm(`Remove headline?\n\n${headlineText}`)) return;
-
-        try {
-          const res = await fetch("/remove_headline", {
-            method: "POST",
-            headers: { "Content-Type": "application/json" },
-            body: JSON.stringify({ headline: headlineText }),
-          });
-          const data = await res.json();
-          if (data.status === "success") {
-            modalMessage.style.color = "#00E1A2";
-            modalMessage.textContent = "Headline removed!";
-            loadHeadlines();
-          } else {
-            modalMessage.style.color = "#ef4444";
-            modalMessage.textContent = data.message || "Failed to remove headline.";
-          }
-        } catch {
-          modalMessage.style.color = "#ef4444";
-          modalMessage.textContent = "Network error removing headline.";
-        }
-      };
-    });
+function renderHeadlineTable(headlines) {
+  if (headlines.length === 0) {
+    tableBody.innerHTML = `<tr><td colspan="4" style="color:#666; font-style: italic; text-align:center;">No headlines available.</td></tr>`;
+    return;
   }
+
+  // Grade to category mapping
+  const gradeToCategory = {
+    'A': 'Large Long',
+    'B': 'Small Long',
+    'C': 'Small Short',
+    'D': 'Large Short'
+  };
+
+  tableBody.innerHTML = headlines.map(h => {
+    // Extract tickers (symbol or ticker) comma separated
+    const tickerList = (h.tickers || []).map(t => {
+      if (typeof t === "object" && t !== null) {
+        return t.symbol ?? t.ticker ?? "UNKNOWN";
+      }
+      return typeof t === "string" ? t : "UNKNOWN";
+    }).join(", ");
+
+    // Extract categories (category or grade) comma separated with full names
+    const categoryList = (h.tickers || []).map(t => {
+      if (typeof t === "object" && t !== null) {
+        const grade = t.category ?? t.grade ?? "?";
+        return gradeToCategory[grade] ?? grade; // Use full name if available, otherwise use original
+      }
+      return "?";
+    }).join(", ");
+
+    return `
+      <tr data-headline="${h.headline}">
+        <td title="${h.headline}">${h.headline}</td>
+        <td class="tickers-cell" title="${tickerList}">${tickerList}</td>
+        <td class="category-cell" title="${categoryList}">${categoryList}</td>
+        <td><button class="remove-btn">&times;</button></td>
+      </tr>
+    `;
+  }).join("");
+
+  document.querySelectorAll(".remove-btn").forEach(btn => {
+    btn.onclick = async (e) => {
+      const tr = e.target.closest("tr");
+      const headlineText = tr.getAttribute("data-headline");
+      if (!confirm(`Remove headline?\n\n${headlineText}`)) return;
+
+      try {
+        const res = await fetch("/remove_headline", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ headline: headlineText }),
+        });
+        const data = await res.json();
+        if (data.status === "success") {
+          modalMessage.style.color = "#00E1A2";
+          modalMessage.textContent = "Headline removed!";
+          loadHeadlines();
+        } else {
+          modalMessage.style.color = "#ef4444";
+          modalMessage.textContent = data.message || "Failed to remove headline.";
+        }
+      } catch {
+        modalMessage.style.color = "#ef4444";
+        modalMessage.textContent = "Network error removing headline.";
+      }
+    };
+  });
+}
 
   openModalBtn.onclick = () => {
     modalOverlay.style.display = "flex";

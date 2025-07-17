@@ -703,9 +703,19 @@ toggleBtn.addEventListener('click', () => {
   }
 
   function displayCurrentHeadline() {
-    const text = currentHeadline && currentHeadline.headline ? currentHeadline.headline.toUpperCase() : "No headline found.";
-    document.getElementById("headline").textContent = text;
+  if (!currentHeadline || !currentHeadline.headline) {
+    document.getElementById("headline").textContent = "No headline found.";
+    return;
   }
+
+  // Get all tickers and join them with commas
+  const allTickers = currentHeadline.tickers && currentHeadline.tickers.length > 0
+    ? currentHeadline.tickers.map(t => t.ticker.toUpperCase()).join(", ")
+    : "???";
+
+  const text = `${allTickers} | ${currentHeadline.headline.toUpperCase()}`;
+  document.getElementById("headline").textContent = text;
+}
 
   function displayTickerPrompt() {
     waitingForGrade = false;
