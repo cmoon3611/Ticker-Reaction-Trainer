@@ -475,6 +475,88 @@ html.dark-mode .feedback.red {
 html.dark-mode #remainingCount {
   color: #aaa;
 }
+
+/* Ticker toggle switch styling */
+#tickerToggle {
+  position: fixed;
+  bottom: 1rem;
+  right: 6rem; /* Position to the left of dark mode toggle */
+  width: 60px;
+  height: 34px;
+  background-color: #00E1A2; /* Green when ticker is shown */
+  border-radius: 34px;
+  cursor: pointer;
+  user-select: none;
+  z-index: 1000;
+  border: none;
+  padding: 0;
+  outline: none;
+  transition: background-color 0.3s ease;
+  display: flex;
+  align-items: center;
+  box-sizing: content-box;
+}
+
+#tickerToggle::before {
+  content: "";
+  position: absolute;
+  left: 4px;
+  top: 4px;
+  width: 26px;
+  height: 26px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 2px rgba(0,0,0,0.2);
+}
+
+#tickerToggle.ticker-hidden {
+  background-color: #666; /* Gray when ticker is hidden */
+}
+
+#tickerToggle.ticker-hidden::before {
+  transform: translateX(26px);
+}
+
+html.dark-mode #tickerToggle {
+  background-color: #00E1A2;
+}
+
+html.dark-mode #tickerToggle.ticker-hidden {
+  background-color: #444;
+}
+
+html.dark-mode #tickerToggle::before {
+  background-color: black;
+}
+
+/* Toggle labels */
+.toggle-label {
+  position: fixed;
+  bottom: 3.5rem;
+  font-size: 0.85rem;
+  color: #666;
+  user-select: none;
+  z-index: 1000;
+  transition: color 0.3s ease;
+}
+
+#tickerToggleLabel {
+  right: 6rem;
+  width: 60px;
+  text-align: center;
+}
+
+#darkModeToggleLabel {
+  right: 1rem;
+  width: 60px;
+  text-align: center;
+}
+
+html.dark-mode .toggle-label {
+  color: #999;
+}
+
   </style>
 </head>
 <body>
@@ -510,6 +592,10 @@ html.dark-mode #remainingCount {
   <div id="burstStats"></div>
 </main>
 
+<div class="toggle-label" id="tickerToggleLabel">Ticker</div>
+<button id="tickerToggle" aria-label="Toggle ticker visibility"></button>
+
+<div class="toggle-label" id="darkModeToggleLabel">Dark</div>
 <button id="darkModeToggle" aria-label="Toggle dark mode"></button>
 
 <footer>&copy; 2025 Trillium Trading</footer>
@@ -702,18 +788,51 @@ toggleBtn.addEventListener('click', () => {
     startTimer();  // START timer only once per headline here
   }
 
+  // Ticker toggle functionality
+const tickerToggleBtn = document.getElementById('tickerToggle');
+let showTicker = true;
+
+function applyTickerToggle(show) {
+  showTicker = show;
+  if (show) {
+    tickerToggleBtn.classList.remove('ticker-hidden');
+  } else {
+    tickerToggleBtn.classList.add('ticker-hidden');
+  }
+
+  // Re-display current headline with new ticker setting
+  if (currentHeadline) {
+    displayCurrentHeadline();
+  }
+}
+
+// Initialize based on saved preference or default to show ticker
+const savedTickerMode = localStorage.getItem('showTicker') !== 'false';
+applyTickerToggle(savedTickerMode);
+
+tickerToggleBtn.addEventListener('click', () => {
+  applyTickerToggle(!showTicker);
+  localStorage.setItem('showTicker', showTicker);
+});
+
+// Modified displayCurrentHeadline function
+
   function displayCurrentHeadline() {
   if (!currentHeadline || !currentHeadline.headline) {
     document.getElementById("headline").textContent = "No headline found.";
     return;
   }
 
-  // Get all tickers and join them with commas
-  const allTickers = currentHeadline.tickers && currentHeadline.tickers.length > 0
-    ? currentHeadline.tickers.map(t => t.ticker.toUpperCase()).join(", ")
-    : "???";
+  let text;
+  if (showTicker && currentHeadline.tickers && currentHeadline.tickers.length > 0) {
+    // Show tickers if toggle is on
+    const allTickers = currentHeadline.tickers.map(t => t.ticker.toUpperCase()).join(", ");
+    text = `${allTickers} | ${currentHeadline.headline.toUpperCase()}`;
+  } else {
+    // Hide tickers if toggle is off
+    text = currentHeadline.headline.toUpperCase();
+  }
 
-  const text = `${allTickers} | ${currentHeadline.headline.toUpperCase()}`;
   document.getElementById("headline").textContent = text;
 }
 

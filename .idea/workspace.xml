@@ -6,7 +6,7 @@
   <component name="ChangeListManager">
     <list default="true" id="98bdda94-4232-46d1-9eda-68502454759b" name="Changes" comment="dark mode">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/burst_mode.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/burst_mode.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +88,7 @@
       <workItem from="1752764676375" duration="4234000" />
       <workItem from="1752786772125" duration="7000" />
       <workItem from="1752839574874" duration="857000" />
-      <workItem from="1752857800764" duration="2445000" />
+      <workItem from="1752857800764" duration="4434000" />
     </task>
     <task id="LOCAL-00001" summary="dark mode">
       <option name="closed" value="true" />
@@ -111,6 +111,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Trading_Flashcards$validate_headlines.coverage" NAME="validate_headlines Coverage Results" MODIFIED="1752675703910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Trading_Flashcards$transform_headlines.coverage" NAME="transform_headlines Coverage Results" MODIFIED="1752520762562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Trading_Flashcards$app.coverage" NAME="app Coverage Results" MODIFIED="1752863504579" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Trading_Flashcards$app.coverage" NAME="app Coverage Results" MODIFIED="1752865422923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
