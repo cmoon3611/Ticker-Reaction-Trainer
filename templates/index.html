@@ -392,12 +392,12 @@ html.dark-mode .toggle-label {
 
   <div id="feedback" class="feedback"></div>
 
-  <div class="category-key">
-    <p style="color:#00E1A2"><b class="B">Shift + D</b> = Small Long</p>
-    <p style="color:#00E1A2"><b class="B">Shift + F</b> = Large Long</p>
-    <p style="color:#ef4444"><b class="K">Shift + K</b> = Small Short</p>
-    <p style="color:#ef4444"><b class="J">Shift + J</b> = Large Short</p>
-  </div>
+<div class="category-key">
+  <p style="color:#00E1A2"><b class="B">A</b> = Highest Quality</p>
+  <p style="color:#00E1A2"><b class="B">B</b> = Quality</p>
+  <p style="color:#ef4444"><b class="K">C</b> = Below Average</p>
+  <p style="color:#ef4444"><b class="J">D</b> = Bad</p>
+</div>
 </main>
 
 <footer>&copy; 2025 Trillium Trading</footer>
@@ -435,15 +435,15 @@ html.dark-mode .toggle-label {
 </script>
 
 <script>
-  function categoryToTradeName(cat) {
-    const map = {
-      "A": "Large Long",
-      "B": "Small Long",
-      "C": "Small Short",
-      "D": "Large Short"
-    };
-    return map[cat] || cat;
-  }
+function categoryToTradeName(cat) {
+  const map = {
+    "A": "Highest Quality",
+    "B": "Quality",
+    "C": "Below Average",
+    "D": "Bad"
+  };
+  return map[cat] || cat;
+}
 
   let currentHeadline = null;
   let startTime = null;
@@ -647,16 +647,16 @@ data.tickers
   async function submitGrade(grade) {
     grade = grade.trim().toUpperCase();
     const keyToCategory = {
-      "D": "B",
-      "F": "A",
-      "K": "C",
-      "J": "D"
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D"
     };
 
-    if (!Object.keys(keyToCategory).includes(grade)) {
-      showFeedback(false, null, "Invalid trade. Use Shift+D/F/K/J.");
-      return;
-    }
+   if (!Object.keys(keyToCategory).includes(grade)) {
+  showFeedback(false, null, "Invalid trade. Use A/B/C/D.");
+  return;
+}
 
     const mappedGrade = keyToCategory[grade];
     stopTimer();
@@ -730,15 +730,15 @@ data.tickers
     }
   });
 
-  document.addEventListener("keydown", e => {
-    if (waitingForGrade && e.shiftKey) {
-      const key = e.key.toUpperCase();
-      if (["D", "F", "K", "J"].includes(key)) {
-        e.preventDefault();
-        submitGrade(key);
-      }
+document.addEventListener("keydown", e => {
+  if (waitingForGrade && !e.shiftKey) {
+    const key = e.key.toUpperCase();
+    if (["A", "B", "C", "D"].includes(key)) {
+      e.preventDefault();
+      submitGrade(key);
     }
-  });
+  }
+});
 
   loadHeadline();
 </script>

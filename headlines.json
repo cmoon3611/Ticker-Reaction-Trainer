@@ -1,203 +1,258 @@
 [
   {
-    "headline": "FAA probing claims about flaws in boeing 787 dreamliner",
+    "headline": "Nvidia to continue to sell their chips in China",
     "tickers": [
       {
-        "ticker": "BA",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "intel says new gaudi 3 product outperforms nvidia's h100 chip",
-    "tickers": [
-      {
-        "ticker": "INTC",
+        "symbol": "NVDA",
         "category": "A"
       }
     ]
   },
   {
-    "headline": "drugmaker janux therapeutics said to weigh possible sale",
+    "headline": "Trump Proposes $100B in AI Defense Investment, Names Palantir Among Preferred Vendors",
     "tickers": [
       {
-        "ticker": "JANX",
+        "symbol": "PLTR",
         "category": "A"
       }
     ]
   },
   {
-    "headline": "super micro says ey resigned while conducting audit for 2024",
+    "headline": "Trump Says Amazon Should Be Broken Up for Antitrust Violations",
     "tickers": [
       {
-        "ticker": "SMCI",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "tesla plans to delay robotaxi unveiling to october from august",
-    "tickers": [
-      {
-        "ticker": "TSLA",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "tesla scraps low-cost car plans: reuters",
-    "tickers": [
-      {
-        "ticker": "TSLA",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "musk says 'reuters is lying' in reply to report on low-cost evs",
-    "tickers": [
-      {
-        "ticker": "TSLA",
+        "symbol": "AMZN",
         "category": "A"
       }
     ]
   },
   {
-    "headline": "google parent alphabet is said to shelve interest in hubspot",
+    "headline": "Trump Criticizes Walmart\u2019s Expansion into Healthcare: \u2018It\u2019s Not Retail\u2019s Job",
     "tickers": [
       {
-        "ticker": "HUBS",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "gamestop may sell up to 75m shares of class a stock",
-    "tickers": [
-      {
-        "ticker": "GME",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "walgreens in talks to sell itself to sycamore partners: wsj",
-    "tickers": [
-      {
-        "ticker": "WBA",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "supermicro committee finds no evidence of misconduct",
-    "tickers": [
-      {
-        "ticker": "SMCI",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "us is reining in ai chip sales to middle east by nvidia, amd",
-    "tickers": [
-      {
-        "ticker": "NVDA",
-        "category": "D"
-      },
-      {
-        "ticker": "AMD",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "asml 3q bookings eu2.63b, est. eu5.39b",
-    "tickers": [
-      {
-        "ticker": "ASML",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "pacs group: how to become a billionaire in the skilled nursing industry by systematically scamming taxpayers - hindenburg research",
-    "tickers": [
-      {
-        "ticker": "PACS",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "alphabet declared cash div of $0.20/shr",
-    "tickers": [
-      {
-        "ticker": "GOOGL",
-        "category": "B"
-      }
-    ]
-  },
-  {
-    "headline": "nvda q4 rev 37.5b vs 39b estimates",
-    "tickers": [
-      {
-        "ticker": "NVDA",
+        "symbol": "WMT",
         "category": "C"
       }
     ]
   },
   {
-    "headline": "acb: dea to reclassify marijuana as less dangerous drug, ap reports",
+    "headline": "Trump Slams Netflix for 'Woke Programming' and Bias in 2025 Town Hall",
     "tickers": [
       {
-        "ticker": "MSOS",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "broadcom sees fy rev. $51.08b, est. $50.58B",
-    "tickers": [
-      {
-        "ticker": "AVGO",
+        "symbol": "NFLX",
         "category": "B"
       }
     ]
   },
   {
-    "headline": "Globe Life: Executives disregarded wide-ranging \"insurance fraud\" while they received millions in undisclosed kick-back scheme",
+    "headline": "MICROSOFT COMPLETES ACQUISITION OF ACTIVISION BLIZZARD FOR $69B",
     "tickers": [
       {
-        "ticker": "GL",
-        "category": "C"
-      }
-    ]
-  },
-  {
-    "headline": "QUALCOMM APPROACHED INTEL ABOUT A TAKEOVER IN RECENT DAYS: WSJ",
-    "tickers": [
-      {
-        "symbol": "QCOM",
-        "category": "D"
-      },
-      {
-        "symbol": "INTC",
+        "symbol": "MSFT",
         "category": "A"
       }
     ]
   },
   {
-    "headline": "META Q2 REV 36.5-39B VS 39.7B ESTIMATES",
+    "headline": "TESLA ANNOUNCES 4-FOR-1 STOCK SPLIT EFFECTIVE AUGUST 25",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "META FINED $1.3B BY EU FOR PRIVACY VIOLATIONS",
     "tickers": [
       {
         "symbol": "META",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "APPLE UNVEILS IPHONE 14 WITH NEW CAMERA SYSTEM",
+    "tickers": [
+      {
+        "symbol": "AAPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AMAZON EXPANDS SAME-DAY DELIVERY TO OVER 100 CITIES",
+    "tickers": [
+      {
+        "symbol": "AMZN",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "NVIDIA U.S. EXPORT RESTRICTIONS BLOCK SALES TO CHINA",
+    "tickers": [
+      {
+        "symbol": "NVDA",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "NETFLIX LAUNCHES AD-SUPPORTED SUBSCRIPTION PLAN",
+    "tickers": [
+      {
+        "symbol": "NFLX",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "UBER LAUNCHES AUTONOMOUS DELIVERY SERVICE IN SAN FRANCISCO",
+    "tickers": [
+      {
+        "symbol": "UBER",
         "category": "C"
       }
     ]
   },
   {
-    "headline": "NVDA ANNOUNCES STOCK SPLIT",
+    "headline": "ALPHABET LAUNCHES AI-POWERED SEARCH UPDATES",
+    "tickers": [
+      {
+        "symbol": "GOOGL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "PAYPAL ANNOUNCES $15B SHARE BUYBACK PROGRAM",
+    "tickers": [
+      {
+        "symbol": "PYPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "FORD REVEALS PRODUCTION RAMP-UP FOR ELECTRIC F-150 LIGHTNING",
+    "tickers": [
+      {
+        "symbol": "F",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "COCA-COLA ANNOUNCES 5% DIVIDEND INCREASE",
+    "tickers": [
+      {
+        "symbol": "KO",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "GENERAL MOTORS INVESTS $2B IN BATTERY FACTORY EXPANSION",
+    "tickers": [
+      {
+        "symbol": "GM",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "VISA PARTNERS WITH CRYPTO EXCHANGE TO EXPAND DIGITAL PAYMENT SERVICES",
+    "tickers": [
+      {
+        "symbol": "V",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "JPMORGAN CEO WARNS OF ECONOMIC RISKS IN UPCOMING QUARTER",
+    "tickers": [
+      {
+        "symbol": "JPM",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "WELLS FARGO SETTLES MORTGAGE LAWSUIT FOR $1.7B",
+    "tickers": [
+      {
+        "symbol": "WFC",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "BANK OF AMERICA LAUNCHES NEW MOBILE BANKING APP",
+    "tickers": [
+      {
+        "symbol": "BAC",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "STARBUCKS EXPANDS COFFEE SUBSCRIPTION SERVICE",
+    "tickers": [
+      {
+        "symbol": "SBUX",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "TESLA CEO ELON MUSK SELLS $1.5B IN STOCK SALES",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "APPLE ANNOUNCES $90B STOCK BUYBACK PROGRAM",
+    "tickers": [
+      {
+        "symbol": "AAPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "MICROSOFT INTRODUCES WINDOWS 12 WITH AI FEATURES",
+    "tickers": [
+      {
+        "symbol": "MSFT",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "META ANNOUNCES 10,000 JOB CUTS THIS YEAR",
+    "tickers": [
+      {
+        "symbol": "META",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "AMAZON FIRES CEO OF AWS CLOUD UNIT",
+    "tickers": [
+      {
+        "symbol": "AMZN",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "NVIDIA REPORTS RECORD SALES OF RTX 40 SERIES GPU",
     "tickers": [
       {
         "symbol": "NVDA",
@@ -206,16 +261,461 @@
     ]
   },
   {
-    "headline": "ROARING KITTY'S FIRST LIVESTREAM IN 3 YEARS",
+    "headline": "NETFLIX REPORTS SLOWING SUBSCRIBER GROWTH",
     "tickers": [
       {
-        "symbol": "GME",
+        "symbol": "NFLX",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "UBER EXPANDS FOOD DELIVERY SERVICES",
+    "tickers": [
+      {
+        "symbol": "UBER",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "SNAPCHAT LAUNCHES NEW AUGMENTED REALITY FEATURES",
+    "tickers": [
+      {
+        "symbol": "SNAP",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TESLA RECALLS 200K VEHICLES DUE TO SOFTWARE GLITCH",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "COCA-COLA LAUNCHES ZERO-SUGAR FLAVOR IN EUROPE",
+    "tickers": [
+      {
+        "symbol": "KO",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "FORD ANNOUNCES $11B INVESTMENT IN EV INFRASTRUCTURE",
+    "tickers": [
+      {
+        "symbol": "F",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "GENERAL MOTORS SETS CARBON-NEUTRALITY GOAL BY 2035",
+    "tickers": [
+      {
+        "symbol": "GM",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "META PLANS TO LAUNCH VR HEADSET IN Q4",
+    "tickers": [
+      {
+        "symbol": "META",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AMAZON INVESTIGATED FOR CUSTOMER DATA BREACH",
+    "tickers": [
+      {
+        "symbol": "AMZN",
         "category": "A"
       }
     ]
   },
   {
-    "headline": "ANALYST CONSENSUS IN NII FROM $91.5b TO $90b...\"A BIT TOO HIGH\", JPM COO",
+    "headline": "APPLE RELEASES MAJOR IOS UPDATE WITH SECURITY PATCHES",
+    "tickers": [
+      {
+        "symbol": "AAPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "MICROSOFT ANNOUNCES END OF SUPPORT FOR WINDOWS 10",
+    "tickers": [
+      {
+        "symbol": "MSFT",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "PAYPAL EXPANDS CRYPTOCURRENCY SERVICES",
+    "tickers": [
+      {
+        "symbol": "PYPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "VISA PARTNERS WITH AMAZON TO LAUNCH NEW PAYMENT SERVICE",
+    "tickers": [
+      {
+        "symbol": "V",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "JPMORGAN LAUNCHES NEW DIGITAL BANKING PLATFORM",
+    "tickers": [
+      {
+        "symbol": "JPM",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "TRUMP MEDIA BUYS $2 BILLION IN BITCOIN FOR CRYPTO TREASURY PLAN",
+    "tickers": [
+      {
+        "symbol": "DJT",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TVGN receives International Patent Publication for AI Technology Predicting Immunologically Active Peptides",
+    "tickers": [
+      {
+        "symbol": "TVGN",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "AGRICULTURE & NATURAL SOLUTIONS SPAC TERMINATES MERGER WITH AUSTRALIAN ENTITIES",
+    "tickers": [
+      {
+        "symbol": "ANSC",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "EXXONMOBIL TO ACQUIRE PIONEER IN MEGA OIL PATCH DEAL",
+    "tickers": [
+      {
+        "symbol": "XOM",
+        "category": "B"
+      },
+      {
+        "symbol": "PXD",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "HOME DEPOT TO ACQUIRE SRS DISTRIBUTION TO EXPAND PRO BUSINESS",
+    "tickers": [
+      {
+        "symbol": "HD",
+        "category": "B"
+      },
+      {
+        "symbol": "SRSD",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "JOHNSON & JOHNSON TO ACQUIRE SHOCKWAVE MEDICAL IN STRATEGIC CARDIO DEAL",
+    "tickers": [
+      {
+        "symbol": "JNJ",
+        "category": "B"
+      },
+      {
+        "symbol": "SWAV",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "ABBVIE TO ACQUIRE IMMUNOGEN IN CANCER THERAPY EXPANSION",
+    "tickers": [
+      {
+        "symbol": "ABBV",
+        "category": "B"
+      },
+      {
+        "symbol": "IMGN",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "REALTY INCOME TO MERGE WITH SPIRIT REALTY CAPITAL",
+    "tickers": [
+      {
+        "symbol": "O",
+        "category": "B"
+      },
+      {
+        "symbol": "SRC",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "CEDAR FAIR TO MERGE WITH SIX FLAGS IN AMUSEMENT PARK DEAL",
+    "tickers": [
+      {
+        "symbol": "FUN",
+        "category": "B"
+      },
+      {
+        "symbol": "SIX",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "STONEPEAK TO ACQUIRE TEXTAINER IN INFRASTRUCTURE INVESTMENT MOVE",
+    "tickers": [
+      {
+        "symbol": "TGH",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "SUNOCO TO ACQUIRE NUSTAR ENERGY IN PIPELINE MERGER",
+    "tickers": [
+      {
+        "symbol": "SUN",
+        "category": "B"
+      },
+      {
+        "symbol": "NS",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "HONEYWELL TO ACQUIRE CARRIER GLOBAL IN SMART-BUILDING STRATEGY SHIFT",
+    "tickers": [
+      {
+        "symbol": "HON",
+        "category": "B"
+      },
+      {
+        "symbol": "CARR",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "PERMIRA TO ACQUIRE SQUARESPACE IN TECH TAKEOVER",
+    "tickers": [
+      {
+        "symbol": "SQSP",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "CPP INVESTMENTS, GIP TO ACQUIRE ALLETE IN UTILITY BUYOUT",
+    "tickers": [
+      {
+        "symbol": "ALE",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "NATIONWIDE TO ACQUIRE VIRGIN MONEY IN UK BANKING CONSOLIDATION",
+    "tickers": [
+      {
+        "symbol": "VMUK",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "ENERGY TRANSFER TO ACQUIRE WTG MIDSTREAM IN PERMIAN EXPANSION",
+    "tickers": [
+      {
+        "symbol": "ET",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "SAP TO ACQUIRE WALKME TO STRENGTHEN DIGITAL ADOPTION PLATFORM",
+    "tickers": [
+      {
+        "symbol": "SAP",
+        "category": "B"
+      },
+      {
+        "symbol": "WKME",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "AAM TO MERGE WITH DOWLAIS GROUP IN $1.44B CASH AND STOCK DEAL",
+    "tickers": [
+      {
+        "symbol": "AXL",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "CARTESIAN SPAC TO MERGE WITH TIEDEMANN AND ALVARIUM TO FORM ALVARIUM TIEDEMANN HOLDINGS",
+    "tickers": [
+      {
+        "symbol": "GLBL",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "VOYAGER (VACH) TO MERGE WITH BIOPHARMA FIRM VERAXA IN $1.38B NASDAQ DEAL",
+    "tickers": [
+      {
+        "symbol": "VACH",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "BLUE WATER ACQUISITION CORP COMPLETES MERGER WITH CLARUS THERAPEUTICS",
+    "tickers": [
+      {
+        "symbol": "BWAC",
+        "category": "C"
+      },
+      {
+        "symbol": "CRXT",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "SPARK I ACQUISITION (SPKL) PURSUING MERGER WITH EDGE AI FIRM KNERON",
+    "tickers": [
+      {
+        "symbol": "SPKL",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "KVAC TO MERGE WITH MEDERA IN $622.6M GENE THERAPY DEAL",
+    "tickers": [
+      {
+        "symbol": "KVAC",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "HORIZON SPACE II (HSPT) TO MERGE WITH SL BIO LTD IN $5.57B ONCOLOGY DEAL",
+    "tickers": [
+      {
+        "symbol": "HSPT",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "ISRAEL ACQUISITIONS (ISRL) TO MERGE WITH DRONE MAKER GADFIN IN $200M COMBINATION",
+    "tickers": [
+      {
+        "symbol": "ISRL",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "RISING DRAGON (RDAC) TO MERGE WITH CHINA LOGISTICS TECH FIRM HZJL IN $350M DEAL",
+    "tickers": [
+      {
+        "symbol": "RDAC",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "EMBRACE CHANGE (EMCG) TO MERGE WITH TIRE MAKER TIANJI GLOBAL IN $450M DEAL",
+    "tickers": [
+      {
+        "symbol": "EMCG",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "PROSPECT CAPITAL TO ACQUIRE QC HOLDINGS IN $115M ALL-CASH TRANSACTION",
+    "tickers": [
+      {
+        "symbol": "PSEC",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Alphabet Earnings Beat Estimates on Google Search Advertising",
+    "tickers": [
+      {
+        "symbol": "GOOGL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TESLA 2Q DELIVERIES 384,122, EST. 389,407",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "SALESFORCE INC SEES 1Q REV. $9.71B TO $9.76B, EST. $9.91B",
+    "tickers": [
+      {
+        "symbol": "CRM",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "MICROSOFT 3Q REV. $70.07B, EST. $68.48B",
+    "tickers": [
+      {
+        "symbol": "MSFT",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "JPMORGAN PLANS TO BOOST QRE DIV TO $1.50/SHR FROM $1.40/SHR",
     "tickers": [
       {
         "symbol": "JPM",
@@ -224,177 +724,1178 @@
     ]
   },
   {
-    "headline": "TESLA EXPECTS SLIGHT GROWTH IN DELIVERIES IN F24",
+    "headline": "APPLE AUTHORIZES UP TO $100B SHARE BUYBACK, BOOSTS DIVIDEND/ APPLE ESTIMATES $900 MILLION IN COST INCREASES ON TARIFFS IN Q3",
+    "tickers": [
+      {
+        "symbol": "AAPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TESLA 2Q DELIVERIES 384,122, EST. 389,407",
     "tickers": [
       {
         "symbol": "TSLA",
-        "category": "B"
+        "category": "C"
       }
     ]
   },
   {
-    "headline": "ELON FORECASTS 20-30% TESLA VEHICLE GROWTH IN F25",
-    "tickers": [
-      {
-        "symbol": "TSLA",
-        "category": "B"
-      }
-    ]
-  },
-  {
-    "headline": "BROADCOM CEO REPORTS Q1 AI REV 3.8b VS 3.6b EST, 2 NEW HYPERSCALER CUSTOMERS",
-    "tickers": [
-      {
-        "symbol": "AVGO",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "ROBINHOOD FILES 8-K, REPORTS WELLS NOTICE",
-    "tickers": [
-      {
-        "symbol": "HOOD",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "AFFIRM PAYMENT PRODUCTS AVAILABLE FOR APPLE PAY USERS",
-    "tickers": [
-      {
-        "symbol": "AFRM",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "SOLAREDGE TECH REPORTS 300M CONVERTIBLE NOTE, Q2 FCF 150M VS 216 EST",
-    "tickers": [
-      {
-        "symbol": "SEDG",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "SOLIGENIX INC. OFFERING WARRANTS TO EXERCISE AT $6",
-    "tickers": [
-      {
-        "symbol": "SNGX",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "ALLEGIANT TRAVEL CO. NO LONGER OFFERING DIVIDENDS",
-    "tickers": [
-      {
-        "symbol": "ALGT",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "DELTA AIR LINES REPORTS FY24 EPS AT OR ABOVE MID POINT OF GUIDANCE OF $6-$7",
-    "tickers": [
-      {
-        "symbol": "DAL",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "FDA PLACES CLINICAL HOLD ON NOVAVAX COVID-FLU VACCINE",
-    "tickers": [
-      {
-        "symbol": "NVAX",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "LILLIUM N.V. REPORTS POTENTIAL FILING FOR INSOLVENCY",
-    "tickers": [
-      {
-        "symbol": "LILM",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "BROADCOM: TEN-FOR-ONE FORWARD STOCK SPLIT",
-    "tickers": [
-      {
-        "symbol": "AVGO",
-        "category": "B"
-      }
-    ]
-  },
-  {
-    "headline": "roaring kitty tweets a picture of a dog",
-    "tickers": [
-      {
-        "symbol": "CHWY",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "supermicro names bdo auditor, submits plan for delayed filing",
-    "tickers": [
-      {
-        "symbol": "SMCI",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "b. riley faces widening us probe over its risk disclosures",
-    "tickers": [
-      {
-        "symbol": "RILY",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "iran preps major retaliatory strike on israel from iraq: axios",
-    "tickers": [
-      {
-        "symbol": "USO",
-        "category": "A"
-      }
-    ]
-  },
-  {
-    "headline": "ftc plans to investigate microsoft's cloud business: ft",
-    "tickers": [
-      {
-        "symbol": "MSFT",
-        "category": "D"
-      }
-    ]
-  },
-  {
-    "headline": "meta developing ai search engine",
+    "headline": "ALPHABET 2Q AD REVENUE $61.3B, EST. $59.8B",
     "tickers": [
       {
         "symbol": "GOOGL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "META 2Q DAILY ACTIVE USERS 2.1B, EST. 2.05B",
+    "tickers": [
+      {
+        "symbol": "META",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "NETFLIX 2Q SUBSCRIBERS +6.3M, EST. +6.1M",
+    "tickers": [
+      {
+        "symbol": "NFLX",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "APPLE 2Q SERVICES REVENUE $21.5B, EST. $20.8B",
+    "tickers": [
+      {
+        "symbol": "AAPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AMAZON 2Q AWS REVENUE $22.5B, EST. $22.2B",
+    "tickers": [
+      {
+        "symbol": "AMZN",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "MICROSOFT 3Q CLOUD REVENUE $30.3B, EST. $29.7B",
+    "tickers": [
+      {
+        "symbol": "MSFT",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "NVIDIA 2Q GAMING REVENUE $9.5B, EST. $9.3B",
+    "tickers": [
+      {
+        "symbol": "NVDA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "SALESFORCE 2Q SUBSCRIPTION REVENUE $8.3B, EST. $8.2B",
+    "tickers": [
+      {
+        "symbol": "CRM",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "ORACLE 4Q CLOUD SERVICES REVENUE $7.2B, EST. $7.0B",
+    "tickers": [
+      {
+        "symbol": "ORCL",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "UBER 2Q ACTIVE RIDERS 120M, EST. 118M",
+    "tickers": [
+      {
+        "symbol": "UBER",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "LYFT 2Q RIDES COMPLETED 33.4M, EST. 33.0M",
+    "tickers": [
+      {
+        "symbol": "LYFT",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "PAYPAL 2Q TOTAL PAYMENT VOLUME $430B, EST. $425B",
+    "tickers": [
+      {
+        "symbol": "PYPL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AMD 2Q DATA CENTER REVENUE $2.3B, EST. $2.2B",
+    "tickers": [
+      {
+        "symbol": "AMD",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "QUALCOMM 3Q CHIP SALES $5.1B, EST. $5.0B",
+    "tickers": [
+      {
+        "symbol": "QCOM",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "BROADCOM 3Q INFRASTRUCTURE REVENUE $5.5B, EST. $5.3B",
+    "tickers": [
+      {
+        "symbol": "AVGO",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "IBM 2Q SOFTWARE REVENUE $6.4B, EST. $6.2B",
+    "tickers": [
+      {
+        "symbol": "IBM",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "PALANTIR 2Q GOVT CONTRACTS $375M, EST. $360M",
+    "tickers": [
+      {
+        "symbol": "PLTR",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "SHOPIFY 2Q GMV $45B, EST. $44.5B",
+    "tickers": [
+      {
+        "symbol": "SHOP",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "BLOCK 2Q CASH APP REVENUE $1.1B, EST. $1.0B",
+    "tickers": [
+      {
+        "symbol": "SQ",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "VISA 3Q TRANSACTION VOLUME $2.3T, EST. $2.2T",
+    "tickers": [
+      {
+        "symbol": "V",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "MASTERCARD 2Q TRANSACTION VOLUME $1.8T, EST. $1.75T",
+    "tickers": [
+      {
+        "symbol": "MA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "JPMORGAN 2Q LOAN ORIGINATION $300B, EST. $290B",
+    "tickers": [
+      {
+        "symbol": "JPM",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "GOLDMAN SACHS 2Q ASSETS UNDER MGMT $2.3T, EST. $2.25T",
+    "tickers": [
+      {
+        "symbol": "GS",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "WELLS FARGO 2Q NET INTEREST INCOME $12B, EST. $11.8B",
+    "tickers": [
+      {
+        "symbol": "WFC",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "BANK OF AMERICA 2Q DEPOSITS $1.6T, EST. $1.58T",
+    "tickers": [
+      {
+        "symbol": "BAC",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "COCA-COLA 2Q DIVIDEND PER SHARE $0.44, EST. $0.43",
+    "tickers": [
+      {
+        "symbol": "KO",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "PEPSICO 2Q DIVIDEND INCREASE 5%, EST. 4.5%",
+    "tickers": [
+      {
+        "symbol": "PEP",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "FORD 2Q VEHICLE SALES 460K, EST. 455K",
+    "tickers": [
+      {
+        "symbol": "F",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "GENERAL MOTORS 2Q STOCK SPLIT 3-FOR-1 ANNOUNCED",
+    "tickers": [
+      {
+        "symbol": "GM",
         "category": "D"
       }
     ]
   },
   {
-    "headline": "mondelez said to explore takeover of us chocolate maker hershey",
+    "headline": "AstraZeneca\u2019s Anselamimab Shows Strong Improvement vs Placebo in Latest Trial",
     "tickers": [
       {
-        "symbol": "MDLZ",
+        "symbol": "AZN",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Praxis Precision Gains FDA Breakthrough Designation for Seizure Drug",
+    "tickers": [
+      {
+        "symbol": "PRAX",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Sarepta to Continue Shipping ELEVIDYS Despite FDA Request to Halt",
+    "tickers": [
+      {
+        "symbol": "SRPT",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "Viatris\u2019 Blepharitis Drug MR-139 Misses Phase 3 Endpoint",
+    "tickers": [
+      {
+        "symbol": "VTRS",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Recalls Dexcom Glucose Monitors Due to Speaker Malfunction; 56 Injuries Reported",
+    "tickers": [
+      {
+        "symbol": "DXCM",
         "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "RedHill Biopharma Gets Positive FDA Feedback on RHB-204 for Crohn\u2019s Disease",
+    "tickers": [
+      {
+        "symbol": "RDHL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "KalVista\u2019s Sebetralstat NDA Decision Delayed by FDA Due to Resource Constraints",
+    "tickers": [
+      {
+        "symbol": "KALV",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Tempus Gains FDA Clearance for ECG-Low EF Diagnostic Software",
+    "tickers": [
+      {
+        "symbol": "TEM",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TEVA Gets ANDA Approval for Amantadine Hydrochloride",
+    "tickers": [
+      {
+        "symbol": "TEVA",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Lifts Partial Hold on Kezar\u2019s Zetomipzomib Autoimmune Hepatitis Trial",
+    "tickers": [
+      {
+        "symbol": "KZR",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Merck to Acquire Verona Pharma in $10B Deal",
+    "tickers": [
+      {
+        "symbol": "VRNA",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "Novo Nordisk Ends Partnership with Hims & Hers Citing Marketing Concerns",
+    "tickers": [
+      {
+        "symbol": "HIMS",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Lilly to Acquire Verve Therapeutics in Deal Worth Up to $1.21B",
+    "tickers": [
+      {
+        "symbol": "VERV",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "SpringWorks\u2019 Ezmekly Wins Conditional EU Approval for NF1 Treatment",
+    "tickers": [
+      {
+        "symbol": "MRK",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Telomir Announces Positive Preclinical Results for Gene Silencing in Prostate Cancer",
+    "tickers": [
+      {
+        "symbol": "TELO",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Novo Nordisk to Halt Production of TRESIBA by Year-End",
+    "tickers": [
+      {
+        "symbol": "NVO",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Issues Recall of Integra\u2019s MicroMyst Applicators Over Sterility Concerns",
+    "tickers": [
+      {
+        "symbol": "IART",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "GDTC Advances to Next Dose Level in ANGELICA Trial for Solid Tumors",
+    "tickers": [
+      {
+        "symbol": "GDTC",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Longeveron Licenses Cardiac Stem Cell Tech for Broad Cardiovascular Applications",
+    "tickers": [
+      {
+        "symbol": "LGVN",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "CUPR Receives FDA Clearance for Medical Maggot Therapy in the U.S.",
+    "tickers": [
+      {
+        "symbol": "CUPR",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "RedHill Biopharma Gains FDA Guidance on Crohn\u2019s Drug Approval Path",
+    "tickers": [
+      {
+        "symbol": "RDHL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TVGN Secures Global Patent Publication for AI Immuno-Peptide Prediction Tech",
+    "tickers": [
+      {
+        "symbol": "TVGN",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Illumina Completes Spin-Off of GRAIL",
+    "tickers": [
+      {
+        "symbol": "ILMN",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Moderna Prepared to Supply FDA-Recommended COVID Vaccine by Mid-August",
+    "tickers": [
+      {
+        "symbol": "MRNA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Vertex Pain Drug Recognized as 2025 Breakthrough Therapy",
+    "tickers": [
+      {
+        "symbol": "VRTX",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "Bristol-Myers Expects FDA Panel Review Next Quarter",
+    "tickers": [
+      {
+        "symbol": "BMY",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Novavax Gets FDA Approval for COVID Vaccine Targeting High-Risk Groups",
+    "tickers": [
+      {
+        "symbol": "NVAX",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Grants Accelerated Approval to Regeneron\u2019s Linvoseltamab for Multiple Myeloma",
+    "tickers": [
+      {
+        "symbol": "REGN",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Receives Patent Challenge Filing on Gilead\u2019s Veklury",
+    "tickers": [
+      {
+        "symbol": "GILD",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Approves UroGen\u2019s ZUSDURI for Bladder Cancer",
+    "tickers": [
+      {
+        "symbol": "URGN",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Approves Taletrectinib (Ibtrozi) for ROS1+ Lung Cancer",
+    "tickers": [
+      {
+        "symbol": "NUVB",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Approves LQDA\u2019s YUTREPIA Inhalation Powder for PAH and PH-ILD",
+    "tickers": [
+      {
+        "symbol": "LQDA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Vertex Updates Type 1 Diabetes Pipeline, Ends VX-264 Trial, Plans 2026 VX-880 Filing",
+    "tickers": [
+      {
+        "symbol": "VRTX",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "SpringWorks Wins FDA Approval for Gomekli to Treat NF1-PN",
+    "tickers": [
+      {
+        "symbol": "SWTX",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "AbbVie Wins Supplemental BLA Approval for Humira",
+    "tickers": [
+      {
+        "symbol": "ABBV",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Verastem Secures $75M Private Placement at $7.00/Share",
+    "tickers": [
+      {
+        "symbol": "VSTM",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "FDA Grants Accelerated Approval for Verastem KRAS Combo Cancer Therapy",
+    "tickers": [
+      {
+        "symbol": "VSTM",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "Tempus, Verastem Collaborate on CDx for Approved KRAS-Mutant Therapy",
+    "tickers": [
+      {
+        "symbol": "TEM",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Kazia Sees Early Efficacy With Paxalisib Breast Cancer Combo",
+    "tickers": [
+      {
+        "symbol": "KZIA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "ABVX Reports Positive Phase 3 Data in Ulcerative Colitis; Eyes NDA in 2H26",
+    "tickers": [
+      {
+        "symbol": "ABVX",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AngioDynamics Publishes NanoKnife Study in European Urology",
+    "tickers": [
+      {
+        "symbol": "ANGO",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "BioAffinity Reports Lung Tumor Detection Success With CyPath Test",
+    "tickers": [
+      {
+        "symbol": "BIAF",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "Lantern Pharma Reports Complete Response in Heavily Pre-Treated Lymphoma Case",
+    "tickers": [
+      {
+        "symbol": "LTRN",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "Veeva Adds Boehringer Ingelheim as Global Customer Data Partner",
+    "tickers": [
+      {
+        "symbol": "VEEV",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Icosavax Scientist Joins NIH Study on Long COVID Treatments",
+    "tickers": [
+      {
+        "symbol": "IVVD",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "ANIP ILUVIEN Trial Misses Endpoint in DME Patients; Guides Q2 Revenue",
+    "tickers": [
+      {
+        "symbol": "ANIP",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "BOEING\u2019S AIR FORCE ONE PROGRAM LIKELY DELAYED UNTIL 2029, CEO SAYS",
+    "tickers": [
+      {
+        "symbol": "BA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "BOEING STRIKE ENDS AFTER 7 WEEKS, WORKERS RETURN TO PLANT",
+    "tickers": [
+      {
+        "symbol": "BA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "BOEING DELAYS 737 PRODUCTION RAMP-UP AGAIN DUE TO FAA CAP ON MAX",
+    "tickers": [
+      {
+        "symbol": "BA",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "TRUMP ANNOUNCES NEW TARIFFS ON JAPANESE AUTOMAKERS, SHARES OF AUTO PARTS DECLINE",
+    "tickers": [
+      {
+        "symbol": "XLI",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TRUMP PRESSURES FED, QUESTIONS POWELL\u2019S INDEPENDENCE",
+    "tickers": [
+      {
+        "symbol": "SPY",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "TESLA RECALLS 200K VEHICLES OVER SOFTWARE GLITCH",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AMAZON FACES U.S. PROBE INTO CUSTOMER DATA HANDLING",
+    "tickers": [
+      {
+        "symbol": "AMZN",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "MICROSOFT ENDS SUPPORT FOR WINDOWS 10, SHIFTING USERS TO WINDOWS 11",
+    "tickers": [
+      {
+        "symbol": "MSFT",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "UNION PACIFIC AND NORFOLK SOUTHERN HOLD MERGER TALKS",
+    "tickers": [
+      {
+        "symbol": "UNP",
+        "category": "C"
       },
       {
-        "symbol": "HSY",
+        "symbol": "NSC",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AMAZON SET TO ACQUIRE AI-WEARABLE STARTUP BEE",
+    "tickers": [
+      {
+        "symbol": "AMZN",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "CONOCOPHILLIPS NEARS ASSET SALE TO STONE RIDGE ENERGY",
+    "tickers": [
+      {
+        "symbol": "COP",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "CITY OFFICE REIT TO BE TAKEN PRIVATE IN NEAR $1.1B DEAL",
+    "tickers": [
+      {
+        "symbol": "CIO",
         "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "ALASKA AIR GROUP COMPLETES ACQUISITION OF HAWAIIAN AIR",
+    "tickers": [
+      {
+        "symbol": "ALK",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "AKAMAI TO PURCHASE DATA ANALYTICS FIRM FOR EXPANSION",
+    "tickers": [
+      {
+        "symbol": "AKAM",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "NEWELL BRANDS TO ACQUIRE REGIONAL HOME GOODS COMPANY",
+    "tickers": [
+      {
+        "symbol": "NWL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "AMERICAN AIRLINES ACQUIRES BIOMETRIC SCREENING PROVIDER AS PART OF CHECKPOINT STRATEGY",
+    "tickers": [
+      {
+        "symbol": "AAL",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "DILLARDS AGREES TO BUY SELECT STORES FROM NEIMAN MARCUS",
+    "tickers": [
+      {
+        "symbol": "DDS",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "FRONTIER-SAVED OFFER REJECTION SPARKS SPIRIT AIRLINES JUMP",
+    "tickers": [
+      {
+        "symbol": "SAVE",
+        "category": "B"
+      },
+      {
+        "symbol": "ULCC",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "FOX ENTERTAINS BID FOR BETA MEDIA COMPANY TO EXPAND CONTENT STRATEGY",
+    "tickers": [
+      {
+        "symbol": "FOX",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "NASDAQ Q2 profit beats estimates on rising fintech & trading volume",
+    "tickers": [
+      {
+        "symbol": "NDAQ",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Burlington Q2 earnings surpass expectations but stock drops slightly",
+    "tickers": [
+      {
+        "symbol": "BURL",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "3M Q2 revenue & EPS beat estimates, raises full-year forecast",
+    "tickers": [
+      {
+        "symbol": "MMM",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Las Vegas Sands Q2 results exceed estimates, stock jumps after-hours",
+    "tickers": [
+      {
+        "symbol": "LVS",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Equifax Q2 profit beats estimates; raises annual revenue outlook",
+    "tickers": [
+      {
+        "symbol": "EFX",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Repsol Q2 adjusted profit beats estimates despite power outage, maintains dividend",
+    "tickers": [
+      {
+        "symbol": "REP",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "EQT Corp beats Q2 profit estimates, boosts production guidance",
+    "tickers": [
+      {
+        "symbol": "EQT",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "NextEra Energy Q2 adjusted profit tops estimates amid renewables growth, stock falls",
+    "tickers": [
+      {
+        "symbol": "NEE",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "GE Vernova Q2 profit tops estimates, raises free cash flow guidance",
+    "tickers": [
+      {
+        "symbol": "GEV",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "T-Mobile Q2 earnings beat on strong postpaid additions; stock rises ~6% after-hours",
+    "tickers": [
+      {
+        "symbol": "TMUS",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Ericsson Q2 adjusted operating profit beating expectations but tariff impact margins, stock dips",
+    "tickers": [
+      {
+        "symbol": "ERIC",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "BNP Paribas Q2 profit falls less than expected on retail recovery, shares rise",
+    "tickers": [
+      {
+        "symbol": "BNP",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Deutsche Bank posts Q2 profit against prior loss, shares rise over 4%",
+    "tickers": [
+      {
+        "symbol": "DB",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Taiwan Semiconductor Q2 earnings top estimates, raises guidance, shares up ~3\u20134%",
+    "tickers": [
+      {
+        "symbol": "TSM",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Hewlett Packard Enterprise Q2 beats on AI server demand, stock rises",
+    "tickers": [
+      {
+        "symbol": "HPE",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "S&P Global to acquire IHS Markit in $44B deal",
+    "tickers": [
+      {
+        "symbol": "SPGI",
+        "category": "A"
+      },
+      {
+        "symbol": "INFO",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Broadcom announces acquisition of VMware for $61B",
+    "tickers": [
+      {
+        "symbol": "AVGO",
+        "category": "A"
+      },
+      {
+        "symbol": "VMW",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Morgan Stanley to acquire Eaton Vance for $7B",
+    "tickers": [
+      {
+        "symbol": "MS",
+        "category": "B"
+      },
+      {
+        "symbol": "ETFC",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Intuit acquires Credit Karma to expand financial services",
+    "tickers": [
+      {
+        "symbol": "INTU",
+        "category": "A"
+      },
+      {
+        "symbol": "CKRA",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "LVMH to buy Tiffany & Co. in $16B luxury takeover",
+    "tickers": [
+      {
+        "symbol": "LVMUY",
+        "category": "A"
+      },
+      {
+        "symbol": "TIF",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Meta Platforms to acquire Giphy to enhance social media offerings",
+    "tickers": [
+      {
+        "symbol": "META",
+        "category": "B"
+      },
+      {
+        "symbol": "GIPHY",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Alphabet acquires Fitbit to enter wearable technology market",
+    "tickers": [
+      {
+        "symbol": "GOOGL",
+        "category": "A"
+      },
+      {
+        "symbol": "FIT",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Nvidia to acquire ARM Holdings from SoftBank in $40B deal",
+    "tickers": [
+      {
+        "symbol": "NVDA",
+        "category": "A"
+      },
+      {
+        "symbol": "ARM",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "Salesforce to acquire Slack Technologies to boost collaboration tools",
+    "tickers": [
+      {
+        "symbol": "CRM",
+        "category": "A"
+      },
+      {
+        "symbol": "WORK",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "PayPal acquires Honey Science Corp. for e-commerce expansion",
+    "tickers": [
+      {
+        "symbol": "PYPL",
+        "category": "B"
+      },
+      {
+        "symbol": "HN",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Eli Lilly to acquire Loxo Oncology to expand cancer drug portfolio",
+    "tickers": [
+      {
+        "symbol": "LLY",
+        "category": "A"
+      },
+      {
+        "symbol": "LOXO",
+        "category": "B"
+      }
+    ]
+  },
+  {
+    "headline": "Uber acquires Postmates to strengthen food delivery service",
+    "tickers": [
+      {
+        "symbol": "UBER",
+        "category": "B"
+      },
+      {
+        "symbol": "POST",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "Shopify acquires 6 River Systems to enhance fulfillment network",
+    "tickers": [
+      {
+        "symbol": "SHOP",
+        "category": "B"
+      },
+      {
+        "symbol": "RIVR",
+        "category": "C"
       }
     ]
   }

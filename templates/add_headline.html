@@ -450,9 +450,9 @@
       <input id="modalHeadlineInput" type="text" placeholder="Enter headline text" required />
       <label for="modalTickersInput">Tickers</label>
       <input id="modalTickersInput" type="text" placeholder="E.g. AAPL:A, MSFT:C" required />
-      <div id="gradeLegend">
-        A: Large Long<br />B: Small Long<br />C: Small Short<br />D: Large Short
-      </div>
+    <div id="gradeLegend">
+  A: Highest Quality<br />B: Quality<br />C: Below Average<br />D: Bad
+</div>
       <button type="submit">Add Headline</button>
       <div id="modalMessage"></div>
     </form>
@@ -489,12 +489,13 @@ function renderHeadlineTable(headlines) {
   }
 
   // Grade to category mapping
-  const gradeToCategory = {
-    'A': 'Large Long',
-    'B': 'Small Long',
-    'C': 'Small Short',
-    'D': 'Large Short'
-  };
+// Grade to category mapping
+const gradeToCategory = {
+  'A': 'Highest Quality',
+  'B': 'Quality',
+  'C': 'Below Average',
+  'D': 'Bad'
+};
 
   tableBody.innerHTML = headlines.map(h => {
     // Extract tickers (symbol or ticker) comma separated

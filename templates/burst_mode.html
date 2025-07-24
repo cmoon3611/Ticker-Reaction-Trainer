@@ -582,12 +582,12 @@ html.dark-mode .toggle-label {
   <div id="feedback" class="feedback"></div>
 
   <div id="remainingCount"></div>
-  <div class="category-key">
-    <p><b class="A">Shift + F</b> = Large Long</p>
-    <p><b class="B">Shift + D</b> = Small Long</p>
-    <p><b class="C">Shift + K</b> = Small Short</p>
-    <p><b class="D">Shift + J</b> = Large Short</p>
-  </div>
+<div class="category-key">
+  <p style="color:#00E1A2"><b class="B">A</b> = Highest Quality</p>
+  <p style="color:#00E1A2"><b class="B">B</b> = Quality</p>
+  <p style="color:#ef4444"><b class="K">C</b> = Below Average</p>
+  <p style="color:#ef4444"><b class="J">D</b> = Bad</p>
+</div>
 
   <div id="burstStats"></div>
 </main>
@@ -700,15 +700,15 @@ toggleBtn.addEventListener('click', () => {
     progressBar.style.width = "100%";
   }
 
-  function categoryToTradeName(cat) {
-    const map = {
-      "A": "Large Long",
-      "B": "Small Long",
-      "C": "Small Short",
-      "D": "Large Short"
-    };
-    return map[cat] || cat;
-  }
+function categoryToTradeName(cat) {
+  const map = {
+    "A": "Highest Quality",
+    "B": "Quality",
+    "C": "Below Average",
+    "D": "Bad"
+  };
+  return map[cat] || cat;
+}
 
   function showFeedback(correct, timeTaken, customMsg) {
     if (correct) {
@@ -879,16 +879,16 @@ tickerToggleBtn.addEventListener('click', () => {
     grade = grade.trim().toUpperCase();
 
     const keyToCategory = {
-      "D": "B",
-      "F": "A",
-      "K": "C",
-      "J": "D"
+      "A": "A",
+      "B": "B",
+      "C": "C",
+      "D": "D"
     };
 
-    if (!Object.keys(keyToCategory).includes(grade)) {
-      showFeedback(false, null, "Invalid trade. Use Shift+D/F/K/J.");
-      return;
-    }
+   if (!Object.keys(keyToCategory).includes(grade)) {
+  showFeedback(false, null, "Invalid trade. Use A/B/C/D.");
+  return;
+}
 
     const mappedGrade = keyToCategory[grade];
     stopGradeTimer();
@@ -965,14 +965,14 @@ tickerToggleBtn.addEventListener('click', () => {
   });
 
   document.addEventListener("keydown", e => {
-    if (waitingForGrade && e.shiftKey) {
-      const key = e.key.toUpperCase();
-      if (["D", "F", "K", "J"].includes(key)) {
-        e.preventDefault();
-        submitGrade(key);
-      }
+  if (waitingForGrade) {
+    const key = e.key.toUpperCase();
+    if (["A", "B", "C", "D"].includes(key)) {
+      e.preventDefault();
+      submitGrade(key);
     }
-  });
+  }
+});
 
   function showSummaryStats() {
     burstStats.style.display = "block";
