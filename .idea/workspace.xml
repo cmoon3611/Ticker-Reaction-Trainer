@@ -96,6 +96,7 @@
       <workItem from="1753382603626" duration="64000" />
       <workItem from="1753382835288" duration="206000" />
       <workItem from="1753446186107" duration="9000" />
+      <workItem from="1753719970709" duration="481000" />
     </task>
     <task id="LOCAL-00001" summary="dark mode">
       <option name="closed" value="true" />
@@ -118,6 +119,6 @@
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Trading_Flashcards$validate_headlines.coverage" NAME="validate_headlines Coverage Results" MODIFIED="1752675703910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Trading_Flashcards$transform_headlines.coverage" NAME="transform_headlines Coverage Results" MODIFIED="1752520762562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/Trading_Flashcards$app.coverage" NAME="app Coverage Results" MODIFIED="1753382606535" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Trading_Flashcards$app.coverage" NAME="app Coverage Results" MODIFIED="1753719994378" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
