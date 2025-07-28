@@ -5,8 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="98bdda94-4232-46d1-9eda-68502454759b" name="Changes" comment="dark mode">
+      <change afterPath="$PROJECT_DIR$/static/risk_mode.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/risk_mode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/templates/ticker_mode.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/tickers.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/burst_mode.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/burst_mode.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app.py" beforeDir="false" afterPath="$PROJECT_DIR$/app.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/headlines.json" beforeDir="false" afterPath="$PROJECT_DIR$/headlines.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templates/intro.html" beforeDir="false" afterPath="$PROJECT_DIR$/templates/intro.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -16,10 +22,10 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="JavaScript File" />
         <option value="package.json" />
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="JavaScript File" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -40,6 +46,7 @@
     &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
     &quot;JavaScript Debug.add_headline.html.executor&quot;: &quot;Run&quot;,
     &quot;JavaScript Debug.index.html.executor&quot;: &quot;Run&quot;,
+    &quot;JavaScript Debug.intro.html.executor&quot;: &quot;Run&quot;,
     &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
     &quot;Python.app.executor&quot;: &quot;Run&quot;,
     &quot;Python.validate_headlines.executor&quot;: &quot;Run&quot;,
@@ -47,6 +54,7 @@
     &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;last_opened_file_path&quot;: &quot;C:/Users/Trader/PycharmProjects/Trading_Flashcards/static&quot;,
     &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
     &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
@@ -89,6 +97,15 @@
       <workItem from="1752786772125" duration="7000" />
       <workItem from="1752839574874" duration="857000" />
       <workItem from="1752857800764" duration="4434000" />
+      <workItem from="1753357715581" duration="4510000" />
+      <workItem from="1753367659682" duration="1600000" />
+      <workItem from="1753382596432" duration="5000" />
+      <workItem from="1753382669609" duration="163000" />
+      <workItem from="1753446676885" duration="20000" />
+      <workItem from="1753471281033" duration="1743000" />
+      <workItem from="1753719949622" duration="19000" />
+      <workItem from="1753720458671" duration="272000" />
+      <workItem from="1753720772239" duration="636000" />
     </task>
     <task id="LOCAL-00001" summary="dark mode">
       <option name="closed" value="true" />
@@ -110,6 +127,7 @@
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/Trading_Flashcards$validate_headlines.coverage" NAME="validate_headlines Coverage Results" MODIFIED="1752675703910" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/Ticker_Reaction_Trainer$app.coverage" NAME="app Coverage Results" MODIFIED="1753472428975" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Trading_Flashcards$transform_headlines.coverage" NAME="transform_headlines Coverage Results" MODIFIED="1752520762562" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
     <SUITE FILE_PATH="coverage/Trading_Flashcards$app.coverage" NAME="app Coverage Results" MODIFIED="1752865422923" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>

@@ -1,0 +1,663 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Risk Mode</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      height: 100vh;
+      overflow: hidden;
+      background-color: #ffffff;
+      color: #000000;
+      font-family: "Inter", "Helvetica Neue", Helvetica, sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: flex-start;
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    /* Dark mode styles */
+    html.dark-mode, body.dark-mode {
+      background-color: #121212;
+      color: #e0e0e0;
+    }
+
+    header {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.25rem 2.5rem;
+      border-bottom: 1px solid #ddd;
+      background: #fff;
+      z-index: 100;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+    }
+    html.dark-mode header {
+      background: #121212;
+      border-color: #444;
+    }
+
+    .logo {
+      width: 180px;
+      user-select: none;
+      transition: filter 0.3s ease;
+    }
+    html.dark-mode .logo {
+      filter: brightness(0) invert(1);
+    }
+
+    .home-button {
+      background-color: #000;
+      color: #fff;
+      padding: 0.85rem 1.75rem;
+      border-radius: 999px;
+      font-weight: 600;
+      font-size: 1.1rem;
+      text-transform: uppercase;
+      text-decoration: none;
+      letter-spacing: 0.05em;
+      transition: background-color 0.3s ease, color 0.3s ease;
+      user-select: none;
+      cursor: pointer;
+      display: inline-block;
+      border: none;
+    }
+    .home-button:hover {
+      background-color: #222;
+    }
+    html.dark-mode .home-button {
+      background-color: #fff;
+      color: #000;
+    }
+    html.dark-mode .home-button:hover {
+      background-color: #ddd;
+    }
+
+    main {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+      width: 100vw;
+      max-width: 100vw;
+      margin: 0 auto 3rem;
+      padding-top: 12rem;
+      height: calc(100vh - 90px);
+      justify-content: center;
+      transition: color 0.3s ease;
+    }
+
+    .title {
+      font-size: 1.6rem;
+      font-weight: 400;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin: 0 0 1rem 0;
+      color: #111;
+      user-select: none;
+    }
+    html.dark-mode .title {
+      color: #ddd;
+    }
+
+    #spread-display {
+      font-size: 2.75rem;
+      font-weight: 900;
+      margin: 0 0 1rem 0;
+      color: #111;
+      text-transform: uppercase;
+      user-select: none;
+      width: 100vw;
+      padding: 0 1rem;
+      box-sizing: border-box;
+      line-height: 1.1;
+      white-space: normal;
+      word-wrap: break-word;
+      transition: color 0.3s ease;
+      min-height: 4.2rem;
+    }
+    html.dark-mode #spread-display {
+      color: #ddd;
+    }
+
+    input#risk-input {
+      font-size: 1.35rem;
+      padding: 1rem 2rem;
+      border-radius: 999px;
+      border: 2px solid #000;
+      width: 100%;
+      max-width: 400px;
+      text-align: center;
+      text-transform: uppercase;
+      outline: none;
+      transition: border-color 0.3s ease, background-color 0.3s ease, color 0.3s ease;
+      user-select: text;
+      box-sizing: border-box;
+      background-color: #fff;
+      color: #000;
+      margin: 0.5rem 0;
+    }
+    input#risk-input:focus {
+      border-color: #00E1A2;
+      box-shadow: 0 0 8px #00E1A2;
+    }
+    html.dark-mode input#risk-input {
+      background-color: #222;
+      color: #eee;
+      border-color: #ccc;
+    }
+    html.dark-mode input#risk-input:focus {
+      border-color: #00E1A2;
+      box-shadow: 0 0 8px #00E1A2;
+    }
+
+    .timer {
+      font-size: 2rem;
+      font-weight: 600;
+      color: #666666;
+      min-height: 1.8rem;
+      margin: 0.5rem 0;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode .timer {
+      color: #aaa;
+    }
+
+    #risk-feedback {
+      font-size: 1.6rem;
+      font-weight: 700;
+      min-height: 3.5rem;
+      line-height: 1.3;
+      margin-top: 0.5rem;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    .green {
+      color: #00E1A2;
+    }
+    .red {
+      color: #ef4444;
+    }
+
+    #risk-counter {
+      font-size: 1.35rem;
+      color: #666;
+      user-select: none;
+      font-weight: 600;
+      transition: color 0.3s ease;
+      margin: 0.5rem 0;
+    }
+    html.dark-mode #risk-counter {
+      color: #aaa;
+    }
+
+    /* Risk Mode stats box styling - matching Burst Mode */
+    #risk-results {
+      width: 95vw;
+      max-width: 1400px;
+      background: #fff;
+      border: 3px solid #000;
+      border-radius: 20px;
+      padding: 2rem;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 200;
+      display: none;
+      box-sizing: border-box;
+      user-select: none;
+      overflow: hidden;
+    }
+
+    #risk-results h2 {
+      font-size: 2.4rem;
+      font-weight: 900;
+      text-align: center;
+      margin-bottom: 1.5rem;
+      color: #111;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode #risk-results h2 {
+      color: #ddd;
+    }
+
+    #risk-results .summary-row {
+      display: flex;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+      font-weight: 600;
+    }
+
+    #risk-results .summary-row div {
+      flex: 1 1 auto;
+      min-width: 140px;
+      background: #f5f5f5;
+      border: 1px solid #000;
+      padding: 0.75rem 1rem;
+      border-radius: 10px;
+      text-align: center;
+    }
+
+    #risk-results .home-button {
+      display: block;
+      margin: 2rem auto 0;
+      background-color: #000;
+      color: #fff;
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      cursor: pointer;
+      user-select: none;
+      transition: background-color 0.3s ease;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      text-decoration: none;
+    }
+
+    #risk-results .home-button:hover {
+      background-color: #444;
+    }
+
+    /* Light mode row styles */
+#risk-results table tbody tr.correct-row {
+  background-color: #d4edda;
+}
+#risk-results table tbody tr.wrong-row {
+  background-color: #f8d7da;
+}
+#risk-results table, #risk-results th, #risk-results td {
+  border: 1px solid #000;
+}
+#risk-results th, #risk-results td {
+  padding: 0.5rem 0.75rem;
+  text-align: center;
+  user-select: none;
+}
+
+/* Dark mode overrides */
+html.dark-mode #risk-results table {
+  background-color: #222;
+  color: #e0e0e0;
+  border-color: #00E1A2;
+}
+html.dark-mode #risk-results table thead {
+  background-color: #111;
+  color: #e0e0e0;
+}
+html.dark-mode #risk-results table tbody tr.correct-row {
+  background-color: #244724; /* dark green */
+  color: #c8f7c5;
+}
+html.dark-mode #risk-results table tbody tr.wrong-row {
+  background-color: #5a1f1f; /* dark red */
+  color: #f7c8c8;
+}
+html.dark-mode #risk-results th,
+html.dark-mode #risk-results td {
+  border-color: #00E1A2;
+}
+
+
+    html.dark-mode #risk-results {
+      background-color: #222;
+      border-color: #00E1A2;
+      color: #e0e0e0;
+    }
+
+    html.dark-mode #risk-results .summary-row div {
+      background: #333;
+      border-color: #555;
+      color: #e0e0e0;
+    }
+
+    html.dark-mode #risk-results .home-button {
+      background-color: #00E1A2;
+      color: #000;
+    }
+
+    html.dark-mode #risk-results .home-button:hover {
+      background-color: #00c48a;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1rem;
+      font-size: 1rem;
+      color: #666;
+      user-select: none;
+      transition: color 0.3s ease;
+    }
+    html.dark-mode footer {
+      color: #999;
+    }
+
+    /* Dark mode toggle switch styling */
+    #darkModeToggle {
+      position: fixed;
+      bottom: 1rem;
+      right: 1rem;
+      width: 60px;
+      height: 34px;
+      background-color: #000;  /* black background */
+      border-radius: 34px;
+      cursor: pointer;
+      user-select: none;
+      z-index: 1000;
+      border: none;
+      padding: 0;
+      outline: none;
+      transition: background-color 0.3s ease;
+      display: flex;
+      align-items: center;
+      box-sizing: content-box;
+    }
+
+    #darkModeToggle::before {
+      content: "";
+      position: absolute;
+      left: 4px;
+      top: 4px;
+      width: 26px;
+      height: 26px;
+      background-color: white; /* white knob */
+      border-radius: 50%;
+      transition: transform 0.3s ease;
+      box-shadow: 0 0 2px rgba(0,0,0,0.2);
+    }
+
+    html.dark-mode #darkModeToggle {
+      background-color: #fff; /* white background in dark mode */
+    }
+
+    html.dark-mode #darkModeToggle::before {
+      transform: translateX(26px);
+      background-color: black; /* black knob in dark mode */
+    }
+
+    /* Toggle label */
+    .toggle-label {
+      position: fixed;
+      bottom: 3.5rem;
+      font-size: 0.85rem;
+      color: #666;
+      user-select: none;
+      z-index: 1000;
+      transition: color 0.3s ease;
+    }
+
+    #darkModeToggleLabel {
+      right: 1rem;
+      width: 60px;
+      text-align: center;
+    }
+
+    html.dark-mode .toggle-label {
+      color: #999;
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="/static/trillium-logo.svg" alt="Trillium Logo" class="logo" />
+  <a href="/" class="home-button">Home</a>
+</header>
+
+<main>
+  <div id="risk-container">
+    <h1 class="title">Risk Mode</h1>
+    <div id="risk-question">
+      <p id="spread-display"></p>
+      <input type="text" id="risk-input" placeholder="Enter risk $" autocomplete="off" autofocus>
+    </div>
+    <div class="timer" id="timer">0.00s</div>
+    <p id="risk-feedback"></p>
+    <p id="risk-counter">Question <span id="current-count">1</span>/10</p>
+  </div>
+
+  <div id="risk-results" style="display:none;"></div>
+</main>
+
+<footer>&copy; 2025 Trillium Trading</footer>
+
+<div class="toggle-label" id="darkModeToggleLabel">Dark</div>
+<button id="darkModeToggle" aria-label="Toggle dark mode"></button>
+
+<script>
+  const toggleBtn = document.getElementById('darkModeToggle');
+  function applyDarkMode(dark) {
+    if (dark) {
+      document.documentElement.classList.add('dark-mode');
+      document.body.classList.add('dark-mode');
+      toggleBtn.textContent = ""; // no text for switch style
+    } else {
+      document.documentElement.classList.remove('dark-mode');
+      document.body.classList.remove('dark-mode');
+      toggleBtn.textContent = "";
+    }
+  }
+
+  // Initialize based on saved preference or default to light
+  const savedMode = localStorage.getItem('darkMode') === 'true';
+  applyDarkMode(savedMode);
+
+  toggleBtn.addEventListener('click', () => {
+    const isDark = document.documentElement.classList.contains('dark-mode');
+    applyDarkMode(!isDark);
+    localStorage.setItem('darkMode', !isDark);
+  });
+
+  // Timer functionality
+  let questionStartTime = null;
+  let timerInterval = null;
+  const timerElem = document.getElementById("timer");
+
+  // Start timer for current question (updates every 100ms)
+  function startTimer() {
+    questionStartTime = performance.now();
+    if (timerInterval !== null) clearInterval(timerInterval);
+    timerInterval = setInterval(() => {
+      const elapsed = (performance.now() - questionStartTime) / 1000;
+      timerElem.textContent = `${elapsed.toFixed(2)}s`;
+    }, 100);
+  }
+
+  // Stop timer for current question
+  function stopTimer() {
+    if (timerInterval !== null) {
+      clearInterval(timerInterval);
+      timerInterval = null;
+    }
+  }
+
+  // Your actual Risk Mode logic
+  const priceTiers = [
+    { min: 0.01, max: 1, spread: 0.01 },
+    { min: 1, max: 5, spread: 0.03 },
+    { min: 5, max: 20, spread: 0.05 },
+    { min: 20, max: 50, spread: 0.08 },
+    { min: 50, max: 200, spread: 0.10 },
+    { min: 200, max: 400, spread: 0.50 },
+    { min: 400, max: 1000, spread: 1.00 },
+    { min: 1000, max: 5000, spread: 5.00 }
+  ];
+  const shareSizes = [20, 50, 100, 200, 300, 400, 500, 600, 800, 1000];
+
+  let questions = [];
+  let current = 0;
+  let correct = 0;
+  let startTime = 0;
+  let times = [];
+
+  const spreadDisplay = document.getElementById("spread-display");
+  const riskInput = document.getElementById("risk-input");
+  const feedback = document.getElementById("risk-feedback");
+  const countDisplay = document.getElementById("current-count");
+  const resultDiv = document.getElementById("risk-results");
+
+  function generateQuestion() {
+    const tier = priceTiers[Math.floor(Math.random() * priceTiers.length)];
+    const price = (Math.floor(Math.random() * (tier.max * 100 - tier.min * 100)) + tier.min * 100) / 100;
+    const cents = tier.spread;
+    const bid = price.toFixed(2);
+    const ask = (price + cents).toFixed(2);
+    const size = shareSizes[Math.floor(Math.random() * shareSizes.length)];
+    const risk = (cents * size).toFixed(2);
+
+    return {
+      bid,
+      ask,
+      size,
+      risk: parseFloat(risk)
+    };
+  }
+
+  function showQuestion() {
+    const q = questions[current];
+    spreadDisplay.textContent = `${q.bid} x ${q.ask} | ${q.size} shares`;
+    countDisplay.textContent = current + 1;
+    riskInput.value = "";
+    feedback.textContent = "";
+    riskInput.focus();
+    startTime = Date.now();
+
+    // Start visual timer
+    startTimer();
+  }
+
+  function finishGame() {
+  stopTimer();
+  document.getElementById("risk-container").style.display = "none";
+  resultDiv.style.display = "block";
+
+  const max = Math.max(...times).toFixed(2);
+  const avg = (times.reduce((a, b) => a + b, 0) / times.length).toFixed(2);
+  const sorted = [...times].sort((a, b) => a - b);
+  const median = (sorted.length % 2 === 0)
+    ? ((sorted[sorted.length / 2] + sorted[sorted.length / 2 - 1]) / 2).toFixed(2)
+    : sorted[Math.floor(sorted.length / 2)].toFixed(2);
+  const freq = {};
+  sorted.forEach(t => {
+    const key = t.toFixed(1);
+    freq[key] = (freq[key] || 0) + 1;
+  });
+  const mode = Object.entries(freq).reduce((a, b) => b[1] > a[1] ? b : a)[0];
+  const accuracyPercent = ((correct / 10) * 100).toFixed(1);
+
+  // Generate table rows with classes
+  let tableRows = questions.map((q, i) => {
+    const isCorrect = Math.abs(q.userAnswer - q.risk) < 0.01;
+    const time = times[i].toFixed(2);
+    const rowClass = isCorrect ? 'correct-row' : 'wrong-row';
+    return `
+      <tr class="${rowClass}">
+        <td>${i + 1}</td>
+        <td>${q.bid} x ${q.ask}</td>
+        <td>${q.size}</td>
+        <td>${q.userAnswer !== undefined ? q.userAnswer.toFixed(2) : 'N/A'}</td>
+        <td>${q.risk.toFixed(2)}</td>
+        <td>${isCorrect ? '✔️' : '❌'}</td>
+        <td>${time}s</td>
+      </tr>
+    `;
+  }).join('');
+
+  resultDiv.innerHTML = `
+    <h2>Risk Mode Results</h2>
+    <div class="summary-row">
+      <div><strong>Max Time</strong><br>${max}s</div>
+      <div><strong>Mode Time</strong><br>${mode}s</div>
+      <div><strong>Median Time</strong><br>${median}s</div>
+      <div><strong>Avg Time</strong><br>${avg}s</div>
+      <div><strong>Std Dev</strong><br>${stdDev(times).toFixed(2)}s</div>
+      <div><strong>Accuracy</strong><br>${accuracyPercent}%</div>
+    </div>
+
+    <table style="width:100%; border-collapse: collapse; margin-top: 1rem;">
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Bid x Ask</th>
+          <th>Size</th>
+          <th>Your Risk</th>
+          <th>Correct Risk</th>
+          <th>Correct?</th>
+          <th>Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${tableRows}
+      </tbody>
+    </table>
+
+    <button onclick="window.location.reload()" class="home-button" style="margin-top: 2rem; margin-right: 1rem;">Play Again</button>
+    <a href="/" class="home-button" style="margin-top: 2rem;">Home</a>
+  `;
+}
+
+
+
+
+  function stdDev(arr) {
+    const mean = arr.reduce((a, b) => a + b) / arr.length;
+    return Math.sqrt(arr.map(x => (x - mean) ** 2).reduce((a, b) => a + b) / arr.length);
+  }
+
+  riskInput.addEventListener("keydown", function (e) {
+  if (e.key === "Enter") {
+    const userRisk = parseFloat(riskInput.value);
+    const q = questions[current];
+    q.userAnswer = userRisk;  // Store user's answer for detailed stats
+
+    const timeTaken = (Date.now() - startTime) / 1000;
+    times.push(timeTaken);
+
+    // Stop visual timer
+    stopTimer();
+
+    if (Math.abs(userRisk - q.risk) < 0.01) {
+      feedback.textContent = "Correct!";
+      feedback.className = "green";
+      correct++;
+    } else {
+      feedback.textContent = `Wrong. Correct: ${q.risk.toFixed(2)}`;
+      feedback.className = "red";
+    }
+
+    current++;
+    if (current < 10) {
+      setTimeout(showQuestion, 1000);
+    } else {
+      setTimeout(finishGame, 1000);
+    }
+  }
+});
+
+
+  // Initialize the game
+  for (let i = 0; i < 10; i++) {
+    questions.push(generateQuestion());
+  }
+
+  window.addEventListener('load', function() {
+    showQuestion();
+  });
+</script>
+
+</body>
+</html>

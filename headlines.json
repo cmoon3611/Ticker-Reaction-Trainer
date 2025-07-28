@@ -397,5 +397,121 @@
         "category": "A"
       }
     ]
+  },
+  {
+    "headline": "VETERANS DEPT. INVESTIGATING ACADIA HEALTHCARE: NYT",
+    "tickers": [
+      {
+        "symbol": "ACHC",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "APPLE WORKING ON AI CHIP WITH BROADCOM",
+    "tickers": [
+      {
+        "symbol": "AVGO",
+        "category": "A"
+      },
+      {
+        "symbol": "AAPL",
+        "category": "C"
+      }
+    ]
+  },
+  {
+    "headline": "NIPPON STEEL OFFERS BIDEN VETO OVER US STEEL OUTPUT CUTS",
+    "tickers": [
+      {
+        "symbol": "X",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "ALPINE IMMUNE IS SAID TO WEIGHT OPTIONS AFTER TAKEOVER INTEREST",
+    "tickers": [
+      {
+        "symbol": "ALPN",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "CLEARLAKE IS SAID TO RENEW PURSUIT OF SOFTWARE FIRM BLACKBAUD",
+    "tickers": [
+      {
+        "symbol": "BLKB",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "LOCKHEED BEATS NORTHROP FOR $17 BILLION US INTERCEPTOR DEAL",
+    "tickers": [
+      {
+        "symbol": "NOC",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "TIKTOK DIVEST-OR-BAN BILL MOVING ON FAST TRACK THROUGH CONGRESS",
+    "tickers": [
+      {
+        "symbol": "SNAP",
+        "category": "A"
+      },
+      {
+        "symbol": "META",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "MUSK SAYS AFFORDABLE TESLA MODELS WILL ARRIVE BY EARLY 2025",
+    "tickers": [
+      {
+        "symbol": "TSLA",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "BOEING CUT TO BAA3 FROM BAA2 BY MOODY'S, OUTLOOK NEGATIVE",
+    "tickers": [
+      {
+        "symbol": "BA",
+        "category": "D"
+      }
+    ]
+  },
+  {
+    "headline": "CARVANA 1Q ADJ. EBITDA $235M, EST. $130.9M",
+    "tickers": [
+      {
+        "symbol": "CVNA",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "NONFARM PAYROLLS 175K, PRIOR WAS 303K",
+    "tickers": [
+      {
+        "symbol": "IWM",
+        "category": "A"
+      }
+    ]
+  },
+  {
+    "headline": "ROBLOX SEES 2Q BOOKINGS $870m TO $900M, EST. $902.5M",
+    "tickers": [
+      {
+        "symbol": "RBLX",
+        "category": "C"
+      }
+    ]
   }
 ]
